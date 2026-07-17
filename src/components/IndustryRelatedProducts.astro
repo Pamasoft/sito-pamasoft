@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import type { Locale } from '../config/site';
+import ProductsGrid from './ProductsGrid.astro';
+
+interface Props {
+  industrySlug: string;
+  lang?: Locale;
+}
+
+const { industrySlug, lang = 'it' } = Astro.props;
+const isEn = lang === 'en';
+
+const prodotti = (await getCollection('prodotti', ({ data }) =>
+  data.lingua === lang && data.pubblicato && data.industryCorrelate.includes(industrySlug),
+)).sort((a, b) => a.data.nome.localeCompare(b.data.nome, isEn ? 'en' : 'it'));
+
+if (prodotti.length === 0) return null;
+---
+
+<section class="products-section products-section--related">
+  <div class="custom-container">
+    <div class="products-section-header">
+      <h5 class="section-subtitle">{isEn ? 'PAMASOFT PRODUCTS' : 'PRODOTTI PAMASOFT'}</h5>
+      <h2 class="section-title">
+        {isEn ? 'Software built for this industry' : 'Software pensato per questo settore'}
+      </h2>
+      <p>
+        {
+          isEn
+            ? 'Pamasoft products that address specific needs in this vertical.'
+            : 'I prodotti Pamasoft che rispondono alle esigenze specifiche di questo settore.'
+        }
+      </p>
+    </div>
+    <ProductsGrid prodotti={prodotti} lang={lang} compact showIndustries={false} />
+  </div>
+</section>

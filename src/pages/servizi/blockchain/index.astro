@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/it-servizi-blockchain.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Blockchain e Web3",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi Blockchain e Web3",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Smart Contracts",
+          "description": "Sviluppo smart contracts su Ethereum, Polygon e altre blockchain"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "DeFi Applications",
+          "description": "Applicazioni DeFi (finanza decentralizzata) sicure e scalabili"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "NFT Marketplace",
+          "description": "Marketplace NFT e piattaforme di tokenizzazione"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "dApp Development",
+          "description": "Sviluppo applicazioni decentralizzate Web3"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`Blockchain e Web3 | Smart Contracts, DeFi, NFT - Pamasoft`}
+  description={`Servizi Blockchain e Web3: smart contracts, DeFi, NFT, tokenizzazione, dApp decentralizzate. Consulenza blockchain specializzata per aziende innovative Italia.`}
+  path="/servizi/blockchain/"
+  lang="it"
+  keywords={`blockchain development Italia, smart contracts Ethereum, DeFi development, NFT marketplace, Web3 applications, tokenizzazione asset, dApp decentralizzate, consulenza blockchain`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Servizi","url":"/servizi/"},{"name":"Blockchain e Web3","url":"/servizi/blockchain/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

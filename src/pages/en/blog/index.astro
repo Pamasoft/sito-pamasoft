@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => data.lingua === 'en' && data.pubblicato)).sort(
+  (a, b) => b.data.dataPubblicazione.getTime() - a.data.dataPubblicazione.getTime(),
+);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<BaseLayout
+  title="Pamasoft Blog | Cloud, AI, Blockchain and Digital Transformation"
+  description="Articles and insights on AWS cloud computing, artificial intelligence, blockchain, cybersecurity and digital transformation for businesses."
+  path="/en/blog/"
+  lang="en"
+  pageClass="blog-page"
+>
+  <section class="hero-empowerment-area">
+    <div class="custom-container">
+      <div class="hero-empowerment-left-content">
+        <h5 class="section-subtitle">BLOG</h5>
+        <h1 class="section-title">Technology insights and updates</h1>
+        <p>Cloud, AI, blockchain and cybersecurity: practical content for decision makers and IT teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-area">
+    <div class="custom-container">
+      {
+        posts.length === 0 ? (
+          <p>Blog articles will be published here as they become available.</p>
+        ) : (
+          <div class="services-list d-flex flex-wrap">
+            {posts.map((post) => (
+              <article class="service-card simple-shadow">
+                <img
+                  src={post.data.immagineCopertina.src}
+                  alt={post.data.titolo}
+                  loading="lazy"
+                  width="400"
+                  height="225"
+                />
+                <p>
+                  <small>
+                    {formatDate(post.data.dataPubblicazione)} · {post.data.categoria}
+                    {post.data.tempoLettura ? ` · ${post.data.tempoLettura} min` : ''}
+                  </small>
+                </p>
+                <h3>
+                  <a href={`/en/blog/${post.data.slug}/`}>{post.data.titolo}</a>
+                </h3>
+                <p>{post.data.estratto}</p>
+                <a href={`/en/blog/${post.data.slug}/`} class="theme-btn">
+                  Read article
+                </a>
+              </article>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

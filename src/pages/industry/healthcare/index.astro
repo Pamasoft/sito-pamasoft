@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/it-industry-healthcare.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Soluzioni IT Healthcare",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Healthcare Industry"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "description": "Soluzioni IT specializzate per il settore sanitario: cartelle cliniche elettroniche, telemedicina, AI per diagnostica, conformità GDPR e sistemi informativi ospedalieri."
+};
+---
+
+<BaseLayout
+  title={`Soluzioni IT per Healthcare | Sanità Digitale e Telemedicina - Pamasoft`}
+  description={`Soluzioni IT specializzate per il settore Healthcare: cartelle cliniche elettroniche, telemedicina, AI diagnostica, conformità GDPR. Trasformazione digitale sanitaria.`}
+  path="/industry/healthcare/"
+  lang="it"
+  keywords={`IT healthcare Italia, sanità digitale, telemedicina, cartelle cliniche elettroniche, AI diagnostica, GDPR sanità, sistemi informativi ospedalieri`}
+  pageClass="industry-page"
+  ogImage="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/industry/"},{"name":"Healthcare","url":"/industry/healthcare/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

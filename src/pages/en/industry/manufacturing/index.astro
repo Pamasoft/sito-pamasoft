@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Content from '../../../../components/content/en-industry-manufacturing.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "IT Manufacturing Solutions",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Manufacturing Industry"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "description": "IT solutions for manufacturing: Industry 4.0, industrial IoT, MES, ERP, digital twin and predictive maintenance for smart factories."
+};
+---
+
+<BaseLayout
+  title={`IT Solutions for Manufacturing | Industry 4.0 & Smart Factory - Pamasoft`}
+  description={`IT solutions for manufacturing: Industry 4.0, industrial IoT, MES, ERP, digital twin, predictive maintenance. Digital production transformation.`}
+  path="/en/industry/manufacturing/"
+  lang="en"
+  keywords={`IT manufacturing, industry 4.0, industrial IoT, MES, ERP manufacturing, smart factory, digital twin, predictive maintenance`}
+  pageClass="industry-page"
+  ogImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/en/industry/"},{"name":"Manufacturing","url":"/en/industry/manufacturing/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

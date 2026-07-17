@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/it-servizi-cybersecurity.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Cybersecurity Aziendale",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi Cybersecurity",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Penetration Testing",
+          "description": "Test di sicurezza avanzati e vulnerability assessment"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SOC 24/7",
+          "description": "Monitoraggio continuo delle minacce e risposta agli incidenti"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Compliance GDPR",
+          "description": "Consulenza e implementazione conformità GDPR e normative"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Security Audit",
+          "description": "Audit di sicurezza completi e valutazione rischi"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`Cybersecurity Aziendale | Protezione e Monitoraggio 24/7 - Pamasoft`}
+  description={`Servizi Cybersecurity completi: penetration testing, compliance GDPR, SOC 24/7, vulnerability assessment. Protezione avanzata per aziende Italia.`}
+  path="/servizi/cybersecurity/"
+  lang="it"
+  keywords={`cybersecurity aziendale Italia, penetration testing, compliance GDPR, SOC 24/7, vulnerability assessment, sicurezza informatica, protezione dati, cyber threat intelligence`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Servizi","url":"/servizi/"},{"name":"Cybersecurity","url":"/servizi/cybersecurity/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

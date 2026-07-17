@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/it-servizi-sviluppo-applicazioni-web.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Sviluppo Applicazioni Web",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi Sviluppo Web",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Backend Spring Boot",
+          "description": "Sviluppo backend enterprise con Spring Boot e Java"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Frontend React",
+          "description": "Interfacce utente moderne e responsive con React"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Database PostgreSQL",
+          "description": "Progettazione e ottimizzazione database relazionali"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Architettura Microservizi",
+          "description": "Progettazione architetture scalabili e moderne"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`Sviluppo Applicazioni Web | Spring Boot, React, PostgreSQL - Pamasoft`}
+  description={`Sviluppo applicazioni web moderne: Spring Boot, React, PostgreSQL, microservizi, architetture scalabili. Stack tecnologici all'avanguardia per web app performanti.`}
+  path="/servizi/sviluppo-applicazioni-web/"
+  lang="it"
+  keywords={`sviluppo applicazioni web Italia, Spring Boot development, React applications, PostgreSQL database, microservizi architettura, full stack development, web app moderne`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Servizi","url":"/servizi/"},{"name":"Sviluppo Applicazioni Web","url":"/servizi/sviluppo-applicazioni-web/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

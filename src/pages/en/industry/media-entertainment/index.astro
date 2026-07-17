@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Content from '../../../../components/content/en-industry-media-entertainment.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "IT Media & Entertainment Solutions",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Media & Entertainment Industry"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "description": "IT solutions for media and entertainment: streaming platforms, DRM, CMS, content delivery network and analytics for content personalization."
+};
+---
+
+<BaseLayout
+  title={`IT Solutions for Media & Entertainment | Digital Content Delivery - Pamasoft`}
+  description={`IT solutions for Media & Entertainment: streaming platforms, digital rights management (DRM), content management system (CMS), analytics and personalization.`}
+  path="/en/industry/media-entertainment/"
+  lang="en"
+  keywords={`IT media, IT entertainment, streaming platforms, video on demand, DRM, media CMS, content delivery network, user engagement`}
+  pageClass="industry-page"
+  ogImage="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/en/industry/"},{"name":"Media & Entertainment","url":"/en/industry/media-entertainment/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

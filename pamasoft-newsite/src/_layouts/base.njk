@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="{{ lang or site.defaultLocale }}" itemscope itemtype="https://schema.org/WebPage">
+<head>
+    <!-- ========== Google Analytics ========== -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y241F3FM5P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y241F3FM5P');
+    </script>
+
+    <!-- ========== Cookie Script ========== -->
+    <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/2dd052820e456a17b50296fee8f73baf.js"></script>
+
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Pamasoft">
+    <meta name="language" content="Italian">
+    <meta name="geo.region" content="IT">
+    <meta name="geo.placename" content="Milano">
+
+    <!-- ========== Page Title ========== -->
+    <title>{% if title %}{{ title }}{% if not title.includes('Pamasoft') %} - Pamasoft{% endif %}{% else %}Pamasoft - Soluzioni Software Cloud, AI e Blockchain{% endif %}</title>
+    
+    <!-- ========== Meta Description ========== -->
+    <meta name="description" content="{% if description %}{{ description }}{% else %}Pamasoft: oltre 25 anni di esperienza in soluzioni software innovative. Cloud computing AWS, intelligenza artificiale, blockchain, integrazioni e cybersecurity.{% endif %}">
+    
+    <!-- ========== Keywords ========== -->
+    <meta name="keywords" content="{% if keywords %}{{ keywords }}{% else %}pamasoft, cloud computing, AWS, intelligenza artificiale, blockchain, microservizi, cybersecurity, software development, IT consulting{% endif %}">
+    
+    <!-- ========== Canonical URL ========== -->
+    <link rel="canonical" href="https://pamasoft.com{{ page.url }}">
+    
+    <!-- ========== Alternate Languages (hreflang) ========== -->
+    {% set currentLang = lang or site.defaultLocale or 'it' %}
+    {% set currentUrl = page.url %}
+    <link rel="alternate" hreflang="{{ currentLang }}" href="https://pamasoft.com{{ currentUrl }}">
+    {% if currentLang == 'it' %}
+        <link rel="alternate" hreflang="en" href="https://pamasoft.com/en{{ currentUrl }}">
+        <link rel="alternate" hreflang="x-default" href="https://pamasoft.com{{ currentUrl }}">
+    {% else %}
+        <link rel="alternate" hreflang="it" href="https://pamasoft.com{{ currentUrl | replace('/en', '') }}">
+        <link rel="alternate" hreflang="x-default" href="https://pamasoft.com{{ currentUrl | replace('/en', '') }}">
+    {% endif %}
+
+    <!-- ========== Start Fonts Style ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&family=Syne:wght@400;500;600&family=Yantramanav:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/pamasoft-custom.css">
+    <link rel="stylesheet" href="/assets/css/layout-fixes.css">
+    <!-- Line Awesome Icons -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- Font Awesome Free -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- ========== Favicon ========== -->
+    <link rel="icon" type="image/png" href="/assets/images/pamasoft-favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/pamasoft-favicon.png">
+    
+    <!-- ========== Open Graph Enhanced ========== -->
+    <meta property="og:locale" content="{% if currentLang == 'en' %}en_US{% else %}it_IT{% endif %}">
+    <meta property="og:type" content="{% if ogType %}{{ ogType }}{% else %}website{% endif %}">
+    <meta property="og:title" content="{% if title %}{{ title }}{% if not title.includes('Pamasoft') %} - Pamasoft{% endif %}{% else %}Pamasoft - Soluzioni Software Cloud, AI e Blockchain{% endif %}">
+    <meta property="og:description" content="{% if description %}{{ description }}{% else %}Pamasoft: oltre 25 anni di esperienza in soluzioni software innovative. Cloud computing AWS, intelligenza artificiale, blockchain, integrazioni e cybersecurity.{% endif %}">
+    <meta property="og:url" content="https://pamasoft.com{{ page.url }}">
+    <meta property="og:site_name" content="Pamasoft">
+    <meta property="og:image" content="{% if ogImage %}{{ ogImage }}{% else %}https://pamasoft.com/assets/images/logo-blu.png{% endif %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Pamasoft - Soluzioni IT Cloud AWS, AI, Blockchain">
+    
+    <!-- ========== Twitter Card Enhanced ========== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pamasoft">
+    <meta name="twitter:creator" content="@pamasoft">
+    <meta name="twitter:title" content="{% if title %}{{ title }}{% if not title.includes('Pamasoft') %} - Pamasoft{% endif %}{% else %}Pamasoft - Soluzioni Software Cloud, AI e Blockchain{% endif %}">
+    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}Pamasoft: oltre 25 anni di esperienza in soluzioni software innovative.{% endif %}">
+    <meta name="twitter:image" content="{% if ogImage %}{{ ogImage }}{% else %}https://pamasoft.com/assets/images/logo-blu.png{% endif %}">
+    
+    <!-- ========== Organization Structured Data ========== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pamasoft",
+      "alternateName": "Pamasoft Srl",
+      "description": "Società di software specializzata in cloud computing AWS, intelligenza artificiale, blockchain, integrazioni e cybersecurity con oltre 25 anni di esperienza",
+      "url": "https://pamasoft.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pamasoft.com/assets/images/logo-blu.png",
+        "width": 250,
+        "height": 60
+      },
+      "foundingDate": "1999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via E. Fermi, 75",
+        "addressLocality": "Pistoia",
+        "postalCode": "51100",
+        "addressRegion": "PT",
+        "addressCountry": "IT"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "info@pamasoft.com",
+        "areaServed": "IT",
+        "availableLanguage": ["Italian", "English"]
+      }],
+      "sameAs": [
+        "https://www.linkedin.com/company/pamasoft",
+        "https://twitter.com/pamasoft"
+      ]
+    }
+    </script>
+
+    <!-- ========== WebSite Structured Data ========== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Pamasoft",
+      "url": "https://pamasoft.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://pamasoft.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- ========== BreadcrumbList Structured Data ========== -->
+    {% if breadcrumbs %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pamasoft.com"
+        }
+        {% for crumb in breadcrumbs %}
+        ,{
+          "@type": "ListItem",
+          "position": {{ loop.index + 1 }},
+          "name": "{{ crumb.name }}",
+          "item": "https://pamasoft.com{{ crumb.url }}"
+        }
+        {% endfor %}
+      ]
+    }
+    </script>
+    {% endif %}
+
+    <!-- ========== Page-Specific Structured Data ========== -->
+    {% if structuredData %}
+    <script type="application/ld+json">
+    {{ structuredData | safe }}
+    </script>
+    {% endif %}
+
+</head>
+
+<body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+    <!-- Main -->
+    <main class="main-page {% if pageClass %}{{ pageClass }}{% else %}homepage{% endif %}">
+        
+        {% include "header.njk" %}
+        
+        {{ content | safe }}
+        
+        {% include "footer.njk" %}
+        
+    </main>
+
+    <!-- jQuery Frameworks -->
+    <script src="/assets/js/jquery-3.7.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/assets/js/gsap.min.js" defer></script>
+    <script src="/assets/js/Draggable.min.js" defer></script>
+    <script src="/assets/js/swiper-bundle.min.js" defer></script>
+    <script src="/assets/js/client-marquee.js" defer></script>
+    <script src="/assets/js/theme-custom.js" defer></script>
+    <script src="/assets/js/menu-accessibility.js" defer></script>
+    <script src="/assets/js/language-switcher.js" defer></script>
+    
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY" defer></script>
+    
+    <!-- Contact Form Handler (replaces HTMX) -->
+    <script src="/assets/js/contact-form-handler.js" defer></script>
+    
+    <script src="/assets/js/form1.js" defer></script>
+    <script src="/assets/js/subscribe-form.js" defer></script>
+    
+    {% if customJS %}
+        {{ customJS | safe }}
+    {% endif %}
+</body>
+</html>

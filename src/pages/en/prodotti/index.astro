@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProductsGrid from '../../../components/ProductsGrid.astro';
+
+const prodotti = (await getCollection('prodotti', ({ data }) => data.lingua === 'en' && data.pubblicato)).sort(
+  (a, b) => a.data.nome.localeCompare(b.data.nome, 'en'),
+);
+---
+
+<BaseLayout
+  title="Pamasoft SaaS Products | Cloud Software Solutions"
+  description="Discover Pamasoft SaaS products: cloud software solutions for businesses, with vertical integrations for every industry."
+  path="/en/prodotti/"
+  lang="en"
+  pageClass="prodotti-page"
+>
+  <section class="hero-empowerment-area">
+    <div class="custom-container">
+      <div class="custom-row align-items-center">
+        <div class="hero-empowerment-left-content">
+          <h5 class="section-subtitle">PRODUCTS</h5>
+          <h1 class="section-title">Pamasoft SaaS solutions</h1>
+          <p>
+            Vertical platforms, operational tools and autonomous brands with dedicated domains: the Pamasoft software
+            ecosystem for businesses, healthcare facilities, retail, hospitality and more.
+          </p>
+        </div>
+        <div class="hero-empowerment-right-content">
+          <div class="top-content">
+            <img
+              class="desktop fade-in"
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Pamasoft software products"
+              width="800"
+              height="600"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="custom-container">
+      <div class="products-section-header">
+        <h2 class="section-title">All products</h2>
+        <p>Each product has a dedicated page on pamasoft.com and, where applicable, its own website or application.</p>
+      </div>
+      <ProductsGrid prodotti={prodotti} lang="en" />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/it-industry-travel-logistics.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Soluzioni IT Travel & Logistics",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Travel & Logistics Industry"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "description": "Soluzioni IT per travel e logistica: sistemi di prenotazione, gestione flotte, ottimizzazione percorsi, tracciabilità spedizioni e supply chain management."
+};
+---
+
+<BaseLayout
+  title={`Soluzioni IT per Travel & Logistics | Ottimizzazione e Digitalizzazione - Pamasoft`}
+  description={`Soluzioni IT per il settore Travel & Logistics: sistemi di prenotazione, gestione flotte, ottimizzazione percorsi, tracciabilità spedizioni e analytics per la supply chain.`}
+  path="/industry/travel-logistics/"
+  lang="it"
+  keywords={`IT travel, IT logistica, sistemi prenotazione, gestione flotte, ottimizzazione percorsi, software logistica, supply chain management, TMS`}
+  pageClass="industry-page"
+  ogImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/industry/"},{"name":"Travel & Logistics","url":"/industry/travel-logistics/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

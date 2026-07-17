@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Content from '../../components/content/it-privacy-policy.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy",
+  "description": "Informativa sulla privacy di Pamasoft",
+  "url": "https://pamasoft.com/privacy-policy/"
+};
+---
+
+<BaseLayout
+  title={`Privacy Policy - Pamasoft`}
+  description={`Informativa sulla privacy di Pamasoft. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il GDPR.`}
+  path="/privacy-policy/"
+  lang="it"
+  keywords={`privacy policy, gdpr, protezione dati, informativa privacy, pamasoft`}
+  breadcrumbs={[{"name":"Privacy Policy","url":"/privacy-policy/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

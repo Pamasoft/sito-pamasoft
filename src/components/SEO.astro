@@ -1,0 +1,202 @@
+---
+import { site, type Locale } from '../config/site';
+import { assets } from '../config/assets';
+import { getAlternateUrl, getCanonicalUrl } from '../i18n/utils';
+
+interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  path: string;
+  lang?: Locale;
+  ogType?: string;
+  ogImage?: string;
+  breadcrumbs?: Breadcrumb[];
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  keywords = 'pamasoft, cloud computing, AWS, intelligenza artificiale, blockchain, microservizi, cybersecurity, software development, IT consulting',
+  path,
+  lang = 'it',
+  ogType = 'website',
+  ogImage = assets.logo,
+  breadcrumbs,
+  structuredData,
+} = Astro.props;
+
+const pageTitle = title.includes('Pamasoft') ? title : `${title} - Pamasoft`;
+const canonical = getCanonicalUrl(path);
+const alternateIt = getCanonicalUrl(getAlternateUrl(path, 'it'));
+const alternateEn = getCanonicalUrl(getAlternateUrl(path, 'en'));
+const xDefault = alternateIt;
+const ogLocale = lang === 'en' ? 'en_US' : 'it_IT';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Pamasoft',
+  alternateName: 'Pamasoft Srl',
+  description:
+    'Società di software specializzata in cloud computing AWS, intelligenza artificiale, blockchain, integrazioni e cybersecurity con oltre 25 anni di esperienza',
+  url: site.url,
+  logo: {
+    '@type': 'ImageObject',
+    url: assets.logo,
+    width: 250,
+    height: 60,
+  },
+  foundingDate: '1999',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Via E. Fermi, 75',
+    addressLocality: 'Pistoia',
+    postalCode: '51100',
+    addressRegion: 'PT',
+    addressCountry: 'IT',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: 'info@pamasoft.com',
+      areaServed: 'IT',
+      availableLanguage: ['Italian', 'English'],
+    },
+  ],
+  sameAs: ['https://www.linkedin.com/company/pamasoft', 'https://twitter.com/pamasoft'],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Pamasoft',
+  url: site.url,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${site.url}/search?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const breadcrumbSchema = breadcrumbs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: site.url,
+        },
+        ...breadcrumbs.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 2,
+          name: crumb.name,
+          item: `${site.url}${crumb.url}`,
+        })),
+      ],
+    }
+  : null;
+
+const extraStructuredData = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+---
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="author" content="Pamasoft" />
+<meta name="language" content={lang === 'en' ? 'English' : 'Italian'} />
+<meta name="geo.region" content="IT" />
+<meta name="geo.placename" content="Milano" />
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="it" href={alternateIt} />
+<link rel="alternate" hreflang="en" href={alternateEn} />
+<link rel="alternate" hreflang="x-default" href={xDefault} />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&family=Syne:wght@400;500;600&family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+  rel="stylesheet"
+/>
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/responsive.css" />
+<link rel="stylesheet" href="/assets/css/pamasoft-custom.css" />
+<link rel="stylesheet" href="/assets/css/layout-fixes.css" />
+<link rel="stylesheet" href="/assets/css/prodotti.css" />
+<link
+  rel="stylesheet"
+  href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<link rel="icon" type="image/png" href={assets.favicon} />
+<link rel="apple-touch-icon" href={assets.favicon} />
+
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content="Pamasoft" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Pamasoft - Soluzioni IT Cloud AWS, AI, Blockchain" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@pamasoft" />
+<meta name="twitter:creator" content="@pamasoft" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+{breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+{
+  extraStructuredData.map((data) => (
+    <script type="application/ld+json" set:html={JSON.stringify(data)} />
+  ))
+}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y241F3FM5P"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-Y241F3FM5P');
+</script>
+
+<script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/2dd052820e456a17b50296fee8f73baf.js"></script>

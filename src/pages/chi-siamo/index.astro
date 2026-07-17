@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Content from '../../components/content/it-chi-siamo.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "foundingDate": "1999",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": "50"
+    },
+    "description": "Azienda IT italiana con oltre 25 anni di esperienza in cloud computing AWS, intelligenza artificiale, blockchain e cybersecurity",
+    "knowsAbout": [
+      "Cloud Computing AWS",
+      "Intelligenza Artificiale",
+      "Blockchain",
+      "Cybersecurity",
+      "Microservizi",
+      "DevOps"
+    ],
+    "slogan": "Innovazione Tecnologica dal 1999"
+  }
+};
+---
+
+<BaseLayout
+  title={`Chi Siamo - Pamasoft | 25+ Anni Esperienza IT e Trasformazione Digitale`}
+  description={`Pamasoft: 25+ anni esperienza IT, 500+ progetti completati, team esperti in cloud AWS, AI, blockchain. Storia, valori e competenze della nostra azienda tecnologica italiana.`}
+  path="/chi-siamo/"
+  lang="it"
+  keywords={`Pamasoft azienda IT Italia, 25 anni esperienza software, team sviluppatori esperti, storia azienda tecnologica, valori innovazione, consulenza IT Milano, trasformazione digitale`}
+  pageClass="about-page"
+  ogImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Chi Siamo","url":"/chi-siamo/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

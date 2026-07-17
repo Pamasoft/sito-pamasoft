@@ -1,0 +1,135 @@
+<!-- Header Bar -->
+<div class="header-bar">
+    <div class="custom-container">
+        <div class="header-bar-body d-flex align-items-center justify-content-between">
+            <div class="left">
+                <label class="visually-hidden" for="language-switcher">
+                    {% if lang === 'en' %}Choose language{% else %}Seleziona la lingua{% endif %}
+                </label>
+                {% set currentLang = lang or 'it' %}
+                {% set defaultLang = site.defaultLocale or 'it' %}
+                {% set enPrefix = '/en' %}
+                <select
+                    class="country-select"
+                    name="language"
+                    id="language-switcher"
+                    data-current-lang="{{ currentLang }}"
+                    data-default-lang="{{ defaultLang }}"
+                    data-prefix-en="{{ enPrefix }}"
+                >
+                    <option value="it" {% if currentLang == 'it' %}selected{% endif %}>Italiano</option>
+                    <option value="en" {% if currentLang == 'en' %}selected{% endif %}>English</option>
+                </select>
+            </div>
+            <div class="right">
+                <p>
+                    {% if lang === 'en' %}Level up your business with Pamasoft{% else %}Fai crescere la tua azienda con Pamasoft{% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="header-area">
+    <div class="custom-container">
+        <div class="custom-row align-items-center justify-content-between">
+            <div class="header-left d-flex align-items-center">
+                <a href="{% if lang === 'en' %}/en/{% else %}/{% endif %}" class="logo">
+                    <img src="/assets/images/logo-blu.png" alt="Logo Pamasoft" />
+                </a>
+
+                <div class="header-left-right">
+                    <a href="{% if lang === 'en' %}/en/contact/{% else %}/contatti/{% endif %}" class="theme-btn">{% if lang === 'en' %}Contact Us{% else %}Contattaci{% endif %}</a>
+                    <button class="menu-bar" aria-label="{% if lang === 'en' %}Open menu{% else %}Apri menu{% endif %}" aria-expanded="false" aria-controls="main-navigation">
+                        <i class="las la-bars"></i>
+                    </button>
+                </div>
+                
+                <nav class="navbar-wrapper" id="main-navigation" aria-label="{% if lang === 'en' %}Main menu{% else %}Menu principale{% endif %}">
+                    <button class="close-menu-bar" aria-label="{% if lang === 'en' %}Close menu{% else %}Chiudi menu{% endif %}">
+                        <i class="las la-times"></i>
+                    </button>
+                    <!-- Navbar items -->
+                    <ul>
+                        <li>
+                            <a href="{% if lang === 'en' %}/en/{% else %}/{% endif %}">{% if lang === 'en' %}Home{% else %}Home{% endif %}</a>
+                        </li>
+                        <li>
+                            <a href="{% if lang === 'en' %}/en/about/{% else %}/chi-siamo/{% endif %}">{% if lang === 'en' %}About{% else %}Chi Siamo{% endif %}</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                            <a href="{% if lang === 'en' %}/en/services/{% else %}/servizi/{% endif %}" aria-expanded="false" aria-haspopup="true" aria-controls="servizi-menu">{% if lang === 'en' %}Services{% else %}Servizi{% endif %}</a>
+                            <button class="dropdown-menu-item-icon" aria-label="{% if lang === 'en' %}Expand services menu{% else %}Espandi menu servizi{% endif %}">
+                                <i class="las la-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" id="servizi-menu" role="menu">
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/services/cloud-computing/{% else %}/servizi/cloud-computing/{% endif %}">{% if lang === 'en' %}Cloud Computing AWS{% else %}Cloud Computing AWS{% endif %}</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/services/artificial-intelligence/{% else %}/servizi/intelligenza-artificiale/{% endif %}">{% if lang === 'en' %}Artificial Intelligence{% else %}Intelligenza Artificiale{% endif %}</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/services/blockchain/{% else %}/servizi/blockchain/{% endif %}">{% if lang === 'en' %}Blockchain & Web3{% else %}Blockchain e Web3{% endif %}</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/services/cybersecurity/{% else %}/servizi/cybersecurity/{% endif %}">{% if lang === 'en' %}Cybersecurity{% else %}Cybersecurity{% endif %}</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/services/web-application-development/{% else %}/servizi/sviluppo-applicazioni-web/{% endif %}">{% if lang === 'en' %}Web Application Development{% else %}Sviluppo Applicazioni Web{% endif %}</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/services/{% else %}/servizi/{% endif %}">{% if lang === 'en' %}All Services{% else %}Tutti i Servizi{% endif %}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-menu-item">
+                            <a href="{% if lang === 'en' %}/en/industry/{% else %}/industry/{% endif %}" aria-expanded="false" aria-haspopup="true" aria-controls="industry-menu">Industry</a>
+                            <button class="dropdown-menu-item-icon" aria-label="{% if lang === 'en' %}Expand industry menu{% else %}Espandi menu industry{% endif %}">
+                                <i class="las la-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" id="industry-menu" role="menu">
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/industry/healthcare/{% else %}/industry/healthcare/{% endif %}">Healthcare</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/industry/retail/{% else %}/industry/retail/{% endif %}">Retail</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/industry/manufacturing/{% else %}/industry/manufacturing/{% endif %}">Manufacturing</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/industry/travel-logistics/{% else %}/industry/travel-logistics/{% endif %}">Travel & Logistics</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/industry/hospitality/{% else %}/industry/hospitality/{% endif %}">Hospitality</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/industry/media-entertainment/{% else %}/industry/media-entertainment/{% endif %}">Media & Entertainment</a>
+                                </li>
+                                <li>
+                                    <a href="{% if lang === 'en' %}/en/industry/{% else %}/industry/{% endif %}">{% if lang === 'en' %}All Industries{% else %}Tutti i Settori{% endif %}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{% if lang === 'en' %}/en/contact/{% else %}/contatti/{% endif %}">{% if lang === 'en' %}Contact{% else %}Contatti{% endif %}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="header-contact-info d-flex align-items-center">
+                    <div class="phone-number">
+                        <a href="https://calendly.com/pamasoft/30min" target="_blank" rel="noopener noreferrer">
+                            {% if lang === 'en' %}Book a call{% else %}Prenota una call{% endif %}
+                            <i class="fas fa-arrow-up"></i>
+                        </a>
+                    </div>
+                    <a href="{% if lang === 'en' %}/en/contact/{% else %}/contatti/{% endif %}" class="theme-btn">{% if lang === 'en' %}Contact Us{% else %}Contattaci{% endif %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

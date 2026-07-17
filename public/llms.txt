@@ -1,0 +1,38 @@
+# Pamasoft
+
+> Pamasoft è una società IT italiana fondata nel 1999, specializzata in cloud computing AWS, intelligenza artificiale, blockchain, cybersecurity e sviluppo applicazioni web. Sede: Via E. Fermi, 75 — 51100 Pistoia, Italia. P.IVA 05657500483.
+
+## Servizi principali
+
+- Cloud Computing AWS: migrazione cloud, architetture scalabili, DevOps
+- Intelligenza Artificiale: automazione, ML, soluzioni AI su misura
+- Blockchain e Web3: smart contract, soluzioni decentralizzate
+- Cybersecurity: protezione infrastrutture e dati aziendali
+- Sviluppo Applicazioni Web: Spring Boot, React, PostgreSQL
+
+## Prodotti SaaS
+
+- **Pamasoft CloudStay** — booking engine e piattaforma operativa per hotel e strutture ricettive. https://pamasoft.com/prodotti/cloudstay/ · https://cloudstay.pamasoft.com
+- **Pamasoft CloudSuite** — ERP e gestione contabile per PMI. https://pamasoft.com/prodotti/cloudsuite/ · https://cloudsuite.pamasoft.com
+- **Pamasoft Healthcare** — gestionale per case di cura private. https://pamasoft.com/prodotti/pamasoft-healthcare/ · https://healthcare.pamasoft.com
+- **Posway** — piattaforma pagamenti per merchant e attività commerciali. https://pamasoft.com/prodotti/posway/ · https://posway.io
+- **SPOORTAL** — gestionale per enti e società sportive. https://pamasoft.com/prodotti/spoortal/ · https://spoortal.it
+- **Pamasoft CloudRetail** — POS, pagamenti e retail. https://pamasoft.com/prodotti/cloudretail/ · https://square.pamasoft.com
+- **Virtual Clinic** — telemedicina e videoconsulti. https://pamasoft.com/prodotti/virtual-clinic/ · https://virtualclinic.it
+
+## Pagine principali
+
+- Home: https://pamasoft.com/
+- Chi Siamo: https://pamasoft.com/chi-siamo/
+- Servizi: https://pamasoft.com/servizi/
+- Prodotti: https://pamasoft.com/prodotti/
+- Industry: https://pamasoft.com/industry/
+- Blog: https://pamasoft.com/blog/
+- Contatti: https://pamasoft.com/contatti/
+- English: https://pamasoft.com/en/
+
+## Contatti
+
+- Email: info@pamasoft.com
+- LinkedIn: https://www.linkedin.com/company/pamasoft
+- X (Twitter): https://x.com/pamasoft

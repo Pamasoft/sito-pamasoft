@@ -1,0 +1,23 @@
+{
+  "name": "pamasoft-website",
+  "version": "1.0.0",
+  "description": "Sito web ufficiale di Pamasoft - Soluzioni Software Cloud, AI e Blockchain",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site",
+    "start": "npm run dev"
+  },
+  "keywords": ["pamasoft", "cloud", "ai", "blockchain", "software"],
+  "author": "Pamasoft",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0"
+  },
+  "dependencies": {
+    "markdown-it": "^13.0.2",
+    "markdown-it-anchor": "^8.6.7"
+  }
+}

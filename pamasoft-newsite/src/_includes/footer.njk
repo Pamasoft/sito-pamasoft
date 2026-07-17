@@ -1,0 +1,152 @@
+<!-- Footer -->
+<footer class="footer-area">
+    <img src="/assets/imgs/bg-shape-4.svg" alt="Shape" class="animation-slide-right bg-shape" />
+    <div class="footer-top">
+        <div class="custom-container">
+            <div class="custom-row align-items-end justify-content-between">
+                <div class="left-content">
+                    <a href="{% if lang === 'en' %}/en/{% else %}/{% endif %}" class="logo">
+                        <img src="/assets/images/logo-blu.png" alt="Logo Pamasoft" />
+                    </a>
+                    <p>{% if lang === 'en' %}We provide the experience and support to<br>advance your business.{% else %}Forniamo l'esperienza e il supporto per <br>far progredire la tua azienda.{% endif %}</p>
+                    <form id="newsletter-form" class="subscribe-form" method="POST" action="https://erp.pamasoft.com/subscribe-newsletter.jsp">
+                        <!-- Honeypot field -->
+                        <input type="text" name="website" id="website_newsletter" style="position: absolute; left: -5000px;" tabindex="-1" autocomplete="off" />
+                        <!-- Language field -->
+                        <input type="hidden" name="lang" id="newsletter-lang" value="{% if lang === 'en' %}en{% else %}it{% endif %}" />
+                        
+                        <div class="subscribe-box d-flex">
+                            <input type="email" id="newsletter-email" name="email" placeholder="{% if lang === 'en' %}Enter your Email{% else %}Inserisci la tua Email{% endif %}" required />
+                            <button type="submit" class="theme-btn">
+                                <span class="btn-text">{% if lang === 'en' %}Subscribe{% else %}Iscriviti{% endif %}</span>
+                                <span id="loading-newsletter" class="htmx-indicator spinner-border spinner-border-sm" style="display: none; margin-left: 8px;"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- Privacy Policy Checkbox -->
+                        <div class="subscribe-privacy" style="margin-top: 8px;">
+                            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.7); cursor: pointer;">
+                                <input type="checkbox" name="privacy_accept" id="newsletter_privacy" required style="margin-top: 2px; cursor: pointer;">
+                                <span>{% if lang === 'en' %}I have read and accept the <a href="/en/privacy-policy/" target="_blank" rel="noopener noreferrer" style="color: var(--primary_color); text-decoration: underline;">Privacy Policy</a>{% else %}Ho letto e accetto la <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer" style="color: var(--primary_color); text-decoration: underline;">Privacy Policy</a>{% endif %}</span>
+                            </label>
+                        </div>
+                        
+                        <!-- Alert Message -->
+                        <div class="input-row" style="margin-top: 12px;">
+                            <div class="input-group">
+                                <div id="newsletter-response" class="alert-notification"></div>
+                            </div>
+                        </div>
+                    </form>
+                   
+                </div>
+
+                <div class="right-content">
+                    <div class="right-content-inner">
+                        <h2>{% if lang === 'en' %}Let's start something great together{% else %}Iniziamo qualcosa di grande insieme{% endif %}</h2>
+                        <p>{% if lang === 'en' %}Our team of IT experts is ready to meet you<br>and provide valuable personalized information for your company.{% else %}Il nostro team di esperti IT è pronto ad incontrarti <br>e fornirti preziose informazioni personalizzate per la tua azienda.{% endif %}</p>
+                        <a href="{% if lang === 'en' %}/en/contact/{% else %}/contatti/{% endif %}" class="theme-btn">{% if lang === 'en' %}Request an appointment{% else %}Richiedi un appuntamento{% endif %}</a>
+
+                        <div class="footer-experience d-flex align-items-center">
+                            <div class="footer-experience-item">
+                                <h1>Team <span>Dedicato</span></h1>
+                                <p>{% if lang === 'en' %}Always Available{% else %}Sempre Disponibile{% endif %}</p>
+                            </div>
+                            <div class="footer-experience-item">
+                                <h1>98%</h1>
+                                <p>{% if lang === 'en' %}Satisfied Clients{% else %}Clienti Soddisfatti{% endif %}</p>
+                            </div>
+                            <div class="footer-experience-item">
+                                <h1>25+ <span>{% if lang === 'en' %}Years{% else %}Anni{% endif %}</span></h1>
+                                <p>{% if lang === 'en' %}Industry Experience{% else %}Esperienza nel Settore{% endif %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="custom-container">
+            <div class="custom-row">
+                <div class="footer-all-links-wrap justify-content-between d-flex">
+                    <div class="footer-links">
+                        <h3>{% if lang === 'en' %}Services{% else %}Servizi{% endif %}</h3>
+                        <ul>
+                            <li><a href="{% if lang === 'en' %}/en/services/{% else %}/servizi/{% endif %}">{% if lang === 'en' %}Services Overview{% else %}Panoramica Servizi{% endif %}</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/services/cloud-computing/{% else %}/servizi/cloud-computing/{% endif %}">Cloud Computing</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/services/artificial-intelligence/{% else %}/servizi/intelligenza-artificiale/{% endif %}">{% if lang === 'en' %}Artificial Intelligence{% else %}Intelligenza Artificiale{% endif %}</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/services/blockchain/{% else %}/servizi/blockchain/{% endif %}">Blockchain</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/services/cybersecurity/{% else %}/servizi/cybersecurity/{% endif %}">Cybersecurity</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/services/web-application-development/{% else %}/servizi/sviluppo-applicazioni-web/{% endif %}">{% if lang === 'en' %}Web Application Development{% else %}Sviluppo Applicazioni Web{% endif %}</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>{% if lang === 'en' %}Company{% else %}Azienda{% endif %}</h3>
+                        <ul>
+                            <li><a href="{% if lang === 'en' %}/en/about/{% else %}/chi-siamo/{% endif %}">{% if lang === 'en' %}About{% else %}Chi Siamo{% endif %}</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/contact/{% else %}/contatti/{% endif %}">{% if lang === 'en' %}Contact{% else %}Contatti{% endif %}</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Industry</h3>
+                        <ul>
+                            <li><a href="{% if lang === 'en' %}/en/industry/healthcare/{% else %}/industry/healthcare/{% endif %}">Healthcare</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/industry/retail/{% else %}/industry/retail/{% endif %}">Retail</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/industry/manufacturing/{% else %}/industry/manufacturing/{% endif %}">Manufacturing</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/industry/travel-logistics/{% else %}/industry/travel-logistics/{% endif %}">Travel & Logistics</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/industry/hospitality/{% else %}/industry/hospitality/{% endif %}">Hospitality</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/industry/media-entertainment/{% else %}/industry/media-entertainment/{% endif %}">Media & Entertainment</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>{% if lang === 'en' %}Legal{% else %}Legale{% endif %}</h3>
+                        <ul>
+                            <li><a href="{% if lang === 'en' %}/en/privacy-policy/{% else %}/privacy-policy/{% endif %}">Privacy Policy</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/terms-of-service/{% else %}/termini-servizio/{% endif %}">{% if lang === 'en' %}Terms of Service{% else %}Termini di Servizio{% endif %}</a></li>
+                            <li><a href="{% if lang === 'en' %}/en/cookie-policy/{% else %}/cookie-policy/{% endif %}">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-contact-info">
+                    <div class="footer-contact-info-item">
+                        <h4>{% if lang === 'en' %}Talk to an expert{% else %}Parla con un esperto{% endif %}</h4>
+                        <p>
+                            <a href="https://calendly.com/pamasoft/30min" target="_blank" rel="noopener noreferrer">{% if lang === 'en' %}Book a call{% else %}Prenota una call{% endif %}</a>
+                        </p>
+                    </div>
+                    <div class="footer-contact-info-item">
+                        <h4>{% if lang === 'en' %}Write to us{% else %}Scrivici{% endif %}</h4>
+                        <p>
+                            <a href="mailto:info@pamasoft.com">info@pamasoft.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-area">
+        <div class="custom-container">
+            <div class="custom-row d-flex align-items-center justify-content-between">
+                <ul class="social-links d-flex align-items-center">
+                    <li><a href="https://x.com/pamasoft" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a></li>
+                    <li><a href="https://www.linkedin.com/company/pamasoft" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a></li>
+                </ul>
+
+                <p>&copy; <span id="current-year"></span> Pamasoft - P.IVA 05657500483 - All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Script per anno dinamico copyright -->
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>

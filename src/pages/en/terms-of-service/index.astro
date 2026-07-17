@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/en-terms-of-service.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms and Conditions of Service",
+  "description": "General terms and conditions of Pamasoft",
+  "url": "https://pamasoft.com/en/terms-of-service/"
+};
+---
+
+<BaseLayout
+  title={`Terms and Conditions of Service - Pamasoft`}
+  description={`General terms and conditions of use of the Pamasoft website and services offered. Read the conditions applicable to our IT services.`}
+  path="/en/terms-of-service/"
+  lang="en"
+  keywords={`terms of service, general conditions, contract, pamasoft, terms of use`}
+  breadcrumbs={[{"name":"Terms of Service","url":"/en/terms-of-service/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

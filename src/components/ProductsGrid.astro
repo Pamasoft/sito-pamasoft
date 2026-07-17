@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../config/site';
+
+interface Props {
+  prodotti: CollectionEntry<'prodotti'>[];
+  lang?: Locale;
+  compact?: boolean;
+  showIndustries?: boolean;
+}
+
+const { prodotti, lang = 'it', compact = false, showIndustries = true } = Astro.props;
+const isEn = lang === 'en';
+const basePath = isEn ? '/en/prodotti' : '/prodotti';
+const industryBase = isEn ? '/en/industry' : '/industry';
+
+const industryLabels: Record<string, { it: string; en: string }> = {
+  healthcare: { it: 'Healthcare', en: 'Healthcare' },
+  retail: { it: 'Retail', en: 'Retail' },
+  manufacturing: { it: 'Manufacturing', en: 'Manufacturing' },
+  hospitality: { it: 'Hospitality', en: 'Hospitality' },
+  'travel-logistics': { it: 'Travel & Logistics', en: 'Travel & Logistics' },
+  'media-entertainment': { it: 'Media & Entertainment', en: 'Media & Entertainment' },
+};
+---
+
+{
+  prodotti.length === 0 ? (
+    <p class="products-empty">
+      {isEn ? 'Products will be published here as they become available.' : 'I prodotti verranno pubblicati qui non appena disponibili.'}
+    </p>
+  ) : (
+    <div class:list={['products-grid', compact && 'products-grid--compact']}>
+      {prodotti.map((prodotto) => {
+        const { data } = prodotto;
+        return (
+          <article class="product-card">
+            <div class="product-card-top">
+              <div class="product-card-logo">
+                <img src={data.logo.src} alt={data.nome} width="48" height="48" loading="lazy" decoding="async" />
+              </div>
+              <div class="product-card-title-wrap">
+                <h3 class="product-card-title">
+                  <a href={`${basePath}/${data.slug}/`}>{data.nome}</a>
+                </h3>
+                <p class="product-card-tagline">{data.tagline}</p>
+              </div>
+            </div>
+
+            <p class="product-card-desc">{data.descrizione}</p>
+
+            {showIndustries && data.industryCorrelate.length > 0 && (
+              <div class="product-card-industries">
+                {data.industryCorrelate.map((industry) => (
+                  <a href={`${industryBase}/${industry}/`} class="product-industry-badge">
+                    {industryLabels[industry]?.[lang] ?? industry}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <div class="product-card-actions">
+              <a href={`${basePath}/${data.slug}/`} class="theme-btn">
+                {isEn ? 'Learn more' : 'Scopri di più'}
+              </a>
+              {data.dominioEsterno && (
+                <a href={data.dominioEsterno} class="theme-btn2" target="_blank" rel="noopener noreferrer">
+                  {isEn ? 'Visit website' : 'Vai al sito'}
+                  <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  )
+}

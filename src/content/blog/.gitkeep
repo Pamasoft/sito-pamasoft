@@ -1,0 +1,3 @@
+# Content collection: blog
+# Aggiungere file .md o .mdx con frontmatter secondo lo schema in src/content.config.ts
+# Esempio: src/content/blog/slug-articolo-it.md

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Content from '../../../../components/content/en-services-cloud-computing.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "AWS Cloud Computing",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AWS Cloud Computing Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AWS Cloud Migration",
+          "description": "Secure and uninterrupted migration of your applications to AWS cloud"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cloud-Native Architectures",
+          "description": "Design of scalable and resilient infrastructures on AWS"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "DevOps & CI/CD",
+          "description": "Complete automation of development and deployment cycle"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AWS Cost Optimization",
+          "description": "Analysis and optimization of cloud infrastructure costs"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`AWS Cloud Computing | Migration & Scalable Infrastructures - Pamasoft`}
+  description={`Professional AWS Cloud Computing services: secure cloud migration, cloud-native architectures, DevOps automation. 25+ years experience, certified AWS partner Italy.`}
+  path="/en/services/cloud-computing/"
+  lang="en"
+  keywords={`AWS cloud computing Italy, secure cloud migration, cloud-native architectures, scalable AWS infrastructures, DevOps automation, Kubernetes containerization, certified AWS partner`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Services","url":"/en/services/"},{"name":"Cloud Computing","url":"/en/services/cloud-computing/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

@@ -1,0 +1,215 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../config/site';
+
+interface Props {
+  data: CollectionEntry<'prodotti'>['data'];
+  lang?: Locale;
+}
+
+const { data, lang = 'it' } = Astro.props;
+const isEn = lang === 'en';
+const baseIndustry = isEn ? '/en/industry' : '/industry';
+const productsIndex = isEn ? '/en/prodotti/' : '/prodotti/';
+const heroSrc =
+  data.heroImage ||
+  'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+
+const industryLabels: Record<string, { it: string; en: string }> = {
+  healthcare: { it: 'Healthcare', en: 'Healthcare' },
+  retail: { it: 'Retail', en: 'Retail' },
+  manufacturing: { it: 'Manufacturing', en: 'Manufacturing' },
+  hospitality: { it: 'Hospitality', en: 'Hospitality' },
+  'travel-logistics': { it: 'Travel & Logistics', en: 'Travel & Logistics' },
+  'media-entertainment': { it: 'Media & Entertainment', en: 'Media & Entertainment' },
+};
+
+const copy = {
+  badge: isEn ? 'Pamasoft Product' : 'Prodotto Pamasoft',
+  visit: isEn ? 'Visit website' : 'Vai al sito',
+  benefits: isEn ? 'Why choose it' : 'Perché sceglierlo',
+  benefitsLead: isEn
+    ? 'Concrete benefits for your team and your customers.'
+    : 'Vantaggi concreti per il tuo team e per i tuoi clienti.',
+  features: isEn ? 'What you can do' : 'Cosa puoi fare',
+  featuresLead: isEn
+    ? 'Everything you need, in one clear and modern platform.'
+    : 'Tutto ciò che ti serve, in una piattaforma chiara e moderna.',
+  forWhom: isEn ? 'Who it is for' : 'Per chi è pensato',
+  how: isEn ? 'How it works' : 'Come funziona',
+  howLead: isEn
+    ? 'A simple path from first setup to everyday use.'
+    : 'Un percorso semplice dall’avvio all’uso quotidiano.',
+  story: isEn ? 'In brief' : 'In sintesi',
+  industries: isEn ? 'Related industries' : 'Settori correlati',
+  ctaTitle: isEn ? 'Ready to get started?' : 'Pronto a iniziare?',
+  ctaLead: isEn
+    ? 'Discover how this product can support your business.'
+    : 'Scopri come questo prodotto può supportare la tua attività.',
+  back: isEn ? 'All products' : 'Tutti i prodotti',
+};
+---
+
+<section class="pd-hero">
+  <div class="custom-container">
+    <div class="pd-hero-grid">
+      <div class="pd-hero-copy">
+        <p class="pd-eyebrow">{copy.badge}</p>
+        <div class="pd-brand-row">
+          <div class="pd-logo">
+            <img src={data.logo.src} alt={data.nome} width="72" height="72" />
+          </div>
+          <h1 class="pd-title">{data.nome}</h1>
+        </div>
+        <p class="pd-tagline">{data.tagline}</p>
+        <p class="pd-lead">{data.descrizione}</p>
+        <div class="pd-actions">
+          <a href={data.ctaPrincipale.url} class="theme-btn" target="_blank" rel="noopener noreferrer">
+            {data.ctaPrincipale.label}
+          </a>
+          {
+            data.dominioEsterno && data.dominioEsterno !== data.ctaPrincipale.url && (
+              <a href={data.dominioEsterno} class="theme-btn2" target="_blank" rel="noopener noreferrer">
+                {copy.visit}
+              </a>
+            )
+          }
+        </div>
+        {
+          data.pubblicoTarget.length > 0 && (
+            <div class="pd-audience">
+              <span class="pd-audience-label">{copy.forWhom}</span>
+              <ul>
+                {data.pubblicoTarget.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+      <div class="pd-hero-media">
+        <img src={heroSrc} alt={data.nome} width="960" height="720" fetchpriority="high" />
+      </div>
+    </div>
+  </div>
+</section>
+
+{
+  data.vantaggi.length > 0 && (
+    <section class="pd-section pd-section--muted">
+      <div class="custom-container">
+        <div class="pd-section-head">
+          <h2>{copy.benefits}</h2>
+          <p>{copy.benefitsLead}</p>
+        </div>
+        <div class="pd-cards">
+          {data.vantaggi.map((item) => (
+            <article class="pd-card">
+              {item.icona && <i class={`${item.icona} pd-card-icon`} aria-hidden="true" />}
+              <h3>{item.titolo}</h3>
+              <p>{item.descrizione}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  data.featureHighlights.length > 0 && (
+    <section class="pd-section">
+      <div class="custom-container">
+        <div class="pd-section-head">
+          <h2>{copy.features}</h2>
+          <p>{copy.featuresLead}</p>
+        </div>
+        <div class="pd-feature-grid">
+          {data.featureHighlights.map((item) => (
+            <article class="pd-feature">
+              <div class="pd-feature-icon">
+                {item.icona ? <i class={item.icona} aria-hidden="true" /> : null}
+              </div>
+              <div>
+                <h3>{item.titolo}</h3>
+                <p>{item.descrizione}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  data.comeFunziona.length > 0 && (
+    <section class="pd-section pd-section--muted">
+      <div class="custom-container">
+        <div class="pd-section-head">
+          <h2>{copy.how}</h2>
+          <p>{copy.howLead}</p>
+        </div>
+        <ol class="pd-steps">
+          {data.comeFunziona.map((step, index) => (
+            <li class="pd-step">
+              <span class="pd-step-num">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{step.titolo}</h3>
+                <p>{step.descrizione}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}
+
+<section class="pd-section">
+  <div class="custom-container">
+    <div class="pd-story">
+      <h2>{copy.story}</h2>
+      <div class="pd-story-body">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+{
+  data.industryCorrelate.length > 0 && (
+    <section class="pd-section pd-section--muted">
+      <div class="custom-container">
+        <div class="pd-section-head">
+          <h2>{copy.industries}</h2>
+        </div>
+        <div class="pd-industry-row">
+          {data.industryCorrelate.map((industry) => (
+            <a href={`${baseIndustry}/${industry}/`} class="pd-industry-chip">
+              {industryLabels[industry]?.[lang] ?? industry}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<section class="pd-cta">
+  <div class="custom-container">
+    <div class="pd-cta-box">
+      <div>
+        <h2>{copy.ctaTitle}</h2>
+        <p>{copy.ctaLead}</p>
+      </div>
+      <div class="pd-actions">
+        <a href={data.ctaPrincipale.url} class="theme-btn" target="_blank" rel="noopener noreferrer">
+          {data.ctaPrincipale.label}
+        </a>
+        <a href={productsIndex} class="theme-btn2">{copy.back}</a>
+      </div>
+    </div>
+  </div>
+</section>

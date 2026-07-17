@@ -1,0 +1,77 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../config/site';
+
+interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  path: string;
+  lang?: Locale;
+  pageClass?: string;
+  bodyClass?: string;
+  ogType?: string;
+  ogImage?: string;
+  breadcrumbs?: Breadcrumb[];
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  keywords,
+  path,
+  lang = 'it',
+  pageClass = 'homepage',
+  bodyClass,
+  ogType,
+  ogImage,
+  breadcrumbs,
+  structuredData,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang} itemscope itemtype="https://schema.org/WebPage">
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      keywords={keywords}
+      path={path}
+      lang={lang}
+      ogType={ogType}
+      ogImage={ogImage}
+      breadcrumbs={breadcrumbs}
+      structuredData={structuredData}
+    />
+  </head>
+  <body class={bodyClass}>
+    <main class={`main-page ${pageClass}`}>
+      <Header lang={lang} />
+      <slot />
+      <Footer lang={lang} />
+    </main>
+
+    <script is:inline src="/assets/js/jquery-3.7.0.min.js"></script>
+    <script is:inline src="/assets/js/bootstrap.bundle.min.js" defer></script>
+    <script is:inline src="/assets/js/gsap.min.js" defer></script>
+    <script is:inline src="/assets/js/Draggable.min.js" defer></script>
+    <script is:inline src="/assets/js/swiper-bundle.min.js" defer></script>
+    <script is:inline src="/assets/js/client-marquee.js" defer></script>
+    <script is:inline src="/assets/js/theme-custom.js" defer></script>
+    <script is:inline src="/assets/js/menu-accessibility.js" defer></script>
+    <script is:inline src="/assets/js/language-switcher.js" defer></script>
+    <script is:inline src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY" defer></script>
+    <script is:inline src="/assets/js/contact-form-handler.js" defer></script>
+    <script is:inline src="/assets/js/form1.js" defer></script>
+    <script is:inline src="/assets/js/subscribe-form.js" defer></script>
+  </body>
+</html>

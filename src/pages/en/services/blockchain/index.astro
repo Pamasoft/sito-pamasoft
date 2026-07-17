@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Content from '../../../../components/content/en-services-blockchain.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Blockchain & Web3",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Blockchain & Web3 Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Smart Contracts",
+          "description": "Smart contract development on Ethereum, Polygon and other blockchains"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "DeFi Applications",
+          "description": "Secure and scalable DeFi (decentralized finance) applications"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "NFT Marketplace",
+          "description": "NFT marketplace and tokenization platforms"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "dApp Development",
+          "description": "Decentralized Web3 application development"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`Blockchain & Web3 | Smart Contracts, DeFi, NFT - Pamasoft`}
+  description={`Blockchain and Web3 services: smart contracts, DeFi, NFT, tokenization, decentralized dApps. Specialized blockchain consulting for innovative companies Italy.`}
+  path="/en/services/blockchain/"
+  lang="en"
+  keywords={`blockchain development Italy, Ethereum smart contracts, DeFi development, NFT marketplace, Web3 applications, asset tokenization, decentralized dApps, blockchain consulting`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Services","url":"/en/services/"},{"name":"Blockchain & Web3","url":"/en/services/blockchain/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

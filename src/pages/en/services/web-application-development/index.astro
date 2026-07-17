@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Content from '../../../../components/content/en-services-web-application-development.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Web Application Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Development Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Spring Boot Backend",
+          "description": "Enterprise backend development with Spring Boot and Java"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "React Frontend",
+          "description": "Modern and responsive user interfaces with React"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "PostgreSQL Database",
+          "description": "Design and optimization of relational databases"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Microservices Architecture",
+          "description": "Design of scalable and modern architectures"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`Web Application Development | Spring Boot, React, PostgreSQL - Pamasoft`}
+  description={`Modern web application development: Spring Boot, React, PostgreSQL, microservices, scalable architectures. Cutting-edge technology stacks for high-performance web apps.`}
+  path="/en/services/web-application-development/"
+  lang="en"
+  keywords={`web application development Italy, Spring Boot development, React applications, PostgreSQL database, microservices architecture, full stack development, modern web apps`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Services","url":"/en/services/"},{"name":"Web Application Development","url":"/en/services/web-application-development/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

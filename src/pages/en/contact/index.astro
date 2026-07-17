@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/en-contact.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+39-012-345-6789",
+      "contactType": "sales",
+      "email": "info@pamasoft.com",
+      "areaServed": "IT",
+      "availableLanguage": [
+        "Italian",
+        "English"
+      ],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via E. Fermi, 75",
+      "addressLocality": "Pistoia",
+      "postalCode": "51100",
+      "addressRegion": "PT",
+      "addressCountry": "IT"
+    }
+  }
+};
+---
+
+<BaseLayout
+  title={`Contact Pamasoft | IT Consulting Cloud AWS, AI, Blockchain Milan`}
+  description={`Contact Pamasoft for specialized IT consulting: AWS Cloud, Artificial Intelligence, Blockchain, Cybersecurity. Expert team Milan, free quotes, 24/7 support.`}
+  path="/en/contact/"
+  lang="en"
+  keywords={`contact Pamasoft Milan, IT consulting cloud AWS, free software quotes, 24/7 technical support, AI blockchain consulting, IT company Milan Italy`}
+  pageClass="contact-page"
+  ogImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Contact","url":"/en/contact/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

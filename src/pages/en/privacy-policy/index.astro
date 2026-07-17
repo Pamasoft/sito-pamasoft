@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/en-privacy-policy.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy",
+  "description": "Pamasoft privacy policy",
+  "url": "https://pamasoft.com/en/privacy-policy/"
+};
+---
+
+<BaseLayout
+  title={`Privacy Policy - Pamasoft`}
+  description={`Pamasoft privacy policy. Learn how we collect, use and protect your personal data in compliance with GDPR.`}
+  path="/en/privacy-policy/"
+  lang="en"
+  keywords={`privacy policy, gdpr, data protection, privacy information, pamasoft`}
+  breadcrumbs={[{"name":"Privacy Policy","url":"/en/privacy-policy/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

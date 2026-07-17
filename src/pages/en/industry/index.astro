@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/en-industry.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "IT Solutions for All Industries",
+  "description": "Complete portfolio of specialized IT solutions for every industrial sector: Healthcare, Retail, Manufacturing, Travel & Logistics, Hospitality, Media & Entertainment",
+  "url": "https://pamasoft.com/en/industry/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "hasPart": [
+    {
+      "@type": "Service",
+      "name": "IT Healthcare",
+      "url": "https://pamasoft.com/en/industry/healthcare/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Retail",
+      "url": "https://pamasoft.com/en/industry/retail/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Manufacturing",
+      "url": "https://pamasoft.com/en/industry/manufacturing/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Travel & Logistics",
+      "url": "https://pamasoft.com/en/industry/travel-logistics/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Hospitality",
+      "url": "https://pamasoft.com/en/industry/hospitality/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Media & Entertainment",
+      "url": "https://pamasoft.com/en/industry/media-entertainment/"
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={`IT Solutions for All Industries | Healthcare, Retail, Manufacturing - Pamasoft`}
+  description={`Specialized IT solutions for every industry: Healthcare, Retail, Manufacturing, Travel & Logistics, Hospitality, Media & Entertainment. Vertical expertise for industry digital transformation.`}
+  path="/en/industry/"
+  lang="en"
+  keywords={`IT industry solutions, IT healthcare, IT retail, IT manufacturing, IT hospitality, IT travel logistics, IT media entertainment, digital transformation industries, vertical expertise`}
+  pageClass="industry-page services-page"
+  ogImage="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/en/industry/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

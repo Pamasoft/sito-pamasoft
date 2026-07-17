@@ -1,0 +1,75 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.lingua === 'it' && data.pubblicato);
+  return posts.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+
+function estimateReadingTime(text: string) {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
+const readingTime = data.tempoLettura ?? estimateReadingTime(entry.body ?? '');
+const published = data.dataPubblicazione.toISOString();
+const modified = (data.dataAggiornamento ?? data.dataPubblicazione).toISOString();
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.titolo,
+  description: data.estratto,
+  image: data.immagineCopertina.src,
+  author: { '@type': 'Person', name: data.autore },
+  datePublished: published,
+  dateModified: modified,
+  publisher: {
+    '@type': 'Organization',
+    name: 'Pamasoft',
+    logo: { '@type': 'ImageObject', url: 'https://pamasoft.com/assets/images/logo-blu.png' },
+  },
+  mainEntityOfPage: `https://pamasoft.com/blog/${data.slug}/`,
+};
+---
+
+<BaseLayout
+  title={`${data.titolo} | Blog Pamasoft`}
+  description={data.estratto}
+  path={`/blog/${data.slug}/`}
+  lang="it"
+  pageClass="blog-article-page"
+  ogType="article"
+  ogImage={data.immagineCopertina.src}
+  breadcrumbs={[
+    { name: 'Blog', url: '/blog/' },
+    { name: data.titolo, url: `/blog/${data.slug}/` },
+  ]}
+  structuredData={structuredData}
+>
+  <article class="about-area">
+    <div class="custom-container">
+      <header>
+        <h5 class="section-subtitle">{data.categoria}</h5>
+        <h1 class="section-title">{data.titolo}</h1>
+        <p>
+          {data.autore} ·
+          {data.dataPubblicazione.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })} ·
+          {readingTime} min di lettura
+        </p>
+        <img src={data.immagineCopertina.src} alt={data.titolo} loading="eager" fetchpriority="high" />
+      </header>
+      <div class="blog-article-body">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

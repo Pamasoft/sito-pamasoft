@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/en-cookie-policy.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Cookie Policy",
+  "description": "Pamasoft cookie information",
+  "url": "https://pamasoft.com/en/cookie-policy/"
+};
+---
+
+<BaseLayout
+  title={`Cookie Policy - Pamasoft`}
+  description={`Information about cookies used by the Pamasoft website. Learn which cookies we use, how to manage them and how to protect your privacy while browsing.`}
+  path="/en/cookie-policy/"
+  lang="en"
+  keywords={`cookie policy, cookies, gdpr, google analytics, privacy, pamasoft`}
+  breadcrumbs={[{"name":"Cookie Policy","url":"/en/cookie-policy/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

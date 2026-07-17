@@ -1,0 +1,199 @@
+---
+import type { Locale } from '../config/site';
+import { assets } from '../config/assets';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'it' } = Astro.props;
+const isEn = lang === 'en';
+---
+
+<div class="header-bar">
+  <div class="custom-container">
+    <div class="header-bar-body d-flex align-items-center justify-content-between">
+      <div class="left">
+        <label class="visually-hidden" for="language-switcher">
+          {isEn ? 'Choose language' : 'Seleziona la lingua'}
+        </label>
+        <select
+          class="country-select"
+          name="language"
+          id="language-switcher"
+          data-current-lang={lang}
+          data-default-lang="it"
+          data-prefix-en="/en"
+        >
+          <option value="it" selected={!isEn}>Italiano</option>
+          <option value="en" selected={isEn}>English</option>
+        </select>
+      </div>
+      <div class="right">
+        <p>
+          {isEn ? 'Level up your business with Pamasoft' : 'Fai crescere la tua azienda con Pamasoft'}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header-area">
+  <div class="custom-container">
+    <div class="custom-row align-items-center justify-content-between">
+      <div class="header-left d-flex align-items-center">
+        <a href={isEn ? '/en/' : '/'} class="logo">
+          <img src={assets.logo} alt="Logo Pamasoft" />
+        </a>
+
+        <div class="header-left-right">
+          <a href={isEn ? '/en/contact/' : '/contatti/'} class="theme-btn">
+            {isEn ? 'Contact Us' : 'Contattaci'}
+          </a>
+          <button
+            class="menu-bar"
+            aria-label={isEn ? 'Open menu' : 'Apri menu'}
+            aria-expanded="false"
+            aria-controls="main-navigation"
+          >
+            <i class="las la-bars"></i>
+          </button>
+        </div>
+
+        <nav
+          class="navbar-wrapper"
+          id="main-navigation"
+          aria-label={isEn ? 'Main menu' : 'Menu principale'}
+        >
+          <button class="close-menu-bar" aria-label={isEn ? 'Close menu' : 'Chiudi menu'}>
+            <i class="las la-times"></i>
+          </button>
+          <ul>
+            <li>
+              <a href={isEn ? '/en/about/' : '/chi-siamo/'}>
+                {isEn ? 'About' : 'Chi Siamo'}
+              </a>
+            </li>
+            <li class="dropdown-menu-item">
+              <a
+                href={isEn ? '/en/services/' : '/servizi/'}
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="servizi-menu"
+              >
+                {isEn ? 'Services' : 'Servizi'}
+              </a>
+              <button
+                class="dropdown-menu-item-icon"
+                aria-label={isEn ? 'Expand services menu' : 'Espandi menu servizi'}
+              >
+                <i class="las la-angle-down"></i>
+              </button>
+              <ul class="dropdown-menu" id="servizi-menu" role="menu">
+                <li>
+                  <a href={isEn ? '/en/services/cloud-computing/' : '/servizi/cloud-computing/'}>
+                    Cloud Computing AWS
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={isEn ? '/en/services/artificial-intelligence/' : '/servizi/intelligenza-artificiale/'}
+                  >
+                    {isEn ? 'Artificial Intelligence' : 'Intelligenza Artificiale'}
+                  </a>
+                </li>
+                <li>
+                  <a href={isEn ? '/en/services/blockchain/' : '/servizi/blockchain/'}>
+                    {isEn ? 'Blockchain & Web3' : 'Blockchain e Web3'}
+                  </a>
+                </li>
+                <li>
+                  <a href={isEn ? '/en/services/cybersecurity/' : '/servizi/cybersecurity/'}>
+                    Cybersecurity
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={isEn ? '/en/services/web-application-development/' : '/servizi/sviluppo-applicazioni-web/'}
+                  >
+                    {isEn ? 'Web Application Development' : 'Sviluppo Applicazioni Web'}
+                  </a>
+                </li>
+                <li>
+                  <a href={isEn ? '/en/services/' : '/servizi/'}>
+                    {isEn ? 'All Services' : 'Tutti i Servizi'}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href={isEn ? '/en/prodotti/' : '/prodotti/'}>
+                {isEn ? 'Products' : 'Prodotti'}
+              </a>
+            </li>
+            <li class="dropdown-menu-item">
+              <a
+                href={isEn ? '/en/industry/' : '/industry/'}
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="industry-menu"
+              >
+                Industry
+              </a>
+              <button
+                class="dropdown-menu-item-icon"
+                aria-label={isEn ? 'Expand industry menu' : 'Espandi menu industry'}
+              >
+                <i class="las la-angle-down"></i>
+              </button>
+              <ul class="dropdown-menu" id="industry-menu" role="menu">
+                <li><a href={isEn ? '/en/industry/healthcare/' : '/industry/healthcare/'}>Healthcare</a></li>
+                <li><a href={isEn ? '/en/industry/retail/' : '/industry/retail/'}>Retail</a></li>
+                <li><a href={isEn ? '/en/industry/manufacturing/' : '/industry/manufacturing/'}>Manufacturing</a></li>
+                <li>
+                  <a href={isEn ? '/en/industry/travel-logistics/' : '/industry/travel-logistics/'}>
+                    Travel & Logistics
+                  </a>
+                </li>
+                <li><a href={isEn ? '/en/industry/hospitality/' : '/industry/hospitality/'}>Hospitality</a></li>
+                <li>
+                  <a href={isEn ? '/en/industry/media-entertainment/' : '/industry/media-entertainment/'}>
+                    Media & Entertainment
+                  </a>
+                </li>
+                <li>
+                  <a href={isEn ? '/en/industry/' : '/industry/'}>
+                    {isEn ? 'All Industries' : 'Tutti i Settori'}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            {/* Blog nascosto temporaneamente
+            <li>
+              <a href={isEn ? '/en/blog/' : '/blog/'}>Blog</a>
+            </li>
+            */}
+            <li>
+              <a href={isEn ? '/en/contact/' : '/contatti/'}>
+                {isEn ? 'Contact' : 'Contatti'}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-right">
+        <div class="header-contact-info d-flex align-items-center">
+          <div class="phone-number">
+            <a href="https://calendly.com/pamasoft/30min" target="_blank" rel="noopener noreferrer">
+              {isEn ? 'Book a call' : 'Prenota una call'}
+              <i class="fas fa-arrow-up"></i>
+            </a>
+          </div>
+          <a href={isEn ? '/en/contact/' : '/contatti/'} class="theme-btn">
+            {isEn ? 'Contact Us' : 'Contattaci'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

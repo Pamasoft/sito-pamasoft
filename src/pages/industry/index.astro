@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Content from '../../components/content/it-industry.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Soluzioni IT per Tutti i Settori",
+  "description": "Portfolio completo di soluzioni IT specializzate per ogni settore industriale: Healthcare, Retail, Manufacturing, Travel & Logistics, Hospitality, Media & Entertainment",
+  "url": "https://pamasoft.com/industry/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "hasPart": [
+    {
+      "@type": "Service",
+      "name": "IT Healthcare",
+      "url": "https://pamasoft.com/industry/healthcare/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Retail",
+      "url": "https://pamasoft.com/industry/retail/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Manufacturing",
+      "url": "https://pamasoft.com/industry/manufacturing/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Travel & Logistics",
+      "url": "https://pamasoft.com/industry/travel-logistics/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Hospitality",
+      "url": "https://pamasoft.com/industry/hospitality/"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Media & Entertainment",
+      "url": "https://pamasoft.com/industry/media-entertainment/"
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={`Soluzioni IT per Tutti i Settori | Healthcare, Retail, Manufacturing - Pamasoft`}
+  description={`Soluzioni IT specializzate per ogni settore: Healthcare, Retail, Manufacturing, Travel & Logistics, Hospitality, Media & Entertainment. Expertise verticale per trasformazione digitale settoriale.`}
+  path="/industry/"
+  lang="it"
+  keywords={`soluzioni IT settoriali Italia, IT healthcare, IT retail, IT manufacturing, IT hospitality, IT travel logistics, IT media entertainment, digital transformation settori, vertical expertise`}
+  pageClass="industry-page services-page"
+  ogImage="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/industry/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/it-servizi-intelligenza-artificiale.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Intelligenza Artificiale e Machine Learning",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi Intelligenza Artificiale",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Machine Learning",
+          "description": "Sviluppo di modelli predittivi e sistemi di apprendimento automatico"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Generativa",
+          "description": "Implementazione di ChatGPT, GPT-4 e modelli AI generativi"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Chatbot Intelligenti",
+          "description": "Assistenti virtuali e chatbot con elaborazione del linguaggio naturale"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Computer Vision",
+          "description": "Riconoscimento immagini e analisi video con AI"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`Intelligenza Artificiale e Machine Learning | Soluzioni AI Business - Pamasoft`}
+  description={`Soluzioni Intelligenza Artificiale per aziende: Machine Learning, AI generativa, chatbot, automazione processi, analisi predittiva. Consulenza AI specializzata Italia.`}
+  path="/servizi/intelligenza-artificiale/"
+  lang="it"
+  keywords={`intelligenza artificiale business Italia, machine learning aziende, AI generativa ChatGPT, automazione processi AI, analisi predittiva, chatbot personalizzati, computer vision, consulenza AI`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Servizi","url":"/servizi/"},{"name":"Intelligenza Artificiale","url":"/servizi/intelligenza-artificiale/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

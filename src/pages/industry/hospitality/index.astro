@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Content from '../../../components/content/it-industry-hospitality.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Soluzioni IT Hospitality",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Hospitality Industry"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "description": "Soluzioni IT per hospitality: PMS per hotel, sistemi di prenotazione, POS ristoranti, marketing automation e tecnologie per migliorare la guest experience."
+};
+---
+
+<BaseLayout
+  title={`Soluzioni IT per Hospitality | Hotel e Ristorazione - Pamasoft`}
+  description={`Soluzioni IT per il settore Hospitality: software gestionali per hotel (PMS), sistemi di prenotazione, POS per ristoranti, marketing automation e guest experience.`}
+  path="/industry/hospitality/"
+  lang="it"
+  keywords={`IT hospitality, software hotel, PMS, booking engine, POS ristoranti, guest experience technology, marketing hotel`}
+  pageClass="industry-page"
+  ogImage="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/industry/"},{"name":"Hospitality","url":"/industry/hospitality/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

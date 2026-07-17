@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- ========== HOMEPAGE ========== -->
+    <!-- Homepage IT -->
+    <url>
+        <loc>https://pamasoft.com/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/"/>
+    </url>
+    
+    <!-- Homepage EN -->
+    <url>
+        <loc>https://pamasoft.com/en/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/"/>
+    </url>
+    
+    <!-- ========== ABOUT / CHI SIAMO ========== -->
+    <!-- Chi Siamo IT -->
+    <url>
+        <loc>https://pamasoft.com/chi-siamo/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/chi-siamo/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/chi-siamo/"/>
+    </url>
+    
+    <!-- About EN -->
+    <url>
+        <loc>https://pamasoft.com/en/about/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/chi-siamo/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/chi-siamo/"/>
+    </url>
+    
+    <!-- ========== SERVICES / SERVIZI ========== -->
+    <!-- Servizi Overview IT -->
+    <url>
+        <loc>https://pamasoft.com/servizi/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/"/>
+    </url>
+    
+    <!-- Services Overview EN -->
+    <url>
+        <loc>https://pamasoft.com/en/services/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/"/>
+    </url>
+    
+    <!-- Cloud Computing IT -->
+    <url>
+        <loc>https://pamasoft.com/servizi/cloud-computing/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/cloud-computing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/cloud-computing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/cloud-computing/"/>
+    </url>
+    
+    <!-- Cloud Computing EN -->
+    <url>
+        <loc>https://pamasoft.com/en/services/cloud-computing/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/cloud-computing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/cloud-computing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/cloud-computing/"/>
+    </url>
+    
+    <!-- Intelligenza Artificiale IT -->
+    <url>
+        <loc>https://pamasoft.com/servizi/intelligenza-artificiale/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/intelligenza-artificiale/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/artificial-intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/intelligenza-artificiale/"/>
+    </url>
+    
+    <!-- Artificial Intelligence EN -->
+    <url>
+        <loc>https://pamasoft.com/en/services/artificial-intelligence/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/intelligenza-artificiale/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/artificial-intelligence/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/intelligenza-artificiale/"/>
+    </url>
+    
+    <!-- Blockchain IT -->
+    <url>
+        <loc>https://pamasoft.com/servizi/blockchain/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/blockchain/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/blockchain/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/blockchain/"/>
+    </url>
+    
+    <!-- Blockchain EN -->
+    <url>
+        <loc>https://pamasoft.com/en/services/blockchain/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/blockchain/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/blockchain/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/blockchain/"/>
+    </url>
+    
+    <!-- Cybersecurity IT -->
+    <url>
+        <loc>https://pamasoft.com/servizi/cybersecurity/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/cybersecurity/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/cybersecurity/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/cybersecurity/"/>
+    </url>
+    
+    <!-- Cybersecurity EN -->
+    <url>
+        <loc>https://pamasoft.com/en/services/cybersecurity/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/cybersecurity/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/cybersecurity/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/cybersecurity/"/>
+    </url>
+    
+    <!-- Sviluppo Applicazioni Web IT -->
+    <url>
+        <loc>https://pamasoft.com/servizi/sviluppo-applicazioni-web/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/sviluppo-applicazioni-web/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/web-application-development/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/sviluppo-applicazioni-web/"/>
+    </url>
+    
+    <!-- Web Application Development EN -->
+    <url>
+        <loc>https://pamasoft.com/en/services/web-application-development/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/servizi/sviluppo-applicazioni-web/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/services/web-application-development/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/servizi/sviluppo-applicazioni-web/"/>
+    </url>
+    
+    <!-- ========== INDUSTRY ========== -->
+    <!-- Industry Overview IT -->
+    <url>
+        <loc>https://pamasoft.com/industry/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/"/>
+    </url>
+    
+    <!-- Industry Overview EN -->
+    <url>
+        <loc>https://pamasoft.com/en/industry/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/"/>
+    </url>
+    
+    <!-- Healthcare IT -->
+    <url>
+        <loc>https://pamasoft.com/industry/healthcare/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/healthcare/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/healthcare/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/healthcare/"/>
+    </url>
+    
+    <!-- Healthcare EN -->
+    <url>
+        <loc>https://pamasoft.com/en/industry/healthcare/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/healthcare/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/healthcare/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/healthcare/"/>
+    </url>
+    
+    <!-- Retail IT -->
+    <url>
+        <loc>https://pamasoft.com/industry/retail/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/retail/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/retail/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/retail/"/>
+    </url>
+    
+    <!-- Retail EN -->
+    <url>
+        <loc>https://pamasoft.com/en/industry/retail/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/retail/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/retail/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/retail/"/>
+    </url>
+    
+    <!-- Manufacturing IT -->
+    <url>
+        <loc>https://pamasoft.com/industry/manufacturing/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/manufacturing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/manufacturing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/manufacturing/"/>
+    </url>
+    
+    <!-- Manufacturing EN -->
+    <url>
+        <loc>https://pamasoft.com/en/industry/manufacturing/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/manufacturing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/manufacturing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/manufacturing/"/>
+    </url>
+    
+    <!-- Travel & Logistics IT -->
+    <url>
+        <loc>https://pamasoft.com/industry/travel-logistics/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/travel-logistics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/travel-logistics/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/travel-logistics/"/>
+    </url>
+    
+    <!-- Travel & Logistics EN -->
+    <url>
+        <loc>https://pamasoft.com/en/industry/travel-logistics/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/travel-logistics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/travel-logistics/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/travel-logistics/"/>
+    </url>
+    
+    <!-- Hospitality IT -->
+    <url>
+        <loc>https://pamasoft.com/industry/hospitality/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/hospitality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/hospitality/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/hospitality/"/>
+    </url>
+    
+    <!-- Hospitality EN -->
+    <url>
+        <loc>https://pamasoft.com/en/industry/hospitality/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/hospitality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/hospitality/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/hospitality/"/>
+    </url>
+    
+    <!-- Media & Entertainment IT -->
+    <url>
+        <loc>https://pamasoft.com/industry/media-entertainment/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/media-entertainment/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/media-entertainment/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/media-entertainment/"/>
+    </url>
+    
+    <!-- Media & Entertainment EN -->
+    <url>
+        <loc>https://pamasoft.com/en/industry/media-entertainment/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/industry/media-entertainment/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/industry/media-entertainment/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/industry/media-entertainment/"/>
+    </url>
+    
+    <!-- ========== CONTACT / CONTATTI ========== -->
+    <!-- Contatti IT -->
+    <url>
+        <loc>https://pamasoft.com/contatti/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/contatti/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/contatti/"/>
+    </url>
+    
+    <!-- Contact EN -->
+    <url>
+        <loc>https://pamasoft.com/en/contact/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/contatti/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/contatti/"/>
+    </url>
+    
+    <!-- ========== LEGAL PAGES ========== -->
+    <!-- Privacy Policy IT -->
+    <url>
+        <loc>https://pamasoft.com/privacy-policy/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/privacy-policy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/privacy-policy/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/privacy-policy/"/>
+    </url>
+    
+    <!-- Privacy Policy EN -->
+    <url>
+        <loc>https://pamasoft.com/en/privacy-policy/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/privacy-policy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/privacy-policy/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/privacy-policy/"/>
+    </url>
+    
+    <!-- Termini di Servizio IT -->
+    <url>
+        <loc>https://pamasoft.com/termini-servizio/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/termini-servizio/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/terms-of-service/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/termini-servizio/"/>
+    </url>
+    
+    <!-- Terms of Service EN -->
+    <url>
+        <loc>https://pamasoft.com/en/terms-of-service/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/termini-servizio/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/terms-of-service/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/termini-servizio/"/>
+    </url>
+    
+    <!-- Cookie Policy IT -->
+    <url>
+        <loc>https://pamasoft.com/cookie-policy/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/cookie-policy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/cookie-policy/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/cookie-policy/"/>
+    </url>
+    
+    <!-- Cookie Policy EN -->
+    <url>
+        <loc>https://pamasoft.com/en/cookie-policy/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://pamasoft.com/cookie-policy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pamasoft.com/en/cookie-policy/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pamasoft.com/cookie-policy/"/>
+    </url>
+    
+</urlset>

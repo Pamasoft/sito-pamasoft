@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Content from '../../../../components/content/en-services-artificial-intelligence.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Artificial Intelligence & Machine Learning",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Artificial Intelligence Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Machine Learning",
+          "description": "Development of predictive models and machine learning systems"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Generative AI",
+          "description": "Implementation of ChatGPT, GPT-4 and generative AI models"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Intelligent Chatbots",
+          "description": "Virtual assistants and chatbots with natural language processing"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Computer Vision",
+          "description": "Image recognition and video analysis with AI"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title={`Artificial Intelligence & Machine Learning | Business AI Solutions - Pamasoft`}
+  description={`Artificial Intelligence solutions for businesses: Machine Learning, generative AI, chatbots, process automation, predictive analytics. Specialized AI consulting Italy.`}
+  path="/en/services/artificial-intelligence/"
+  lang="en"
+  keywords={`artificial intelligence business Italy, machine learning companies, generative AI ChatGPT, AI process automation, predictive analytics, custom chatbots, computer vision, AI consulting`}
+  pageClass="service-page"
+  ogImage="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Services","url":"/en/services/"},{"name":"Artificial Intelligence","url":"/en/services/artificial-intelligence/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

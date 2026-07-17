@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Content from '../../../../components/content/en-industry-healthcare.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "IT Healthcare Solutions",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pamasoft",
+    "url": "https://pamasoft.com"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Healthcare Industry"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  },
+  "description": "Specialized IT solutions for the healthcare sector: electronic health records, telemedicine, AI for diagnostics, GDPR compliance and hospital information systems."
+};
+---
+
+<BaseLayout
+  title={`IT Solutions for Healthcare | Digital Health & Telemedicine - Pamasoft`}
+  description={`Specialized IT solutions for Healthcare: electronic health records, telemedicine, diagnostic AI, GDPR compliance. Digital health transformation.`}
+  path="/en/industry/healthcare/"
+  lang="en"
+  keywords={`IT healthcare, digital health, telemedicine, electronic health records, diagnostic AI, GDPR healthcare, hospital information systems`}
+  pageClass="industry-page"
+  ogImage="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  breadcrumbs={[{"name":"Industry","url":"/en/industry/"},{"name":"Healthcare","url":"/en/industry/healthcare/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>

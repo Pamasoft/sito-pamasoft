@@ -1,0 +1,209 @@
+---
+import type { Locale } from '../config/site';
+import { assets } from '../config/assets';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'it' } = Astro.props;
+const isEn = lang === 'en';
+---
+
+<footer class="footer-area">
+  <img src="/assets/imgs/bg-shape-4.svg" alt="Shape" class="animation-slide-right bg-shape" />
+  <div class="footer-top">
+    <div class="custom-container">
+      <div class="custom-row align-items-end justify-content-between">
+        <div class="left-content">
+          <a href={isEn ? '/en/' : '/'} class="logo">
+            <img src={assets.logo} alt="Logo Pamasoft" />
+          </a>
+          <p set:html={isEn ? 'We provide the experience and support to<br>advance your business.' : "Forniamo l'esperienza e il supporto per <br>far progredire la tua azienda."} />
+          <form id="newsletter-form" class="subscribe-form" method="POST" action="https://erp.pamasoft.com/subscribe-newsletter.jsp">
+            <input type="text" name="website" id="website_newsletter" style="position: absolute; left: -5000px;" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="lang" id="newsletter-lang" value={isEn ? 'en' : 'it'} />
+
+            <div class="subscribe-box d-flex">
+              <input
+                type="email"
+                id="newsletter-email"
+                name="email"
+                placeholder={isEn ? 'Enter your Email' : 'Inserisci la tua Email'}
+                required
+              />
+              <button type="submit" class="theme-btn">
+                <span class="btn-text">{isEn ? 'Subscribe' : 'Iscriviti'}</span>
+                <span id="loading-newsletter" class="htmx-indicator spinner-border spinner-border-sm" style="display: none; margin-left: 8px;"></span>
+              </button>
+            </div>
+
+            <div class="subscribe-privacy" style="margin-top: 8px;">
+              <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.7); cursor: pointer;">
+                <input type="checkbox" name="privacy_accept" id="newsletter_privacy" required style="margin-top: 2px; cursor: pointer;" />
+                <span>
+                  {isEn ? (
+                    <>
+                      I have read and accept the{' '}
+                      <a href="/en/privacy-policy/" target="_blank" rel="noopener noreferrer" style="color: var(--primary_color); text-decoration: underline;">
+                        Privacy Policy
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      Ho letto e accetto la{' '}
+                      <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer" style="color: var(--primary_color); text-decoration: underline;">
+                        Privacy Policy
+                      </a>
+                    </>
+                  )}
+                </span>
+              </label>
+            </div>
+
+            <div class="input-row" style="margin-top: 12px;">
+              <div class="input-group">
+                <div id="newsletter-response" class="alert-notification"></div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="right-content">
+          <div class="right-content-inner">
+            <h2>{isEn ? "Let's start something great together" : 'Iniziamo qualcosa di grande insieme'}</h2>
+            <p set:html={isEn ? 'Our team of IT experts is ready to meet you<br>and provide valuable personalized information for your company.' : 'Il nostro team di esperti IT è pronto ad incontrarti <br>e fornirti preziose informazioni personalizzate per la tua azienda.'} />
+            <a href={isEn ? '/en/contact/' : '/contatti/'} class="theme-btn">
+              {isEn ? 'Request an appointment' : 'Richiedi un appuntamento'}
+            </a>
+
+            <div class="footer-experience d-flex align-items-center">
+              <div class="footer-experience-item">
+                <h1>Team <span>{isEn ? 'Dedicated' : 'Dedicato'}</span></h1>
+                <p>{isEn ? 'Always Available' : 'Sempre Disponibile'}</p>
+              </div>
+              <div class="footer-experience-item">
+                <h1>Full <span>Stack</span></h1>
+                <p>Delivery</p>
+              </div>
+              <div class="footer-experience-item">
+                <h1>25+ <span>{isEn ? 'Years' : 'Anni'}</span></h1>
+                <p>{isEn ? 'Industry Experience' : 'Esperienza nel Settore'}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="custom-container">
+      <div class="custom-row">
+        <div class="footer-all-links-wrap justify-content-between d-flex">
+          <div class="footer-links">
+            <h3>{isEn ? 'Services' : 'Servizi'}</h3>
+            <ul>
+              <li><a href={isEn ? '/en/services/' : '/servizi/'}>{isEn ? 'Services Overview' : 'Panoramica Servizi'}</a></li>
+              <li><a href={isEn ? '/en/services/cloud-computing/' : '/servizi/cloud-computing/'}>Cloud Computing</a></li>
+              <li>
+                <a href={isEn ? '/en/services/artificial-intelligence/' : '/servizi/intelligenza-artificiale/'}>
+                  {isEn ? 'Artificial Intelligence' : 'Intelligenza Artificiale'}
+                </a>
+              </li>
+              <li><a href={isEn ? '/en/services/blockchain/' : '/servizi/blockchain/'}>Blockchain</a></li>
+              <li><a href={isEn ? '/en/services/cybersecurity/' : '/servizi/cybersecurity/'}>Cybersecurity</a></li>
+              <li>
+                <a href={isEn ? '/en/services/web-application-development/' : '/servizi/sviluppo-applicazioni-web/'}>
+                  {isEn ? 'Web Application Development' : 'Sviluppo Applicazioni Web'}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>{isEn ? 'Products' : 'Prodotti'}</h3>
+            <ul>
+              <li><a href={isEn ? '/en/prodotti/' : '/prodotti/'}>{isEn ? 'Products' : 'Prodotti'}</a></li>
+              {/* Blog nascosto temporaneamente
+              <li><a href={isEn ? '/en/blog/' : '/blog/'}>Blog</a></li>
+              */}
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>{isEn ? 'Company' : 'Azienda'}</h3>
+            <ul>
+              <li><a href={isEn ? '/en/about/' : '/chi-siamo/'}>{isEn ? 'About' : 'Chi Siamo'}</a></li>
+              <li><a href={isEn ? '/en/contact/' : '/contatti/'}>{isEn ? 'Contact' : 'Contatti'}</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>Industry</h3>
+            <ul>
+              <li><a href={isEn ? '/en/industry/healthcare/' : '/industry/healthcare/'}>Healthcare</a></li>
+              <li><a href={isEn ? '/en/industry/retail/' : '/industry/retail/'}>Retail</a></li>
+              <li><a href={isEn ? '/en/industry/manufacturing/' : '/industry/manufacturing/'}>Manufacturing</a></li>
+              <li><a href={isEn ? '/en/industry/travel-logistics/' : '/industry/travel-logistics/'}>Travel & Logistics</a></li>
+              <li><a href={isEn ? '/en/industry/hospitality/' : '/industry/hospitality/'}>Hospitality</a></li>
+              <li><a href={isEn ? '/en/industry/media-entertainment/' : '/industry/media-entertainment/'}>Media & Entertainment</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>{isEn ? 'Legal' : 'Legale'}</h3>
+            <ul>
+              <li><a href={isEn ? '/en/privacy-policy/' : '/privacy-policy/'}>Privacy Policy</a></li>
+              <li>
+                <a href={isEn ? '/en/terms-of-service/' : '/termini-servizio/'}>
+                  {isEn ? 'Terms of Service' : 'Termini di Servizio'}
+                </a>
+              </li>
+              <li><a href={isEn ? '/en/cookie-policy/' : '/cookie-policy/'}>Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-contact-info">
+          <div class="footer-contact-info-item">
+            <h4>{isEn ? 'Talk to an expert' : 'Parla con un esperto'}</h4>
+            <p>
+              <a href="https://calendly.com/pamasoft/30min" target="_blank" rel="noopener noreferrer">
+                {isEn ? 'Book a call' : 'Prenota una call'}
+              </a>
+            </p>
+          </div>
+          <div class="footer-contact-info-item">
+            <h4>{isEn ? 'Write to us' : 'Scrivici'}</h4>
+            <p>
+              <a href="mailto:info@pamasoft.com">info@pamasoft.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright-area">
+    <div class="custom-container">
+      <div class="custom-row d-flex align-items-center justify-content-between">
+        <ul class="social-links d-flex align-items-center">
+          <li>
+            <a href="https://x.com/pamasoft" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/pamasoft" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+        </ul>
+
+        <p>&copy; <span id="current-year"></span> Pamasoft - P.IVA 05657500483 - All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+</script>

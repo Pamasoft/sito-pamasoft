@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Content from '../../components/content/it-termini-servizio.astro';
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Termini e Condizioni di Servizio",
+  "description": "Termini e condizioni generali di Pamasoft",
+  "url": "https://pamasoft.com/termini-servizio/"
+};
+---
+
+<BaseLayout
+  title={`Termini e Condizioni di Servizio - Pamasoft`}
+  description={`Termini e condizioni generali di utilizzo del sito web Pamasoft e dei servizi offerti. Leggi le condizioni applicabili ai nostri servizi IT.`}
+  path="/termini-servizio/"
+  lang="it"
+  keywords={`termini di servizio, condizioni generali, contratto, pamasoft, termini utilizzo`}
+  breadcrumbs={[{"name":"Termini di Servizio","url":"/termini-servizio/"}]}
+  structuredData={structuredData}
+>
+  <Content />
+</BaseLayout>
