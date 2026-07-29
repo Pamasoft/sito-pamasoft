@@ -4,7 +4,7 @@ slug: "spoortal"
 tagline: "Sports management for promotion bodies and amateur clubs."
 descrizione: "SPOORTAL digitizes affiliations, membership cards, payments, training and events for the sports world. A clear platform for promotion bodies and sports clubs that want organized work with less complexity."
 logo: ./images/spoortal-logo.svg
-screenshot: ./images/spoortal-screenshot.svg
+screenshot: ./images/spoortal-screenshot.png
 dominioEsterno: "https://spoortal.it"
 brandAutonomo: true
 ctaPrincipale:

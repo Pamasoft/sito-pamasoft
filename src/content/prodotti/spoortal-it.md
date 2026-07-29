@@ -4,7 +4,7 @@ slug: "spoortal"
 tagline: "Il gestionale sportivo per enti e società dilettantistiche."
 descrizione: "SPOORTAL digitalizza affiliazioni, tessere, pagamenti, formazione ed eventi per il mondo sportivo. Una piattaforma chiara per enti di promozione e società sportive che vogliono lavorare con ordine e meno complessità."
 logo: ./images/spoortal-logo.svg
-screenshot: ./images/spoortal-screenshot.svg
+screenshot: ./images/spoortal-screenshot.png
 dominioEsterno: "https://spoortal.it"
 brandAutonomo: true
 ctaPrincipale:
