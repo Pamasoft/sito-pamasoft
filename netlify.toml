@@ -25,6 +25,26 @@
   to = "/contatti/"
   status = 301
 
+[[redirects]]
+  from = "/prodotti/cloudretail"
+  to = "/prodotti/cloudpos/"
+  status = 301
+
+[[redirects]]
+  from = "/prodotti/cloudretail/"
+  to = "/prodotti/cloudpos/"
+  status = 301
+
+[[redirects]]
+  from = "/en/prodotti/cloudretail"
+  to = "/en/prodotti/cloudpos/"
+  status = 301
+
+[[redirects]]
+  from = "/en/prodotti/cloudretail/"
+  to = "/en/prodotti/cloudpos/"
+  status = 301
+
 [build.processing]
   skip_processing = false
 

@@ -17,7 +17,7 @@
 - **Pamasoft Healthcare** — gestionale per case di cura private. https://pamasoft.com/prodotti/pamasoft-healthcare/ · https://healthcare.pamasoft.com
 - **Posway** — piattaforma pagamenti per merchant e attività commerciali. https://pamasoft.com/prodotti/posway/ · https://posway.io
 - **SPOORTAL** — gestionale per enti e società sportive. https://pamasoft.com/prodotti/spoortal/ · https://spoortal.it
-- **Pamasoft CloudRetail** — POS, pagamenti e retail. https://pamasoft.com/prodotti/cloudretail/ · https://square.pamasoft.com
+- **Pamasoft CloudPos** — POS, pagamenti e retail. https://pamasoft.com/prodotti/cloudpos/ · https://square.pamasoft.com
 - **Virtual Clinic** — telemedicina e videoconsulti. https://pamasoft.com/prodotti/virtual-clinic/ · https://virtualclinic.it
 
 ## Pagine principali

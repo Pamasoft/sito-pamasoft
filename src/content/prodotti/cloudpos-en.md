@@ -1,15 +1,15 @@
 ---
-nome: "Pamasoft CloudRetail"
-slug: "cloudretail"
+nome: "Pamasoft CloudPos"
+slug: "cloudpos"
 tagline: "Run checkout, inventory, customers and your team from one platform."
-descrizione: "Pamasoft CloudRetail is the cloud solution for shops and commercial businesses: fast checkout, controlled inventory, returning customers, invoices and appointments. Everything you need to sell better every day."
-logo: ./images/cloudretail-logo.svg
+descrizione: "Pamasoft CloudPos is the cloud solution for shops and commercial businesses: fast checkout, controlled inventory, returning customers, invoices and appointments. Everything you need to sell better every day."
+logo: ./images/cloudpos-logo.svg
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://square.pamasoft.com"
 brandAutonomo: true
 ctaPrincipale:
-  label: "Try CloudRetail"
+  label: "Try CloudPos"
   url: "https://square.pamasoft.com"
 industryCorrelate:
   - retail
@@ -58,6 +58,6 @@ pubblicato: true
 lingua: "en"
 ---
 
-Pamasoft CloudRetail helps shops work better: fewer scattered tools, fewer spreadsheets, more control over sales and inventory.
+Pamasoft CloudPos helps shops work better: fewer scattered tools, fewer spreadsheets, more control over sales and inventory.
 
 It is designed for teams that want a platform that is easy at the counter, yet complete enough for back office, customers and staff. Ideal if you run a physical store and want to digitize daily operations without making things complicated.

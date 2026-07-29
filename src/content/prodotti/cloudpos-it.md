@@ -1,15 +1,15 @@
 ---
-nome: "Pamasoft CloudRetail"
-slug: "cloudretail"
+nome: "Pamasoft CloudPos"
+slug: "cloudpos"
 tagline: "Gestisci cassa, magazzino, clienti e team da un'unica piattaforma."
-descrizione: "Pamasoft CloudRetail è la soluzione cloud per negozi e attività commerciali: cassa veloce, magazzino sotto controllo, clienti fidelizzati, fatture e appuntamenti. Tutto ciò che serve per vendere meglio ogni giorno."
-logo: ./images/cloudretail-logo.svg
+descrizione: "Pamasoft CloudPos è la soluzione cloud per negozi e attività commerciali: cassa veloce, magazzino sotto controllo, clienti fidelizzati, fatture e appuntamenti. Tutto ciò che serve per vendere meglio ogni giorno."
+logo: ./images/cloudpos-logo.svg
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://square.pamasoft.com"
 brandAutonomo: true
 ctaPrincipale:
-  label: "Prova CloudRetail"
+  label: "Prova CloudPos"
   url: "https://square.pamasoft.com"
 industryCorrelate:
   - retail
@@ -58,6 +58,6 @@ pubblicato: true
 lingua: "it"
 ---
 
-Pamasoft CloudRetail aiuta i negozi a lavorare meglio: meno strumenti sparsi, meno fogli Excel, più controllo su vendite e magazzino.
+Pamasoft CloudPos aiuta i negozi a lavorare meglio: meno strumenti sparsi, meno fogli Excel, più controllo su vendite e magazzino.
 
 È pensato per chi vuole una piattaforma semplice da usare al banco, ma abbastanza completa da coprire anche back-office, clienti e team. Ideale se gestisci un punto vendita fisico e vuoi digitalizzare le operazioni quotidiane senza complicarti la vita.
