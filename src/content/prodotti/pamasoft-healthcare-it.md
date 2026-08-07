@@ -7,7 +7,7 @@ logo: ./images/pamasoft-healthcare-logo.svg
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://healthcare.pamasoft.com"
-brandAutonomo: true
+brandAutonomo: false
 ctaPrincipale:
   label: "Scopri Healthcare"
   url: "https://healthcare.pamasoft.com"

@@ -7,7 +7,7 @@ logo: ./images/cloudsuite-logo.png
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://cloudsuite.pamasoft.com"
-brandAutonomo: true
+brandAutonomo: false
 ctaPrincipale:
   label: "Enter CloudSuite"
   url: "https://cloudsuite.pamasoft.com"

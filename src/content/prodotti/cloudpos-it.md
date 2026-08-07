@@ -7,7 +7,7 @@ logo: ./images/cloudpos-logo.svg
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://square.pamasoft.com"
-brandAutonomo: true
+brandAutonomo: false
 ctaPrincipale:
   label: "Prova CloudPos"
   url: "https://square.pamasoft.com"

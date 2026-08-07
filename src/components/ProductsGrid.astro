@@ -63,7 +63,7 @@ const industryLabels: Record<string, { it: string; en: string }> = {
               <a href={`${basePath}/${data.slug}/`} class="theme-btn">
                 {isEn ? 'Learn more' : 'Scopri di più'}
               </a>
-              {data.dominioEsterno && (
+              {data.brandAutonomo && data.dominioEsterno && (
                 <a href={data.dominioEsterno} class="theme-btn2" target="_blank" rel="noopener noreferrer">
                   {isEn ? 'Visit website' : 'Vai al sito'}
                   <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>

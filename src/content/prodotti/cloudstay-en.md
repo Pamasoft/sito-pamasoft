@@ -7,7 +7,7 @@ logo: ./images/cloudstay-logo.svg
 screenshot: ./images/cloudstay-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://cloudstay.pamasoft.com"
-brandAutonomo: true
+brandAutonomo: false
 ctaPrincipale:
   label: "Discover CloudStay"
   url: "https://cloudstay.pamasoft.com"
