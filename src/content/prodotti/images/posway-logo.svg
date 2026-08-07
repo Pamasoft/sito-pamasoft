@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Posway">
+  <rect width="256" height="256" rx="56" fill="#0B1220"/>
+  <rect x="40" y="40" width="176" height="176" rx="36" fill="#2F4BFF"/>
+  <!-- three diagonal bars -->
+  <g transform="translate(128 128) rotate(-28)">
+    <rect x="-52" y="-58" width="28" height="116" rx="14" fill="#0B1220"/>
+    <rect x="-14" y="-58" width="28" height="116" rx="14" fill="#0B1220"/>
+    <rect x="24" y="-58" width="28" height="116" rx="14" fill="#0B1220"/>
+  </g>
+</svg>

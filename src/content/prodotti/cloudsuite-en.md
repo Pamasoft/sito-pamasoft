@@ -3,7 +3,7 @@ nome: "Pamasoft CloudSuite"
 slug: "cloudsuite"
 tagline: "Accounting, invoices, payments and CRM in one cloud system."
 descrizione: "Pamasoft CloudSuite is the cloud management platform for SMBs: customers and suppliers, e-invoicing, due dates, payments, catalog and CRM. Fewer manual steps, more control over everyday business operations."
-logo: ./images/cloudsuite-logo.png
+logo: ./images/cloudsuite-logo.svg
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://cloudsuite.pamasoft.com"

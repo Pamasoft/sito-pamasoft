@@ -3,7 +3,7 @@ nome: "Pamasoft CloudSuite"
 slug: "cloudsuite"
 tagline: "Contabilità, fatture, pagamenti e CRM in un solo gestionale cloud."
 descrizione: "Pamasoft CloudSuite è il gestionale cloud per PMI: clienti e fornitori, fatturazione elettronica, scadenze, pagamenti, catalogo e CRM. Meno passaggi manuali, più controllo sulla gestione quotidiana dell’azienda."
-logo: ./images/cloudsuite-logo.png
+logo: ./images/cloudsuite-logo.svg
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://cloudsuite.pamasoft.com"

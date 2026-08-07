@@ -1,5 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60" role="img" aria-label="Pamasoft CloudStay">
-  <rect width="240" height="60" rx="8" fill="#1B4FD8"/>
-  <text x="120" y="26" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Pamasoft</text>
-  <text x="120" y="44" text-anchor="middle" fill="#0EA5A0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">CloudStay</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="CloudStay">
+  <rect width="256" height="256" rx="56" fill="#0D9488"/>
+  <!-- building / hotel -->
+  <rect x="68" y="78" width="120" height="118" rx="12" fill="#fff"/>
+  <rect x="88" y="98" width="28" height="28" rx="4" fill="#0D9488"/>
+  <rect x="140" y="98" width="28" height="28" rx="4" fill="#0D9488"/>
+  <rect x="88" y="140" width="28" height="28" rx="4" fill="#0D9488"/>
+  <rect x="140" y="140" width="28" height="28" rx="4" fill="#0D9488"/>
+  <rect x="112" y="176" width="32" height="20" rx="3" fill="#0D9488"/>
+  <!-- soft cloud accent -->
+  <circle cx="176" cy="70" r="18" fill="#fff" opacity="0.95"/>
+  <circle cx="196" cy="74" r="14" fill="#fff" opacity="0.95"/>
+  <circle cx="158" cy="76" r="12" fill="#fff" opacity="0.95"/>
 </svg>
