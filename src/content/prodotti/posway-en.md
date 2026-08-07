@@ -3,7 +3,7 @@ nome: "Posway"
 slug: "posway"
 tagline: "Accept payments, manage subscriptions and track revenue in one platform."
 descrizione: "Posway is Pamasoft’s platform to accept and manage payments: products, customers, subscriptions, terminals and reports. Ideal for businesses that sell online, in store or with recurring plans."
-logo: ./images/posway-logo.png
+logo: ./images/posway-logo.svg
 screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://posway.io"
