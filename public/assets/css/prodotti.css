@@ -378,7 +378,7 @@
 
 .pd-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
@@ -503,6 +503,17 @@
 
 .pd-story-body :global(p) {
   margin: 0 0 1.1rem;
+}
+
+.pd-story-body :global(h3) {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.pd-story-body :global(strong) {
+  color: #0f172a;
+  font-weight: 700;
 }
 
 .pd-story-body :global(ul) {

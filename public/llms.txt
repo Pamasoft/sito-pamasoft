@@ -12,7 +12,7 @@
 
 ## Prodotti SaaS
 
-- **Pamasoft CloudStay** — booking engine e piattaforma operativa per hotel e strutture ricettive. https://pamasoft.com/prodotti/cloudstay/ · https://cloudstay.pamasoft.com
+- **Pamasoft CloudStay** — piattaforma hospitality completa: booking diretto, PMS, housekeeping, revenue (PriceIQ), finance e guest experience. https://pamasoft.com/prodotti/cloudstay/ · https://cloudstay.pamasoft.com
 - **Pamasoft CloudSuite** — ERP e gestione contabile per PMI. https://pamasoft.com/prodotti/cloudsuite/ · https://cloudsuite.pamasoft.com
 - **Pamasoft Healthcare** — gestionale per case di cura private. https://pamasoft.com/prodotti/pamasoft-healthcare/ · https://healthcare.pamasoft.com
 - **Posway** — piattaforma pagamenti per merchant e attività commerciali. https://pamasoft.com/prodotti/posway/ · https://posway.io
