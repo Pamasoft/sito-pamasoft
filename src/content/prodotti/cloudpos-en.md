@@ -1,10 +1,10 @@
 ---
 nome: "Pamasoft CloudPos"
 slug: "cloudpos"
-tagline: "Till, catalog, stock and customers: cloud POS for shops and venues."
-descrizione: "CloudPos is the platform to sell at the counter, take payments, manage catalog and stock, know your customers and read performance. Retail and hospitality in one system: from till to report, without scattered sheets."
+tagline: "One cloud POS, many businesses: retail, bars, restaurants, beauty, fitness and services."
+descrizione: "CloudPos configures itself around your activity type at signup. The same till, payments and customers for everyone — then different modules and ops menus for clothing stores, restaurants, bars, salons, gyms or field service, without forcing one model."
 logo: ./images/cloudpos-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://square.pamasoft.com"
 brandAutonomo: false
@@ -15,89 +15,111 @@ industryCorrelate:
   - retail
   - hospitality
 pubblicoTarget:
-  - Shops and boutiques
-  - Bars, restaurants and takeaway
-  - Counter-service businesses
-  - Chains and multi-location operators
+  - "Shops (clothing, grocery, wine, electronics)"
+  - "Bars, restaurants, bakeries and takeaway"
+  - "Salons, barbers, spas and beauty centers"
+  - "Gyms, yoga, pilates and personal trainers"
+  - "Field services (repairs, cleaning, pet, automotive)"
+vantaggiLead: "Concrete benefits for counter sales, dining room or appointment-based work."
+featuresLead: "A shared core for every trade, plus vertical operations for your profile."
 vantaggi:
+  - titolo: "Pick your trade"
+    descrizione: "At activation you choose the activity type: CloudPos prepares menus, modules and labels for you."
+    icona: "fas fa-store"
   - titolo: "Sell faster"
-    descrizione: "Product grid, barcode scan, discounts and checkout in a few taps."
+    descrizione: "Touch till, barcodes, discounts and checkout in a few taps — shared across verticals."
     icona: "fas fa-bolt"
   - titolo: "Everyday payments"
-    descrizione: "Cash, card or split tenders, with receipts and returns from the same system."
+    descrizione: "Cash, card or split, with receipts, invoices and returns from the same system."
     icona: "fas fa-credit-card"
-  - titolo: "Stock under control"
-    descrizione: "Every sale updates inventory; low-stock alerts and returns restore quantities."
-    icona: "fas fa-boxes"
+  - titolo: "Stock or calendar, where needed"
+    descrizione: "Inventory for retail and food; native appointments for beauty, fitness and services."
+    icona: "fas fa-th-large"
   - titolo: "Customers you know"
-    descrizione: "Profiles linked to the sale, purchase history and invoices."
+    descrizione: "Profiles linked to sales, history and notes — from till line to beauty card."
     icona: "fas fa-user-friends"
   - titolo: "Clear numbers"
-    descrizione: "Daily dashboard, period reports, top products and export."
+    descrizione: "Dashboard, analytics and CloudPos AI to see what sells and where to act."
     icona: "fas fa-chart-pie"
-  - titolo: "Fits how you work"
-    descrizione: "Retail variants (size/color) or floor, menu and kitchen for venues — without forcing one model."
-    icona: "fas fa-store"
-featureHighlights:
-  - titolo: "Touch till"
-    descrizione: "Catalog grid, cart, daily order numbers and optional email receipt."
-    icona: "fas fa-cash-register"
-  - titolo: "Barcode scanning"
-    descrizione: "Add products to the cart by scanning with the device camera."
-    icona: "fas fa-barcode"
-  - titolo: "Flexible payment"
-    descrizione: "Take cash, card or split cash + card on the same sale."
-    icona: "fas fa-money-bill-wave"
-  - titolo: "Discounts, tips & notes"
-    descrizione: "Percent or fixed discounts, tips, promo codes and order notes before closing."
-    icona: "fas fa-percent"
-  - titolo: "Customer at checkout"
-    descrizione: "Attach a customer to the cart and see recent purchases while selling."
-    icona: "fas fa-id-card"
-  - titolo: "Quick returns"
-    descrizione: "Process returns from past orders and put stock back when approved."
-    icona: "fas fa-undo"
-  - titolo: "Product catalog"
-    descrizione: "Name, SKU, barcode, price, VAT, categories and on/off availability."
-    icona: "fas fa-tags"
-  - titolo: "Inventory & alerts"
-    descrizione: "Quantities and thresholds; alerts when items run low."
-    icona: "fas fa-warehouse"
-  - titolo: "Variants & labels"
-    descrizione: "Size/color matrices, suppliers, seasons and shelf labels."
-    icona: "fas fa-th"
-  - titolo: "Floor & kitchen"
-    descrizione: "Table map, digital menu, kitchen tickets, takeaway and delivery."
+modelliBusiness:
+  - titolo: "Retail"
+    descrizione: "Clothing, grocery, wine shop, home & gift, garden, electronics, tobacco: variants, suppliers, seasons and returns."
+    icona: "fas fa-shopping-bag"
+  - titolo: "Food & Beverage"
+    descrizione: "Restaurant, bar, quick service, bakery, catering, food truck, brewery: floor, menu, KDS and delivery when needed."
     icona: "fas fa-utensils"
+  - titolo: "Beauty"
+    descrizione: "Salon, barber, spa, nails, tattoo, med spa: client cards, stations and consultations."
+    icona: "fas fa-spa"
+  - titolo: "Fitness"
+    descrizione: "Gym, yoga, pilates, CrossFit, PT, pool, martial arts: memberships, classes and check-in."
+    icona: "fas fa-dumbbell"
+  - titolo: "Services"
+    descrizione: "Repairs, professional, cleaning, pet, health, outdoor, automotive: jobs, quotes and field work."
+    icona: "fas fa-tools"
+  - titolo: "Other"
+    descrizione: "Start from till, customers and inventory; enable vertical modules when your model is clear."
+    icona: "fas fa-ellipsis-h"
+featureHighlights:
+  - titolo: "Till for everyone"
+    descrizione: "Catalog grid, cart, order number and receipt — the shared core of every profile."
+    icona: "fas fa-cash-register"
+  - titolo: "Activity profile at signup"
+    descrizione: "Choose among dozens of types (e.g. Clothing Store, Bar, Restaurant): the UI adapts."
+    icona: "fas fa-sliders-h"
+  - titolo: "Retail operations"
+    descrizione: "Sizes & colors, brands and suppliers, seasons, promos and sales by variant."
+    icona: "fas fa-tshirt"
+  - titolo: "Food operations"
+    descrizione: "Floor & menu, counter, kitchen tickets, takeaway and delivery by venue type."
+    icona: "fas fa-hamburger"
+  - titolo: "Beauty & services appointments"
+    descrizione: "Calendar and stations for salons, spas and field service — not just a generic till."
+    icona: "fas fa-calendar-check"
+  - titolo: "Fitness plans & classes"
+    descrizione: "Memberships, entries and check-in designed for gyms and studios."
+    icona: "fas fa-id-card"
+  - titolo: "Linked inventory"
+    descrizione: "On retail and food, every sale updates stock; low-stock alerts and returns."
+    icona: "fas fa-warehouse"
+  - titolo: "Flexible payment"
+    descrizione: "Cash, card or split; invoicing and customers in the same flow."
+    icona: "fas fa-money-bill-wave"
+  - titolo: "Scanning and discounts"
+    descrizione: "Barcodes, % discounts, fixed amounts, tips, notes and promo codes."
+    icona: "fas fa-barcode"
   - titolo: "Customer directory"
-    descrizione: "Searchable CRM with contacts, spend, visits, notes and links to sales."
+    descrizione: "Searchable CRM with spend, visits and links to sales or appointments."
     icona: "fas fa-address-book"
-  - titolo: "Analytics & AI"
-    descrizione: "Revenue, average ticket, top products, export and natural-language questions."
+  - titolo: "Staff and roles"
+    descrizione: "Team at the till and in operations, with access aligned to your profile."
+    icona: "fas fa-users-cog"
+  - titolo: "Analytics and AI"
+    descrizione: "Revenue, average ticket, top products and natural-language questions."
     icona: "fas fa-robot"
 comeFunziona:
-  - titolo: "Activate your business"
-    descrizione: "Register the profile and choose your industry (retail, restaurant, services…)."
-  - titolo: "Set catalog and team"
-    descrizione: "Add products (and variants or menu/tables), invite staff and configure payments."
+  - titolo: "Say what business you are"
+    descrizione: "At registration choose your profile (retail, food, beauty, fitness, services or other)."
+  - titolo: "CloudPos configures itself"
+    descrizione: "The right modules turn on: inventory, appointments, vertical ops menus."
   - titolo: "Sell every day"
-    descrizione: "Use the till at the counter or hospitality flows (tables → kitchen → bill)."
+    descrizione: "Shared till + flows for your trade (variants, floor, stations, classes, jobs)."
   - titolo: "Measure and improve"
-    descrizione: "Dashboard and analytics show what sells, what is low and where to act."
+    descrizione: "Dashboard and analytics show what sells and where to act."
 pubblicato: true
 lingua: "en"
 ---
 
-CloudPos is not “just a till”. It is the store operating system: sales, payments, stock, customers and reports in one place.
+CloudPos is not “one POS for everyone”. It is **a platform that adapts to the business model**: choose your activity type and get till, payments and customers — plus operations for your sector.
 
-It brings together **POS**, **catalog**, **inventory** and **analytics** so the counter and management work on the same data.
+### Five worlds, one core
 
-### Why shops and venues choose it
+**Retail**, **Food & Beverage**, **Beauty**, **Fitness** and **Services** share till, payments, invoices, customers, staff and analytics. Then paths diverge: sizes and colors in a boutique, floor and kitchen in a restaurant, stations in a salon, memberships in a gym, quotes in the field.
 
-Because today the problem is not accepting a card. It is keeping prices, stock, customers and end-of-day closings aligned — without five apps and ten spreadsheets.
+### Why it matters
 
-With CloudPos you sell, return, update stock and read the numbers. On the same thread.
+Because a clothing store does not work like a cocktail bar, and a barber does not work like a food truck. CloudPos does not force a generic menu: at activation it asks *what kind of business you run* and prepares the experience accordingly.
 
 ### The outcome
 
-Shorter queues, more reliable inventory, recognized customers and useful reports. If you want a complete cloud POS for retail and hospitality — not just an isolated terminal — CloudPos is built for that.
+The same commerce stack for everyone; vertical depth where it counts. If you want a multi-trade cloud POS — not just “shop or restaurant” in the abstract — CloudPos is built that way.

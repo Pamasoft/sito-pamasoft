@@ -1,10 +1,10 @@
 ---
 nome: "Pamasoft CloudPos"
 slug: "cloudpos"
-tagline: "Cassa, catalogo, magazzino e clienti: il POS cloud per negozi e locali."
-descrizione: "CloudPos è la piattaforma per vendere al bancone, accettare pagamenti, gestire catalogo e scorte, conoscere i clienti e leggere le performance. Retail e hospitality nello stesso sistema: dalla cassa al report, senza fogli sparsi."
+tagline: "Un POS cloud, tanti mestieri: retail, bar, ristoranti, beauty, fitness e servizi."
+descrizione: "CloudPos si configura sul tuo tipo di attività all’attivazione. Stessa cassa, pagamenti e clienti per tutti; poi moduli e menu operativi diversi per negozio di abbigliamento, ristorante, bar, salone, palestra o field service — senza forzare un modello unico."
 logo: ./images/cloudpos-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://square.pamasoft.com"
 brandAutonomo: false
@@ -15,89 +15,111 @@ industryCorrelate:
   - retail
   - hospitality
 pubblicoTarget:
-  - Negozi e boutique
-  - Bar, ristoranti e takeaway
-  - Attività di servizi al bancone
-  - Catene e multi-punto vendita
+  - "Negozi (abbigliamento, alimentari, enoteca, elettronica)"
+  - "Bar, ristoranti, bakery e takeaway"
+  - "Saloni, barbieri, spa e centri beauty"
+  - "Palestre, yoga, pilates e personal trainer"
+  - "Servizi sul campo (riparazioni, pulizie, pet, automotive)"
+vantaggiLead: "Benefici concreti per chi vende al bancone, in sala o su appuntamento."
+featuresLead: "Nucleo comune per tutti i mestieri, più operatività verticale sul tuo profilo."
 vantaggi:
+  - titolo: "Scegli il tuo mestiere"
+    descrizione: "In attivazione indichi il tipo di attività: CloudPos prepara menu, moduli e etichette su misura."
+    icona: "fas fa-store"
   - titolo: "Vendi più in fretta"
-    descrizione: "Griglia prodotti, scanner barcode, sconti e chiusura vendita in pochi tap."
+    descrizione: "Cassa touch, barcode, sconti e chiusura vendita in pochi tap — uguale per ogni verticale."
     icona: "fas fa-bolt"
   - titolo: "Pagamenti di tutti i giorni"
-    descrizione: "Contanti, carta o misto, con scontrini e resi dallo stesso sistema."
+    descrizione: "Contanti, carta o misto, con scontrini, fatture e resi dallo stesso sistema."
     icona: "fas fa-credit-card"
-  - titolo: "Scorte sotto controllo"
-    descrizione: "Ogni vendita aggiorna il magazzino; avvisi di scorta minima e resi che ripristinano le quantità."
-    icona: "fas fa-boxes"
+  - titolo: "Stock o agenda, dove serve"
+    descrizione: "Inventario per retail e food; appuntamenti nativi per beauty, fitness e servizi."
+    icona: "fas fa-th-large"
   - titolo: "Clienti che conosci"
-    descrizione: "Profili collegati alla vendita, storico acquisti e fatture."
+    descrizione: "Profili collegati a vendite, storico e note — dal pezzo in cassa alla scheda beauty."
     icona: "fas fa-user-friends"
   - titolo: "Numeri chiari"
-    descrizione: "Dashboard giornaliera, report di periodo, top prodotti ed export."
+    descrizione: "Dashboard, analytics e CloudPos AI per capire cosa vende e dove intervenire."
     icona: "fas fa-chart-pie"
-  - titolo: "Adatto al tuo mestiere"
-    descrizione: "Varianti retail (taglia/colore) o sala, menu e cucina per i locali — senza forzature."
-    icona: "fas fa-store"
-featureHighlights:
-  - titolo: "Cassa touch"
-    descrizione: "Griglia catalogo, carrello, numero ordine e ricevuta email opzionale."
-    icona: "fas fa-cash-register"
-  - titolo: "Scanner barcode"
-    descrizione: "Aggiungi prodotti al carrello scansionando con la fotocamera del dispositivo."
-    icona: "fas fa-barcode"
-  - titolo: "Pagamento flessibile"
-    descrizione: "Incassa in contanti, carta o split sulla stessa vendita."
-    icona: "fas fa-money-bill-wave"
-  - titolo: "Sconti, mance e note"
-    descrizione: "Percentuali o importi fissi, mance, codici promo e note ordine prima della chiusura."
-    icona: "fas fa-percent"
-  - titolo: "Cliente in cassa"
-    descrizione: "Collega un cliente al carrello e vedi gli acquisti recenti mentre vendi."
-    icona: "fas fa-id-card"
-  - titolo: "Resi rapidi"
-    descrizione: "Gestisci resi dagli ordini passati e ripristina lo stock quando serve."
-    icona: "fas fa-undo"
-  - titolo: "Catalogo prodotti"
-    descrizione: "Nome, SKU, barcode, prezzo, IVA, categorie e disponibilità on/off."
-    icona: "fas fa-tags"
-  - titolo: "Magazzino e alert"
-    descrizione: "Quantità e soglie; avvisi quando un articolo scende sotto minimo."
-    icona: "fas fa-warehouse"
-  - titolo: "Varianti e etichette"
-    descrizione: "Matrici taglia/colore, fornitori, stagioni ed etichette scaffale."
-    icona: "fas fa-th"
-  - titolo: "Sala e cucina"
-    descrizione: "Mappa tavoli, menu digitale, comande cucina, takeaway e delivery."
+modelliBusiness:
+  - titolo: "Retail"
+    descrizione: "Abbigliamento, alimentari, enoteca, casa & regalo, vivai, elettronica, tabacchi: varianti, fornitori, stagioni e resi."
+    icona: "fas fa-shopping-bag"
+  - titolo: "Food & Beverage"
+    descrizione: "Ristorante, bar, fast food, bakery, catering, food truck, birrificio: sala, menu, cucina/KDS e delivery dove serve."
     icona: "fas fa-utensils"
+  - titolo: "Beauty"
+    descrizione: "Salone, barbiere, spa, unghie, tatuaggi, med spa: schede cliente, cabine/postazioni e consulenze."
+    icona: "fas fa-spa"
+  - titolo: "Fitness"
+    descrizione: "Palestra, yoga, pilates, CrossFit, PT, piscina, arti marziali: abbonamenti, classi e check-in."
+    icona: "fas fa-dumbbell"
+  - titolo: "Servizi"
+    descrizione: "Riparazioni, professionali, pulizie, pet, salute, outdoor, automotive: commesse, preventivi e interventi."
+    icona: "fas fa-tools"
+  - titolo: "Altro"
+    descrizione: "Parti da cassa, clienti e inventario; attivi i moduli verticali quando il modello è chiaro."
+    icona: "fas fa-ellipsis-h"
+featureHighlights:
+  - titolo: "Cassa per tutti"
+    descrizione: "Griglia catalogo, carrello, numero ordine e ricevuta — il cuore comune di ogni profilo."
+    icona: "fas fa-cash-register"
+  - titolo: "Profilo attività all’avvio"
+    descrizione: "Scegli tra decine di tipi (es. Negozio Abbigliamento, Bar, Ristorante): la UI si adatta."
+    icona: "fas fa-sliders-h"
+  - titolo: "Operatività retail"
+    descrizione: "Taglie & colori, brand e fornitori, stagioni, promozioni e report per variante."
+    icona: "fas fa-tshirt"
+  - titolo: "Operatività food"
+    descrizione: "Sala & menu, bancone, comande cucina, takeaway e delivery secondo il locale."
+    icona: "fas fa-hamburger"
+  - titolo: "Appuntamenti beauty & servizi"
+    descrizione: "Agenda e postazioni per saloni, spa e field service — non solo una cassa generica."
+    icona: "fas fa-calendar-check"
+  - titolo: "Abbonamenti & classi fitness"
+    descrizione: "Piani, ingressi e check-in pensati per palestre e studi."
+    icona: "fas fa-id-card"
+  - titolo: "Magazzino collegato"
+    descrizione: "Su retail e food ogni vendita aggiorna le scorte; alert di minimo e resi."
+    icona: "fas fa-warehouse"
+  - titolo: "Pagamento flessibile"
+    descrizione: "Contanti, carta o split; fatturazione e clienti nello stesso flusso."
+    icona: "fas fa-money-bill-wave"
+  - titolo: "Scanner e sconti"
+    descrizione: "Barcode, sconti %, importi fissi, mance, note e codici promo."
+    icona: "fas fa-barcode"
   - titolo: "Anagrafica clienti"
-    descrizione: "CRM ricercabile con contatti, spesa, visite, note e collegamento a vendite."
+    descrizione: "CRM ricercabile con spesa, visite e collegamento a vendite o appuntamenti."
     icona: "fas fa-address-book"
+  - titolo: "Staff e ruoli"
+    descrizione: "Team in cassa e in operatività, con accesso allineato al tuo profilo."
+    icona: "fas fa-users-cog"
   - titolo: "Analytics e AI"
-    descrizione: "Incassi, scontrino medio, top prodotti, export e domande in linguaggio naturale."
+    descrizione: "Incassi, scontrino medio, top prodotti e domande in linguaggio naturale."
     icona: "fas fa-robot"
 comeFunziona:
-  - titolo: "Attivi l’attività"
-    descrizione: "Registri il profilo business e scegli il settore (retail, ristorazione, servizi…)."
-  - titolo: "Prepari catalogo e team"
-    descrizione: "Aggiungi prodotti (e varianti o menu/tavoli), invita lo staff e configuri i pagamenti."
+  - titolo: "Dici che attività sei"
+    descrizione: "In registrazione scegli il profilo (retail, food, beauty, fitness, servizi o altro)."
+  - titolo: "CloudPos si configura"
+    descrizione: "Si attivano i moduli giusti: inventario, appuntamenti, menu operativi verticali."
   - titolo: "Vendi ogni giorno"
-    descrizione: "Usa la cassa al bancone oppure i flussi hospitality (tavoli → cucina → conto)."
+    descrizione: "Cassa comune + flussi del tuo mestiere (varianti, sala, cabine, classi, commesse)."
   - titolo: "Misuri e migliori"
-    descrizione: "Dashboard e analytics ti dicono cosa vende, cosa scarseggia e dove intervenire."
+    descrizione: "Dashboard e analytics ti dicono cosa vende e dove intervenire."
 pubblicato: true
 lingua: "it"
 ---
 
-CloudPos non è “solo una cassa”. È il sistema operativo del punto vendita: vendite, pagamenti, magazzino, clienti e report nello stesso posto.
+CloudPos non è “un POS uguale per tutti”. È **una piattaforma che si adatta al modello di business**: scegli il tipo di attività e ottieni cassa, pagamenti e clienti — più l’operatività del tuo settore.
 
-Unisce **POS**, **catalogo**, **inventory** e **analytics** così il bancone e la direzione lavorano sugli stessi dati.
+### Cinque mondi, un nucleo
 
-### Perché lo scelgono negozi e locali
+**Retail**, **Food & Beverage**, **Beauty**, **Fitness** e **Servizi** condividono cassa, pagamenti, fatture, clienti, staff e analytics. Poi si aprono percorsi diversi: taglie e colori in boutique, sala e cucina in ristorante, cabine in salone, abbonamenti in palestra, preventivi sul campo.
 
-Perché oggi il problema non è accettare una carta. È tenere allineati prezzi, scorte, clienti e chiusure di cassa — senza cinque app e dieci fogli.
+### Perché conta
 
-Con CloudPos vendi, restituisci, aggiorni lo stock e leggi i numeri. Sullo stesso filo.
+Perché un negozio di abbigliamento non lavora come un cocktail bar, e un barbiere non lavora come un food truck. CloudPos non ti impone un menu generico: all’attivazione ti chiede *che tipo di attività gestisci* e prepara l’esperienza di conseguenza.
 
 ### Il risultato
 
-Code più corte, magazzino più affidabile, clienti riconosciuti e report utili. Se vuoi un POS cloud completo per retail e hospitality — non solo un terminale isolato — CloudPos è costruito per questo.
+Stesso stack commerciale per tutti; profondità verticale dove serve. Se cerchi un POS cloud multi-mestiere — non solo “negozio o ristorante” in astratto — CloudPos è costruito così.

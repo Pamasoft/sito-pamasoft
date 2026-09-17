@@ -29,13 +29,21 @@ const copy = {
   badge: isEn ? 'Pamasoft Product' : 'Prodotto Pamasoft',
   visit: isEn ? 'Visit website' : 'Vai al sito',
   benefits: isEn ? 'Why choose it' : 'Perché sceglierlo',
-  benefitsLead: isEn
-    ? 'Real impact on bookings, operations, pricing and guest experience.'
-    : 'Impatto reale su prenotazioni, operazioni, prezzi e esperienza ospite.',
+  benefitsLead:
+    data.vantaggiLead ||
+    (isEn
+      ? 'Concrete benefits for your team and your customers.'
+      : 'Vantaggi concreti per il tuo team e per i tuoi clienti.'),
   features: isEn ? 'What you can do' : 'Cosa puoi fare',
-  featuresLead: isEn
-    ? 'A complete hospitality stack: booking, PMS, revenue, housekeeping, finance and more.'
-    : 'Uno stack hospitality completo: booking, PMS, revenue, housekeeping, finance e molto altro.',
+  featuresLead:
+    data.featuresLead ||
+    (isEn
+      ? 'Everything you need, in one clear and modern platform.'
+      : 'Tutto ciò che ti serve, in una piattaforma chiara e moderna.'),
+  models: isEn ? 'Built for your business' : 'Pensato per il tuo mestiere',
+  modelsLead: isEn
+    ? 'One platform, configured around how you really work.'
+    : 'Una sola piattaforma, configurata su come lavori davvero.',
   forWhom: isEn ? 'Who it is for' : 'Per chi è pensato',
   how: isEn ? 'How it works' : 'Come funziona',
   howLead: isEn
@@ -95,6 +103,28 @@ const copy = {
     </div>
   </div>
 </section>
+
+{
+  data.modelliBusiness.length > 0 && (
+    <section class="pd-section">
+      <div class="custom-container">
+        <div class="pd-section-head">
+          <h2>{copy.models}</h2>
+          <p>{copy.modelsLead}</p>
+        </div>
+        <div class="pd-cards">
+          {data.modelliBusiness.map((item) => (
+            <article class="pd-card">
+              {item.icona && <i class={`${item.icona} pd-card-icon`} aria-hidden="true" />}
+              <h3>{item.titolo}</h3>
+              <p>{item.descrizione}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 {
   data.vantaggi.length > 0 && (

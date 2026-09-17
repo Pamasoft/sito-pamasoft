@@ -12,6 +12,8 @@ ctaPrincipale:
   url: "https://cloudstay.pamasoft.com"
 industryCorrelate:
   - hospitality
+vantaggiLead: "Impatto reale su prenotazioni, operazioni, prezzi e esperienza ospite."
+featuresLead: "Uno stack hospitality completo: booking, PMS, revenue, housekeeping, finance e molto altro."
 pubblicoTarget:
   - Hotel e B&B indipendenti
   - Residence e appartamenti
