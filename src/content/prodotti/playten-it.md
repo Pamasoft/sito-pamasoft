@@ -1,8 +1,8 @@
 ---
 nome: "Playten"
 slug: "playten"
-tagline: "Prenotazioni campi, tariffe, soci e wallet: il gestionale per tennis, padel e pickleball."
-descrizione: "Playten digitalizza disponibilità, prenotazioni, categorie, wallet e pagamenti online. I giocatori prenotano da soli; la segreteria gestisce eccezioni e bancone — senza WhatsApp e senza doppie prenotazioni."
+tagline: "Prenotazioni campi tennis, tariffe, soci e wallet: gestionale per circoli tennis, anche padel e pickleball."
+descrizione: "Playten digitalizza disponibilità e prenotazioni dei campi da tennis (con supporto a padel e pickleball), categorie, wallet e pagamenti online. I giocatori prenotano da soli; la segreteria gestisce eccezioni e bancone — senza WhatsApp e senza doppie prenotazioni."
 logo: ./images/playten-logo.png
 screenshot: ./images/playten-screenshot.jpg
 dominioEsterno: "https://playten.net"
@@ -13,7 +13,7 @@ ctaPrincipale:
 industryCorrelate:
   - media-entertainment
 pubblicoTarget:
-  - Circoli di tennis, padel e pickleball
+  - Circoli di tennis (anche padel e pickleball)
   - Gestori di impianti sportivi
   - Segreterie e reception sportiva
   - Società sportive con campi da gioco
@@ -37,8 +37,8 @@ vantaggi:
     descrizione: "Piano gratuito con campi e prenotazioni; Pro per report, campagne e multi-sede."
     icona: "fas fa-seedling"
 featureHighlights:
-  - titolo: "Campi multi-sport"
-    descrizione: "Tennis, padel e pickleball con durata partita e orari di inizio per campo."
+  - titolo: "Campi tennis (e multi-sport)"
+    descrizione: "Pensato per il tennis; supporto anche a padel e pickleball, con durata partita e orari per campo."
     icona: "fas fa-table-tennis"
   - titolo: "Calendario disponibilità"
     descrizione: "Vista giorno e matrice campi × orari; nessun overlap sullo stesso campo."
@@ -98,4 +98,4 @@ Con Playten i giocatori prenotano, il bancone interviene quando serve, i numeri 
 
 ### Il risultato
 
-Meno telefonate, meno errori, più autonomia per chi gioca e più controllo per chi gestisce. Se vuoi un gestionale tennis/padel/pickleball davvero completo — non solo un calendario — Playten è costruito per questo.
+Meno telefonate, meno errori, più autonomia per chi gioca e più controllo per chi gestisce. Se vuoi un gestionale tennis completo (anche padel e pickleball) — non solo un calendario — Playten è costruito per questo.

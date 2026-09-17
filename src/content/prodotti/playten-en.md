@@ -1,8 +1,8 @@
 ---
 nome: "Playten"
 slug: "playten"
-tagline: "Court bookings, rates, members and wallet: club software for tennis, padel and pickleball."
-descrizione: "Playten digitizes availability, bookings, categories, wallet and online payments. Players book themselves; the desk handles exceptions and walk-ins — without WhatsApp and without double bookings."
+tagline: "Tennis court bookings, rates, members and wallet: club software for tennis, also padel and pickleball."
+descrizione: "Playten digitizes tennis court availability and bookings (with support for padel and pickleball), categories, wallet and online payments. Players book themselves; the desk handles exceptions and walk-ins — without WhatsApp and without double bookings."
 logo: ./images/playten-logo.png
 screenshot: ./images/playten-screenshot.jpg
 dominioEsterno: "https://playten.net"
@@ -13,7 +13,7 @@ ctaPrincipale:
 industryCorrelate:
   - media-entertainment
 pubblicoTarget:
-  - Tennis, padel and pickleball clubs
+  - Tennis clubs (also padel and pickleball)
   - Sports facility managers
   - Club reception and admin teams
   - Sports clubs with playable courts
@@ -37,8 +37,8 @@ vantaggi:
     descrizione: "Free plan with courts and bookings; Pro for reports, campaigns and multi-site."
     icona: "fas fa-seedling"
 featureHighlights:
-  - titolo: "Multi-sport courts"
-    descrizione: "Tennis, padel and pickleball with per-court match duration and start times."
+  - titolo: "Tennis courts (and multi-sport)"
+    descrizione: "Built for tennis; also supports padel and pickleball, with match length and start times per court."
     icona: "fas fa-table-tennis"
   - titolo: "Availability calendar"
     descrizione: "Day view and court × time matrix; no overlapping slots on the same court."
@@ -98,4 +98,4 @@ With Playten players book, the desk steps in when needed, the numbers stay clear
 
 ### The outcome
 
-Fewer calls, fewer errors, more autonomy for players and more control for managers. If you want a truly complete tennis/padel/pickleball platform — not just a calendar — Playten is built for that.
+Fewer calls, fewer errors, more autonomy for players and more control for managers. If you want a complete tennis club platform (also padel and pickleball) — not just a calendar — Playten is built for that.

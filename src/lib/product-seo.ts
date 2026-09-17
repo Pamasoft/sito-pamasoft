@@ -28,6 +28,13 @@ export function productKeywords(data: ProductData, lang: 'it' | 'en'): string {
     'media-entertainment': { it: 'sport, entertainment', en: 'sport, entertainment' },
   };
 
+  const slugKeywords: Record<string, { it: string; en: string }> = {
+    playten: {
+      it: 'tennis, prenotazione campi tennis, circolo tennis, padel, pickleball',
+      en: 'tennis, tennis court booking, tennis club, padel, pickleball',
+    },
+  };
+
   const industries = data.industryCorrelate
     .map((id) => industryMap[id]?.[lang] ?? id)
     .join(', ');
@@ -42,7 +49,9 @@ export function productKeywords(data: ProductData, lang: 'it' | 'en'): string {
       ? `Pamasoft, ${data.nome}, SaaS, cloud software`
       : `Pamasoft, ${data.nome}, SaaS, software cloud`;
 
-  return [base, industries, featureWords].filter(Boolean).join(', ');
+  return [base, slugKeywords[data.slug]?.[lang], industries, featureWords]
+    .filter(Boolean)
+    .join(', ');
 }
 
 export function productPageTitle(data: ProductData, _lang: 'it' | 'en'): string {
