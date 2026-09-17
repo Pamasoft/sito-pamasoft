@@ -2,18 +2,40 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductsGrid from '../../components/ProductsGrid.astro';
+import { site } from '../../config/site';
+import { absoluteAssetUrl } from '../../lib/product-seo';
 
 const prodotti = (await getCollection('prodotti', ({ data }) => data.lingua === 'it' && data.pubblicato)).sort(
   (a, b) => a.data.nome.localeCompare(b.data.nome, 'it'),
 );
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Prodotti SaaS Pamasoft',
+  description: 'Catalogo prodotti software cloud Pamasoft',
+  numberOfItems: prodotti.length,
+  itemListElement: prodotti.map((p, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: p.data.nome,
+    url: `${site.url}/prodotti/${p.data.slug}/`,
+    image: absoluteAssetUrl(p.data.logo.src),
+  })),
+};
 ---
 
 <BaseLayout
   title="Prodotti SaaS Pamasoft | Soluzioni Software Cloud"
-  description="Scopri i prodotti SaaS di Pamasoft: soluzioni software cloud per aziende, con integrazioni verticali per ogni settore."
+  description="Scopri i prodotti SaaS di Pamasoft: CloudStay, CloudSuite, CloudPos, Healthcare, Posway, SPOORTAL, Playten e Virtual Clinic."
+  keywords="prodotti Pamasoft, SaaS, CloudStay, CloudSuite, CloudPos, Healthcare, Posway, SPOORTAL, Playten, Virtual Clinic"
   path="/prodotti/"
   lang="it"
   pageClass="prodotti-page"
+  breadcrumbs={[{ name: 'Prodotti', url: '/prodotti/' }]}
+  ogImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  ogImageAlt="Prodotti SaaS Pamasoft"
+  structuredData={itemListSchema}
 >
   <section class="hero-empowerment-area">
     <div class="custom-container">

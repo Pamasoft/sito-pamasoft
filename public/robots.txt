@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://pamasoft.com/sitemap-index.xml
+
+# Optional AI discovery
+# https://pamasoft.com/llms.txt

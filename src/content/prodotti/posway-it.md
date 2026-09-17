@@ -1,64 +1,104 @@
 ---
 nome: "Posway"
 slug: "posway"
-tagline: "Accetta pagamenti, gestisci abbonamenti e segui gli incassi in un’unica piattaforma."
-descrizione: "Posway è la piattaforma Pamasoft per accettare e gestire pagamenti: prodotti, clienti, abbonamenti, terminali e report. Ideale per attività che vendono online, in negozio o con canoni ricorrenti."
+tagline: "Link, QR, abbonamenti e terminali: la piattaforma pagamenti per chi vende."
+descrizione: "Posway è la piattaforma multi-tenant per richiedere e incassare pagamenti: una tantum, ricorrenti, in negozio o multi-metodo. Dashboard unica su fee, saldo e accrediti — senza costruire un gateway da zero."
 logo: ./images/posway-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
-heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+screenshot: ./images/cloudsuite-screenshot.svg
+heroImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://posway.io"
 brandAutonomo: true
 ctaPrincipale:
-  label: "Inizia con Posway"
-  url: "https://app.posway.io/register"
+  label: "Vai a Posway"
+  url: "https://posway.io"
 industryCorrelate:
   - retail
   - hospitality
+  - manufacturing
 pubblicoTarget:
-  - Negozi e attività commerciali
-  - Servizi con abbonamento
-  - E-commerce e vendita online
-  - Team che gestiscono più punti vendita
+  - Merchant e attività commerciali
+  - Professionisti e studi
+  - SaaS e gestionali che accettano pagamenti
+  - Partner e multi-punto vendita
 vantaggi:
-  - titolo: "Incassi più semplici"
-    descrizione: "Gestisci pagamenti una tantum e ricorrenti senza passare da strumenti frammentati."
-    icona: "fas fa-money-check-alt"
-  - titolo: "Controllo in tempo reale"
-    descrizione: "Vedi lo stato di pagamenti, clienti e incassi con dashboard e report chiari."
-    icona: "fas fa-chart-bar"
-  - titolo: "Online e in negozio"
-    descrizione: "Copri vendita digitale e punti fisici con la stessa piattaforma."
-    icona: "fas fa-store"
+  - titolo: "Incassa più in fretta"
+    descrizione: "Sostituisci “mandami l’IBAN” con link/QR e rinnovi automatici."
+    icona: "fas fa-rocket"
+  - titolo: "Un posto per tutti i ricavi"
+    descrizione: "Online, bancone, SEPA e altri metodi in un’unica dashboard."
+    icona: "fas fa-layer-group"
+  - titolo: "Cassa ricorrente"
+    descrizione: "Abbonamenti con rinnovi automatici per flussi prevedibili."
+    icona: "fas fa-redo"
+  - titolo: "Margini trasparenti"
+    descrizione: "Per ogni pagamento vedi fee Posway, fee processore e netto."
+    icona: "fas fa-search-dollar"
+  - titolo: "Pronto senza gateway custom"
+    descrizione: "Parti dalla dashboard; API opzionale per gestionali e partner."
+    icona: "fas fa-plug"
+  - titolo: "Controllo piattaforma"
+    descrizione: "L’operatore abilita metodi e fee commerciali per merchant."
+    icona: "fas fa-sliders-h"
 featureHighlights:
-  - titolo: "Catalogo prodotti"
-    descrizione: "Definisci prodotti e piani di vendita, anche con abbonamenti e prove gratuite."
-    icona: "fas fa-tags"
-  - titolo: "Gestione clienti"
-    descrizione: "Anagrafiche e storico pagamenti per seguire ogni relazione commerciale."
-    icona: "fas fa-users"
+  - titolo: "Link di pagamento"
+    descrizione: "Richiesta con importo fisso da condividere in un click."
+    icona: "fas fa-link"
+  - titolo: "QR checkout"
+    descrizione: "Stessa richiesta come QR per bancone, eventi e preventivi stampati."
+    icona: "fas fa-qrcode"
+  - titolo: "Pagamenti una tantum"
+    descrizione: "Incassi singoli per fatture, acconti e quote."
+    icona: "fas fa-file-invoice-dollar"
   - titolo: "Abbonamenti"
-    descrizione: "Attiva, sospendi e monitora i ricavi ricorrenti in modo ordinato."
+    descrizione: "Piani mensili o personalizzati con rinnovi automatici."
     icona: "fas fa-sync-alt"
-  - titolo: "Terminali e punto vendita"
-    descrizione: "Gestisci i dispositivi di pagamento e le operazioni in negozio."
+  - titolo: "Checkout multi-metodo"
+    descrizione: "Carte, wallet, SEPA e altri metodi abilitati per il merchant."
+    icona: "fas fa-wallet"
+  - titolo: "Terminali in negozio"
+    descrizione: "Registra lettori e location; i pagamenti in sede entrano nello stesso ledger."
     icona: "fas fa-credit-card"
-  - titolo: "Report e export"
-    descrizione: "Estrai dati su pagamenti e performance per analisi e amministrazione."
-    icona: "fas fa-file-export"
-  - titolo: "Area amministrativa"
-    descrizione: "Supervisiona merchant e attività della piattaforma con una console dedicata."
-    icona: "fas fa-shield-alt"
+  - titolo: "Catalogo prodotti"
+    descrizione: "Prodotti one-time e ricorrenti per creare richieste in pochi secondi."
+    icona: "fas fa-box"
+  - titolo: "Anagrafica clienti"
+    descrizione: "Clienti collegati a pagamenti e abbonamenti."
+    icona: "fas fa-users"
+  - titolo: "Saldo e accrediti"
+    descrizione: "Accreditati, in corso e falliti, con storico payout."
+    icona: "fas fa-university"
+  - titolo: "Report ed export"
+    descrizione: "Filtri periodo, grafici e CSV di ricavi e volumi."
+    icona: "fas fa-chart-bar"
+  - titolo: "Forecast abbonamenti"
+    descrizione: "Proiezione ricavi ricorrenti a una data target."
+    icona: "fas fa-chart-line"
+  - titolo: "Rimborsi"
+    descrizione: "Rimborsi totali o parziali con visibilità sulle fee."
+    icona: "fas fa-undo"
 comeFunziona:
-  - titolo: "Ti registri"
-    descrizione: "Crei l’account e completi l’attivazione del profilo commerciale."
-  - titolo: "Configuri prodotti e clienti"
-    descrizione: "Imposti cosa vendi, a chi e con quali modalità di pagamento."
-  - titolo: "Incassi e monitori"
-    descrizione: "Accetti pagamenti, segui abbonamenti e leggi i risultati dai report."
+  - titolo: "Attivi il negozio"
+    descrizione: "Completi l’onboarding; abiliti i metodi di pagamento che ti servono."
+  - titolo: "Crei la richiesta"
+    descrizione: "Importo, una tantum o abbonamento; ottieni link, QR o avvii un pagamento a terminale."
+  - titolo: "Il cliente paga"
+    descrizione: "Sceglie tra i metodi abilitati (online, SEPA, POS…)."
+  - titolo: "Controlli e incassi"
+    descrizione: "Stati in dashboard, fee/netto, saldo, report e forecast."
 pubblicato: true
 lingua: "it"
 ---
 
-Posway aiuta le aziende a gestire i pagamenti in modo chiaro e professionale, sia online sia in presenza.
+Posway non è “un bottone paga”. È la piattaforma pagamenti per merchant che vogliono link, abbonamenti, terminali e report nello stesso posto.
 
-È pensato per chi vende prodotti, servizi o abbonamenti e vuole una piattaforma unica per catalogo, clienti, incassi e controllo dei risultati. Niente note tecniche: solo ciò che serve per far crescere le vendite e tenere in ordine i flussi di pagamento.
+Unisce **checkout**, **ricorrenti**, **POS in sede** e **accrediti** così smetti di rincorrere bonifici e fogli Excel.
+
+### Perché i merchant lo scelgono
+
+Perché oggi il problema non è accettare una carta. È chiedere, riconciliare e prevedere gli incassi — senza costruire un gateway da zero.
+
+Con Posway crei la richiesta, il cliente paga, tu vedi netto e accrediti. Sullo stesso filo.
+
+### Il risultato
+
+Incassi più rapidi, ricavi ricorrenti sotto controllo e margini leggibili. Se vuoi una piattaforma pagamenti completa — non solo un checkout isolato — Posway è costruito per questo.

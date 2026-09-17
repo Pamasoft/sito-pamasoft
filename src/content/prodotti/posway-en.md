@@ -1,64 +1,104 @@
 ---
 nome: "Posway"
 slug: "posway"
-tagline: "Accept payments, manage subscriptions and track revenue in one platform."
-descrizione: "Posway is Pamasoft’s platform to accept and manage payments: products, customers, subscriptions, terminals and reports. Ideal for businesses that sell online, in store or with recurring plans."
+tagline: "Links, QR, subscriptions and terminals: the payments platform for sellers."
+descrizione: "Posway is the multi-tenant platform to request and collect payments: one-off, recurring, in-store or multi-method. One dashboard for fees, balance and payouts — without building a gateway from scratch."
 logo: ./images/posway-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
-heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+screenshot: ./images/cloudsuite-screenshot.svg
+heroImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://posway.io"
 brandAutonomo: true
 ctaPrincipale:
-  label: "Start with Posway"
-  url: "https://app.posway.io/register"
+  label: "Go to Posway"
+  url: "https://posway.io"
 industryCorrelate:
   - retail
   - hospitality
+  - manufacturing
 pubblicoTarget:
-  - Shops and commercial businesses
-  - Subscription-based services
-  - Online sellers
-  - Teams managing multiple locations
+  - Merchants and local businesses
+  - Professionals and practices
+  - SaaS and software that accept payments
+  - Partners and multi-location sellers
 vantaggi:
-  - titolo: "Simpler collections"
-    descrizione: "Manage one-time and recurring payments without fragmented tools."
-    icona: "fas fa-money-check-alt"
-  - titolo: "Real-time control"
-    descrizione: "Track payments, customers and revenue with clear dashboards and reports."
-    icona: "fas fa-chart-bar"
-  - titolo: "Online and in store"
-    descrizione: "Cover digital sales and physical locations with the same platform."
-    icona: "fas fa-store"
+  - titolo: "Get paid faster"
+    descrizione: "Replace “send me the IBAN” with link/QR and automatic renewals."
+    icona: "fas fa-rocket"
+  - titolo: "One place for all revenue"
+    descrizione: "Online, counter, SEPA and other methods in a single dashboard."
+    icona: "fas fa-layer-group"
+  - titolo: "Predictable recurring cash"
+    descrizione: "Subscriptions with automatic renewals for steadier cashflow."
+    icona: "fas fa-redo"
+  - titolo: "Transparent margins"
+    descrizione: "Per payment see Posway fee, processor fee and net amount."
+    icona: "fas fa-search-dollar"
+  - titolo: "No custom gateway required"
+    descrizione: "Start from the dashboard; optional API for software and partners."
+    icona: "fas fa-plug"
+  - titolo: "Platform control"
+    descrizione: "Operators enable methods and commercial fees per merchant."
+    icona: "fas fa-sliders-h"
 featureHighlights:
-  - titolo: "Product catalog"
-    descrizione: "Define products and sales plans, including subscriptions and free trials."
-    icona: "fas fa-tags"
-  - titolo: "Customer management"
-    descrizione: "Customer records and payment history to follow every commercial relationship."
-    icona: "fas fa-users"
+  - titolo: "Payment links"
+    descrizione: "Shareable fixed-amount payment requests in one click."
+    icona: "fas fa-link"
+  - titolo: "QR checkout"
+    descrizione: "Same request as QR for counters, events and printed quotes."
+    icona: "fas fa-qrcode"
+  - titolo: "One-off payments"
+    descrizione: "Single collections for invoices, deposits and fees."
+    icona: "fas fa-file-invoice-dollar"
   - titolo: "Subscriptions"
-    descrizione: "Activate, pause and monitor recurring revenue in an orderly way."
+    descrizione: "Monthly or custom plans with automatic renewals."
     icona: "fas fa-sync-alt"
-  - titolo: "Terminals and point of sale"
-    descrizione: "Manage payment devices and in-store operations."
+  - titolo: "Multi-method checkout"
+    descrizione: "Cards, wallets, SEPA and other methods enabled per merchant."
+    icona: "fas fa-wallet"
+  - titolo: "In-store terminals"
+    descrizione: "Register readers and locations; in-person payments enter the same ledger."
     icona: "fas fa-credit-card"
-  - titolo: "Reports and exports"
-    descrizione: "Extract payment and performance data for analysis and administration."
-    icona: "fas fa-file-export"
-  - titolo: "Admin area"
-    descrizione: "Supervise merchants and platform activity with a dedicated console."
-    icona: "fas fa-shield-alt"
+  - titolo: "Product catalog"
+    descrizione: "One-time and recurring products to create requests in seconds."
+    icona: "fas fa-box"
+  - titolo: "Customer directory"
+    descrizione: "Customers tied to payments and subscriptions."
+    icona: "fas fa-users"
+  - titolo: "Balance and payouts"
+    descrizione: "Paid out, pending and failed, with payout history."
+    icona: "fas fa-university"
+  - titolo: "Reports and export"
+    descrizione: "Period filters, charts and CSV of revenue and volumes."
+    icona: "fas fa-chart-bar"
+  - titolo: "Subscription forecast"
+    descrizione: "Projected recurring revenue to a target date."
+    icona: "fas fa-chart-line"
+  - titolo: "Refunds"
+    descrizione: "Full or partial refunds with fee visibility."
+    icona: "fas fa-undo"
 comeFunziona:
-  - titolo: "Sign up"
-    descrizione: "Create your account and complete commercial profile activation."
-  - titolo: "Configure products and customers"
-    descrizione: "Set what you sell, to whom and with which payment methods."
-  - titolo: "Collect and monitor"
-    descrizione: "Accept payments, follow subscriptions and review results in reports."
+  - titolo: "Activate the shop"
+    descrizione: "Complete onboarding; enable the payment methods you need."
+  - titolo: "Create the request"
+    descrizione: "Amount, one-off or subscription; get link, QR or start a terminal payment."
+  - titolo: "The customer pays"
+    descrizione: "Chooses among enabled methods (online, SEPA, POS…)."
+  - titolo: "Track and collect"
+    descrizione: "Statuses in the dashboard, fees/net, balance, reports and forecast."
 pubblicato: true
 lingua: "en"
 ---
 
-Posway helps businesses manage payments clearly and professionally, both online and in person.
+Posway is not “a pay button”. It is the payments platform for merchants who want links, subscriptions, terminals and reports in one place.
 
-It is designed for those who sell products, services or subscriptions and want one platform for catalog, customers, collections and performance tracking. No technical jargon: just what you need to grow sales and keep payment flows organized.
+It brings together **checkout**, **recurring**, **in-store POS** and **payouts** so you stop chasing bank transfers and spreadsheets.
+
+### Why merchants choose it
+
+Because today the problem is not accepting a card. It is requesting, reconciling and forecasting collections — without building a gateway from scratch.
+
+With Posway you create the request, the customer pays, you see net and payouts. On the same thread.
+
+### The outcome
+
+Faster collections, recurring revenue under control and readable margins. If you want a complete payments platform — not just an isolated checkout — Posway is built for that.

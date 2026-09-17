@@ -13,24 +13,37 @@
 ## Prodotti SaaS
 
 - **Pamasoft CloudStay** — piattaforma hospitality completa: booking diretto, PMS, housekeeping, revenue (PriceIQ), finance e guest experience. https://pamasoft.com/prodotti/cloudstay/ · https://cloudstay.pamasoft.com
-- **Pamasoft CloudSuite** — ERP e gestione contabile per PMI. https://pamasoft.com/prodotti/cloudsuite/ · https://cloudsuite.pamasoft.com
-- **Pamasoft Healthcare** — gestionale per case di cura private. https://pamasoft.com/prodotti/pamasoft-healthcare/ · https://healthcare.pamasoft.com
-- **Posway** — piattaforma pagamenti per merchant e attività commerciali. https://pamasoft.com/prodotti/posway/ · https://posway.io
-- **SPOORTAL** — gestionale per enti e società sportive. https://pamasoft.com/prodotti/spoortal/ · https://spoortal.it
-- **Playten** — gestionale per circoli di tennis, padel e pickleball. https://pamasoft.com/prodotti/playten/ · https://playten.net
-- **Pamasoft CloudPos** — POS, pagamenti e retail. https://pamasoft.com/prodotti/cloudpos/ · https://square.pamasoft.com
-- **Virtual Clinic** — telemedicina e videoconsulti. https://pamasoft.com/prodotti/virtual-clinic/ · https://virtualclinic.it
+- **Pamasoft CloudSuite** — gestionale cloud PMI: fatturazione elettronica, tesoreria, scadenze, CRM e AI. https://pamasoft.com/prodotti/cloudsuite/ · https://cloudsuite.pamasoft.com
+- **Pamasoft CloudPos** — POS cloud per retail e hospitality: cassa, catalogo, magazzino, clienti e analytics. https://pamasoft.com/prodotti/cloudpos/ · https://square.pamasoft.com
+- **Pamasoft Healthcare** — gestionale per strutture sanitarie private: pazienti, agenda, cartelle, fatturazione. https://pamasoft.com/prodotti/pamasoft-healthcare/ · https://healthcare.pamasoft.com
+- **Posway** — piattaforma pagamenti: link/QR, abbonamenti, terminali, report e accrediti. https://pamasoft.com/prodotti/posway/ · https://posway.io
+- **SPOORTAL** — ecosistema sportivo: affiliazioni, tessere, pagamenti, formazione ed eventi. https://pamasoft.com/prodotti/spoortal/ · https://spoortal.it
+- **Playten** — gestionale circoli tennis/padel/pickleball: prenotazioni, tariffe, wallet e pagamenti. https://pamasoft.com/prodotti/playten/ · https://playten.net
+- **Virtual Clinic** — telemedicina: videovisite con specialisti certificati, documenti e referti. https://pamasoft.com/prodotti/virtual-clinic/ · https://virtualclinic.it
 
-## Pagine principali
+## Pagine principali (IT)
 
 - Home: https://pamasoft.com/
 - Chi Siamo: https://pamasoft.com/chi-siamo/
 - Servizi: https://pamasoft.com/servizi/
 - Prodotti: https://pamasoft.com/prodotti/
 - Industry: https://pamasoft.com/industry/
-- Blog: https://pamasoft.com/blog/
 - Contatti: https://pamasoft.com/contatti/
-- English: https://pamasoft.com/en/
+- Privacy: https://pamasoft.com/privacy-policy/
+- Cookie: https://pamasoft.com/cookie-policy/
+- Termini: https://pamasoft.com/termini-servizio/
+
+## Main pages (EN)
+
+- Home: https://pamasoft.com/en/
+- About: https://pamasoft.com/en/about/
+- Services: https://pamasoft.com/en/services/
+- Products: https://pamasoft.com/en/prodotti/
+- Industry: https://pamasoft.com/en/industry/
+- Contact: https://pamasoft.com/en/contact/
+- Privacy: https://pamasoft.com/en/privacy-policy/
+- Cookie: https://pamasoft.com/en/cookie-policy/
+- Terms: https://pamasoft.com/en/terms-of-service/
 
 ## Contatti
 

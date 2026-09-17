@@ -16,6 +16,8 @@ interface Props {
   lang?: Locale;
   ogType?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
   breadcrumbs?: Breadcrumb[];
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -23,14 +25,22 @@ interface Props {
 const {
   title,
   description,
-  keywords = 'pamasoft, cloud computing, AWS, intelligenza artificiale, blockchain, microservizi, cybersecurity, software development, IT consulting',
+  keywords: keywordsProp,
   path,
   lang = 'it',
   ogType = 'website',
   ogImage = assets.logo,
+  ogImageAlt,
+  noindex = false,
   breadcrumbs,
   structuredData,
 } = Astro.props;
+
+const keywords =
+  keywordsProp ||
+  (lang === 'en'
+    ? 'pamasoft, cloud computing, AWS, artificial intelligence, blockchain, cybersecurity, software development, IT consulting'
+    : 'pamasoft, cloud computing, AWS, intelligenza artificiale, blockchain, cybersecurity, sviluppo software, consulenza IT');
 
 const pageTitle = title.includes('Pamasoft') ? title : `${title} - Pamasoft`;
 const canonical = getCanonicalUrl(path);
@@ -38,6 +48,22 @@ const alternateIt = getCanonicalUrl(getAlternateUrl(path, 'it'));
 const alternateEn = getCanonicalUrl(getAlternateUrl(path, 'en'));
 const xDefault = alternateIt;
 const ogLocale = lang === 'en' ? 'en_US' : 'it_IT';
+const ogLocaleAlternate = lang === 'en' ? 'it_IT' : 'en_US';
+const absoluteOgImage =
+  ogImage.startsWith('http://') || ogImage.startsWith('https://')
+    ? ogImage
+    : `${site.url}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
+const imageAlt =
+  ogImageAlt ||
+  (lang === 'en' ? `${pageTitle} — Pamasoft software` : `${pageTitle} — software Pamasoft`);
+const trimmedDescription =
+  description.length > 160
+    ? `${description.slice(0, 157).replace(/\s+\S*$/, '').trim()}…`
+    : description;
+const robotsContent = noindex
+  ? 'noindex, nofollow'
+  : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+const isRasterOg = /\.(jpe?g|png|webp|gif)(\?|$)/i.test(absoluteOgImage);
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -45,7 +71,9 @@ const organizationSchema = {
   name: 'Pamasoft',
   alternateName: 'Pamasoft Srl',
   description:
-    'Società di software specializzata in cloud computing AWS, intelligenza artificiale, blockchain, integrazioni e cybersecurity con oltre 25 anni di esperienza',
+    lang === 'en'
+      ? 'Italian software company specialized in AWS cloud computing, artificial intelligence, blockchain, integrations and cybersecurity with over 25 years of experience'
+      : 'Società di software specializzata in cloud computing AWS, intelligenza artificiale, blockchain, integrazioni e cybersecurity con oltre 25 anni di esperienza',
   url: site.url,
   logo: {
     '@type': 'ImageObject',
@@ -71,18 +99,19 @@ const organizationSchema = {
       availableLanguage: ['Italian', 'English'],
     },
   ],
-  sameAs: ['https://www.linkedin.com/company/pamasoft', 'https://twitter.com/pamasoft'],
+  sameAs: ['https://www.linkedin.com/company/pamasoft', 'https://x.com/pamasoft'],
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Pamasoft',
-  url: site.url,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${site.url}/search?q={search_term_string}`,
-    'query-input': 'required name=search_term_string',
+  url: `${site.url}/`,
+  inLanguage: lang === 'en' ? 'en' : 'it',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Pamasoft',
+    url: site.url,
   },
 };
 
@@ -95,13 +124,13 @@ const breadcrumbSchema = breadcrumbs?.length
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: site.url,
+          item: `${site.url}/`,
         },
         ...breadcrumbs.map((crumb, index) => ({
           '@type': 'ListItem',
           position: index + 2,
           name: crumb.name,
-          item: `${site.url}${crumb.url}`,
+          item: getCanonicalUrl(crumb.url),
         })),
       ],
     }
@@ -112,20 +141,21 @@ const extraStructuredData = Array.isArray(structuredData)
   : structuredData
     ? [structuredData]
     : [];
----
+
+const resolvedKeywords = keywords;---
 
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="robots" content={robotsContent} />
 <meta name="author" content="Pamasoft" />
 <meta name="language" content={lang === 'en' ? 'English' : 'Italian'} />
-<meta name="geo.region" content="IT" />
-<meta name="geo.placename" content="Milano" />
+<meta name="geo.region" content="IT-PT" />
+<meta name="geo.placename" content="Pistoia" />
 
 <title>{pageTitle}</title>
-<meta name="description" content={description} />
-<meta name="keywords" content={keywords} />
+<meta name="description" content={trimmedDescription} />
+<meta name="keywords" content={resolvedKeywords} />
 
 <link rel="canonical" href={canonical} />
 <link rel="alternate" hreflang="it" href={alternateIt} />
@@ -162,22 +192,25 @@ const extraStructuredData = Array.isArray(structuredData)
 <link rel="apple-touch-icon" href={assets.favicon} />
 
 <meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
 <meta property="og:type" content={ogType} />
 <meta property="og:title" content={pageTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={trimmedDescription} />
 <meta property="og:url" content={canonical} />
 <meta property="og:site_name" content="Pamasoft" />
-<meta property="og:image" content={ogImage} />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Pamasoft - Soluzioni IT Cloud AWS, AI, Blockchain" />
+<meta property="og:image" content={absoluteOgImage} />
+<meta property="og:image:secure_url" content={absoluteOgImage} />
+{isRasterOg && <meta property="og:image:width" content="1200" />}
+{isRasterOg && <meta property="og:image:height" content="630" />}
+<meta property="og:image:alt" content={imageAlt} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@pamasoft" />
 <meta name="twitter:creator" content="@pamasoft" />
 <meta name="twitter:title" content={pageTitle} />
-<meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:description" content={trimmedDescription} />
+<meta name="twitter:image" content={absoluteOgImage} />
+<meta name="twitter:image:alt" content={imageAlt} />
 
 <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />

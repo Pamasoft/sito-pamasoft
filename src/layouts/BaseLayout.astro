@@ -19,6 +19,8 @@ interface Props {
   bodyClass?: string;
   ogType?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
   breadcrumbs?: Breadcrumb[];
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -33,6 +35,8 @@ const {
   bodyClass,
   ogType,
   ogImage,
+  ogImageAlt,
+  noindex = false,
   breadcrumbs,
   structuredData,
 } = Astro.props;
@@ -49,6 +53,8 @@ const {
       lang={lang}
       ogType={ogType}
       ogImage={ogImage}
+      ogImageAlt={ogImageAlt}
+      noindex={noindex}
       breadcrumbs={breadcrumbs}
       structuredData={structuredData}
     />

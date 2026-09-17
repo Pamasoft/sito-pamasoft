@@ -4,7 +4,7 @@ slug: "cloudstay"
 tagline: "Direct booking, PMS, revenue and operations: your hotel under control, from guest to front desk."
 descrizione: "CloudStay is the complete platform for hotels, B&Bs and hospitality properties. Direct booking engine, room calendar, check-in/out, housekeeping, smart pricing, accounting and guest relationship — in one workspace. Fewer OTAs, more margin, more order every day."
 logo: ./images/cloudstay-logo.svg
-screenshot: ./images/cloudstay-screenshot.svg
+screenshot: ./images/cloudstay-screenshot.svg
 dominioEsterno: "https://cloudstay.pamasoft.com"
 brandAutonomo: false
 ctaPrincipale:

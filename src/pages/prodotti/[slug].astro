@@ -2,6 +2,14 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductDetail from '../../components/ProductDetail.astro';
+import {
+  absoluteAssetUrl,
+  buildProductStructuredData,
+  metaDescriptionFromProduct,
+  productKeywords,
+  productOgImage,
+  productPageTitle,
+} from '../../lib/product-seo';
 
 export async function getStaticPaths() {
   const prodotti = await getCollection('prodotti', ({ data }) => data.lingua === 'it' && data.pubblicato);
@@ -15,29 +23,26 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { data } = entry;
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: data.nome,
-  description: data.descrizione,
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    url: data.ctaPrincipale.url,
-  },
-  image: data.heroImage || data.screenshot.src,
-  url: `https://pamasoft.com/prodotti/${data.slug}/`,
-};
+const pageUrl = `https://pamasoft.com/prodotti/${data.slug}/`;
+const description = metaDescriptionFromProduct(data);
+const ogImage = productOgImage(data);
+const structuredData = buildProductStructuredData({
+  data,
+  lang: 'it',
+  pageUrl,
+  metaDescription: description,
+});
 ---
 
 <BaseLayout
-  title={`${data.nome} | Prodotto Pamasoft`}
-  description={data.descrizione}
+  title={productPageTitle(data, 'it')}
+  description={description}
+  keywords={productKeywords(data, 'it')}
   path={`/prodotti/${data.slug}/`}
   lang="it"
   pageClass="prodotto-page"
-  ogImage={data.heroImage || data.screenshot.src}
+  ogImage={ogImage}
+  ogImageAlt={`${data.nome} — ${data.tagline}`}
   breadcrumbs={[
     { name: 'Prodotti', url: '/prodotti/' },
     { name: data.nome, url: `/prodotti/${data.slug}/` },

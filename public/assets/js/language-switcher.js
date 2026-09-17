@@ -1,157 +1,128 @@
-(function() {
+(function () {
   'use strict';
-  
+
+  /** Must stay in sync with src/i18n/utils.ts IT_TO_EN map */
+  var IT_TO_EN = {
+    '/chi-siamo/': '/en/about/',
+    '/contatti/': '/en/contact/',
+    '/servizi/': '/en/services/',
+    '/servizi/cloud-computing/': '/en/services/cloud-computing/',
+    '/servizi/intelligenza-artificiale/': '/en/services/artificial-intelligence/',
+    '/servizi/blockchain/': '/en/services/blockchain/',
+    '/servizi/cybersecurity/': '/en/services/cybersecurity/',
+    '/servizi/sviluppo-applicazioni-web/': '/en/services/web-application-development/',
+    '/termini-servizio/': '/en/terms-of-service/',
+  };
+
+  var EN_TO_IT = {};
+  Object.keys(IT_TO_EN).forEach(function (itPath) {
+    EN_TO_IT[IT_TO_EN[itPath]] = itPath;
+  });
+
+  function normalizePath(pathname) {
+    if (!pathname || pathname === '') return '/';
+    if (!pathname.startsWith('/')) pathname = '/' + pathname;
+    if (!pathname.endsWith('/')) pathname = pathname + '/';
+    return pathname;
+  }
+
   function initLanguageSwitcher() {
-    const select = document.getElementById("language-switcher");
-    if (!select) {
-      console.warn("Language switcher element not found");
-      return;
-    }
+    var select = document.getElementById('language-switcher');
+    if (!select) return;
 
-    const defaultLang = select.getAttribute("data-default-lang") || "it";
-    const enPrefixRaw = select.getAttribute("data-prefix-en") || "/en";
-    const enPrefix = normalizePrefix(enPrefixRaw);
-    const path = window.location.pathname || "/";
-    const isEnglishPath =
+    var defaultLang = select.getAttribute('data-default-lang') || 'it';
+    var enPrefixRaw = select.getAttribute('data-prefix-en') || '/en';
+    var enPrefix = normalizePrefix(enPrefixRaw);
+    var path = window.location.pathname || '/';
+    var isEnglishPath =
       enPrefix &&
-      (path === enPrefix || path === enPrefix + "/" || path.startsWith(enPrefix + "/"));
+      (path === enPrefix || path === enPrefix + '/' || path.startsWith(enPrefix + '/'));
 
-    let currentLang = select.getAttribute("data-current-lang");
+    var currentLang = select.getAttribute('data-current-lang');
     if (!currentLang) {
-      currentLang = isEnglishPath ? "en" : defaultLang;
+      currentLang = isEnglishPath ? 'en' : defaultLang;
     }
 
-    // Set initial value
     select.value = currentLang;
-    
-    // Try to restore from localStorage if available
+
     try {
-      const savedLang = localStorage.getItem("pamasoftPreferredLanguage");
-      if (savedLang && (savedLang === "it" || savedLang === "en")) {
-        // Only use saved language if it matches current path
-        if ((savedLang === "en" && isEnglishPath) || (savedLang === "it" && !isEnglishPath)) {
+      var savedLang = localStorage.getItem('pamasoftPreferredLanguage');
+      if (savedLang && (savedLang === 'it' || savedLang === 'en')) {
+        if ((savedLang === 'en' && isEnglishPath) || (savedLang === 'it' && !isEnglishPath)) {
           select.value = savedLang;
           currentLang = savedLang;
         }
       }
     } catch (error) {
-      console.warn("Unable to read language preference:", error);
+      /* ignore */
     }
 
-    // Add change event listener
-    select.addEventListener("change", function(event) {
-      const targetLang = event.target.value;
-      if (targetLang === currentLang) {
-        return;
-      }
-
-      console.log("Language switch requested:", targetLang);
+    select.addEventListener('change', function (event) {
+      var targetLang = event.target.value;
+      if (targetLang === currentLang) return;
 
       try {
-        localStorage.setItem("pamasoftPreferredLanguage", targetLang);
+        localStorage.setItem('pamasoftPreferredLanguage', targetLang);
       } catch (error) {
-        console.warn("Unable to persist language preference:", error);
+        /* ignore */
       }
 
-      const destination = buildDestinationPath(path, targetLang, enPrefix);
-      console.log("Redirecting to:", destination);
-      window.location.href = destination;
+      window.location.href = buildDestinationPath(path, targetLang, enPrefix);
     });
 
-    // Add click event for better mobile support
-    select.addEventListener("click", function(event) {
+    select.addEventListener('click', function (event) {
       event.stopPropagation();
-    });
-
-    // Ensure select is visible and interactive
-    select.style.display = "block";
-    select.style.visibility = "visible";
-    select.style.opacity = "1";
-    
-    console.log("Language switcher initialized:", {
-      currentLang: currentLang,
-      path: path,
-      enPrefix: enPrefix
     });
   }
 
   function buildDestinationPath(pathname, targetLang, enPrefix) {
-    // Normalizza il pathname
-    if (!pathname || pathname === "") {
-      pathname = "/";
-    }
-    
-    if (targetLang === "en") {
-      // Target: inglese
-      if (!enPrefix) {
-        return pathname;
+    var normalized = normalizePath(pathname);
+
+    if (targetLang === 'en') {
+      if (normalized === '/') return ensureTrailingSlash(enPrefix || '/en');
+      if (IT_TO_EN[normalized]) return IT_TO_EN[normalized];
+      if (
+        enPrefix &&
+        (normalized === enPrefix + '/' || normalized.startsWith(enPrefix + '/'))
+      ) {
+        return normalized;
       }
-      
-      // Se già in inglese, non cambiare
-      if (pathname === enPrefix || pathname === enPrefix + "/" || pathname.startsWith(enPrefix + "/")) {
-        return pathname;
-      }
-      
-      // Se è la homepage italiana, vai alla homepage inglese
-      if (pathname === "/" || pathname === "") {
-        return ensureTrailingSlash(enPrefix);
-      }
-      
-      // Aggiungi prefisso /en/ al path italiano
-      return normalizeJoin(enPrefix, pathname);
+      return normalizeJoin(enPrefix || '/en', normalized);
     }
 
-    // Target: italiano (rimuovi /en/)
-    if (enPrefix && (pathname === enPrefix || pathname === enPrefix + "/" || pathname.startsWith(enPrefix + "/"))) {
-      // Rimuovi il prefisso /en/
-      let stripped = pathname.slice(enPrefix.length);
-      
-      // Se dopo la rimozione è vuoto o solo "/", torna alla homepage italiana
-      if (!stripped || stripped === "" || stripped === "/") {
-        return "/";
-      }
-      
-      // Assicura che inizi con /
-      if (!stripped.startsWith("/")) {
-        stripped = "/" + stripped;
-      }
-      
-      return stripped;
+    // Italian
+    if (EN_TO_IT[normalized]) return EN_TO_IT[normalized];
+    if (enPrefix && (normalized === enPrefix + '/' || normalized === ensureTrailingSlash(enPrefix))) {
+      return '/';
     }
-
-    // Se non c'è prefisso /en/, è già italiano
-    return pathname || "/";
+    if (enPrefix && normalized.startsWith(enPrefix + '/')) {
+      var stripped = normalized.slice(enPrefix.length);
+      if (!stripped || stripped === '/') return '/';
+      return normalizePath(stripped);
+    }
+    return normalized;
   }
 
   function normalizePrefix(prefix) {
-    if (!prefix) {
-      return "";
-    }
-    if (!prefix.startsWith("/")) {
-      prefix = "/" + prefix;
-    }
-    if (prefix.length > 1 && prefix.endsWith("/")) {
-      prefix = prefix.slice(0, -1);
-    }
+    if (!prefix) return '';
+    if (!prefix.startsWith('/')) prefix = '/' + prefix;
+    if (prefix.length > 1 && prefix.endsWith('/')) prefix = prefix.slice(0, -1);
     return prefix;
   }
 
   function ensureTrailingSlash(value) {
-    return value.endsWith("/") ? value : value + "/";
+    return value.endsWith('/') ? value : value + '/';
   }
 
   function normalizeJoin(prefix, pathname) {
-    const normalizedPrefix = prefix.endsWith("/") ? prefix.slice(0, -1) : prefix;
-    const normalizedPath = pathname.startsWith("/") ? pathname : "/" + pathname;
-    return normalizedPrefix + normalizedPath;
+    var normalizedPrefix = prefix.endsWith('/') ? prefix.slice(0, -1) : prefix;
+    var normalizedPath = pathname.startsWith('/') ? pathname : '/' + pathname;
+    return normalizePath(normalizedPrefix + normalizedPath);
   }
 
-  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
   } else {
-    // DOM is already ready
     initLanguageSwitcher();
   }
 })();
-

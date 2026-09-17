@@ -1,8 +1,8 @@
 ---
 nome: "Playten"
 slug: "playten"
-tagline: "Il gestionale per circoli di tennis, padel e pickleball."
-descrizione: "Playten digitalizza prenotazioni campi, tariffe, soci e pagamenti. Una piattaforma chiara per circoli e gestori che vogliono più autonomia per i giocatori e meno lavoro manuale in segreteria."
+tagline: "Prenotazioni campi, tariffe, soci e wallet: il gestionale per tennis, padel e pickleball."
+descrizione: "Playten digitalizza disponibilità, prenotazioni, categorie, wallet e pagamenti online. I giocatori prenotano da soli; la segreteria gestisce eccezioni e bancone — senza WhatsApp e senza doppie prenotazioni."
 logo: ./images/playten-logo.png
 screenshot: ./images/playten-screenshot.jpg
 dominioEsterno: "https://playten.net"
@@ -18,45 +18,84 @@ pubblicoTarget:
   - Segreterie e reception sportiva
   - Società sportive con campi da gioco
 vantaggi:
-  - titolo: "Prenotazioni senza caos"
-    descrizione: "Disponibilità in tempo reale, zero doppie prenotazioni e calendario sempre aggiornato."
+  - titolo: "Zero doppie prenotazioni"
+    descrizione: "Una sola disponibilità live per giocatori e staff."
     icona: "fas fa-calendar-check"
-  - titolo: "Meno telefono, più gioco"
-    descrizione: "I soci prenotano da soli; la segreteria interviene solo quando serve."
-    icona: "fas fa-mobile-alt"
-  - titolo: "Incassi sotto controllo"
-    descrizione: "Pagamenti online, wallet e report chiari su utilizzo campi e ricavi."
-    icona: "fas fa-chart-line"
-featureHighlights:
-  - titolo: "Prenotazioni campi"
-    descrizione: "Calendario interattivo per tennis, padel e pickleball, con regole e chiusure gestite dal circolo."
-    icona: "fas fa-table-tennis"
-  - titolo: "Tariffe flessibili"
-    descrizione: "Prezzi per categoria, fascia oraria e tipologia di campo, sempre allineati."
+  - titolo: "Tempo al bancone"
+    descrizione: "I soci prenotano e pagano da soli; lo staff gestisce eccezioni e walk-in."
+    icona: "fas fa-clock"
+  - titolo: "Prezzi come li lavori tu"
+    descrizione: "Tariffe per categoria, campo e tipologia; luci e riscaldamento solo se servono."
     icona: "fas fa-tags"
-  - titolo: "Soci e categorie"
-    descrizione: "Anagrafica, ruoli e accesso alle prenotazioni secondo le regole del circolo."
-    icona: "fas fa-users"
-  - titolo: "Pagamenti e wallet"
-    descrizione: "Incassa online o in sede e offri un wallet per pagamenti più rapidi."
+  - titolo: "Meno contanti, meno caos"
+    descrizione: "Wallet e pagamenti online (e POS in sede nei piani avanzati) al posto di gestioni ad hoc."
     icona: "fas fa-wallet"
-  - titolo: "Inviti alle partite"
-    descrizione: "I giocatori invitano i compagni e condividono le quote in modo trasparente."
+  - titolo: "Regole automatiche"
+    descrizione: "Anticipo prenotazione, cancellazioni, chiusure e certificati medici dove previsto."
+    icona: "fas fa-gavel"
+  - titolo: "Parti gratis, cresci dopo"
+    descrizione: "Piano gratuito con campi e prenotazioni; Pro per report, campagne e multi-sede."
+    icona: "fas fa-seedling"
+featureHighlights:
+  - titolo: "Campi multi-sport"
+    descrizione: "Tennis, padel e pickleball con durata partita e orari di inizio per campo."
+    icona: "fas fa-table-tennis"
+  - titolo: "Calendario disponibilità"
+    descrizione: "Vista giorno e matrice campi × orari; nessun overlap sullo stesso campo."
+    icona: "fas fa-calendar-alt"
+  - titolo: "Prenotazione self-service"
+    descrizione: "I soci prenotano entro le regole del circolo (limiti categoria, anticipo, cancel)."
+    icona: "fas fa-mobile-alt"
+  - titolo: "Prenotazione da bancone"
+    descrizione: "Lo staff crea prenotazioni per telefono o walk-in con ricerca rapida soci."
+    icona: "fas fa-headset"
+  - titolo: "Partecipanti e inviti"
+    descrizione: "Aggiungi giocatori, invia inviti e ripartisci le quote in modo trasparente."
     icona: "fas fa-user-plus"
-  - titolo: "Report e occupancy"
-    descrizione: "Monitora utilizzo campi, incassi e andamento del circolo da una dashboard unica."
-    icona: "fas fa-chart-pie"
+  - titolo: "Chiusure ed eccezioni"
+    descrizione: "Blocchi ricorrenti o una tantum: manutenzione, tornei; il calendario si aggiorna subito."
+    icona: "fas fa-ban"
+  - titolo: "Listini flessibili"
+    descrizione: "Prezzo fisso o per categoria (socio / ospite / junior); validità stagionali e promo."
+    icona: "fas fa-percentage"
+  - titolo: "Luci e riscaldamento"
+    descrizione: "Supplementi solo quando servono; base + extra = totale chiaro."
+    icona: "fas fa-lightbulb"
+  - titolo: "Soci e categorie"
+    descrizione: "Anagrafiche, regole di categoria e directory privacy-aware."
+    icona: "fas fa-users"
+  - titolo: "Wallet prepagato"
+    descrizione: "Saldo, movimenti, ricariche; lo staff può accreditare con tracciabilità."
+    icona: "fas fa-wallet"
+  - titolo: "Pagamenti online"
+    descrizione: "Incassi carta online e metodi da bancone quando configurati; POS nei piani avanzati."
+    icona: "fas fa-credit-card"
+  - titolo: "Console operativa"
+    descrizione: "Campi e orari, gestori, annunci, campagne, report incassi e occupancy."
+    icona: "fas fa-tachometer-alt"
 comeFunziona:
-  - titolo: "Configuri il circolo"
-    descrizione: "Inserisci campi, tariffe, categorie utenti e orari di apertura."
-  - titolo: "Apri le prenotazioni"
-    descrizione: "I soci vedono la disponibilità e prenotano in autonomia da web o mobile."
-  - titolo: "Gestisci il quotidiano"
-    descrizione: "Segui prenotazioni, pagamenti e report dalla dashboard gestore."
+  - titolo: "Attivi il circolo"
+    descrizione: "Profilo, almeno un campo, tariffe, orari e metodi di pagamento fino a booking-ready."
+  - titolo: "Inviti i soci"
+    descrizione: "Categorie, regole, wallet; i giocatori entrano e vedono la disponibilità reale."
+  - titolo: "Prenoti ogni giorno"
+    descrizione: "Self-service online + bancone, inviti e chiusure; un calendario per tutti."
+  - titolo: "Incassi e governi"
+    descrizione: "Wallet / online / bancone; report e campagne quando il circolo scala."
 pubblicato: true
 lingua: "it"
 ---
 
-Playten è pensato per i circoli che vogliono digitalizzare tennis, padel e pickleball senza complicare il lavoro di chi gestisce.
+Playten non è “un form di prenotazione campi”. È il sistema operativo del circolo: disponibilità, tariffe, soci, wallet e pagamenti sullo stesso filo.
 
-Dalla prenotazione del campo al pagamento, tutto resta ordinato: meno chiamate in segreteria, più chiarezza per chi gioca e più controllo per il gestore.
+Unisce **calendario**, **listini**, **anagrafiche** e **incassi** così la segreteria smette di vivere tra WhatsApp e fogli Excel.
+
+### Perché i circoli lo scelgono
+
+Perché oggi il problema non è solo aprire uno slot. È evitare doppie prenotazioni, applicare le tariffe giuste e far pagare senza rincorrere i soci.
+
+Con Playten i giocatori prenotano, il bancone interviene quando serve, i numeri restano chiari. Sullo stesso filo.
+
+### Il risultato
+
+Meno telefonate, meno errori, più autonomia per chi gioca e più controllo per chi gestisce. Se vuoi un gestionale tennis/padel/pickleball davvero completo — non solo un calendario — Playten è costruito per questo.
