@@ -12,7 +12,7 @@ Mappa usata per arricchire le landing `/prodotti/*` confrontando funzionalità r
 | SPOORTAL | `spoortal` | https://spoortal.it | `c:\Github\sport-asd` |
 | Playten | `playten` | https://playten.net | `c:\Github\playten` |
 | Virtual Clinic | `virtual-clinic` | https://virtualclinic.it | `c:\Github\virtual-clinic` |
-| Pamasoft CloudReviews | `cloudreviews` | https://cloudreviews.pamasoft.com | `c:\Github\reviews-ai` |
+| Pamasoft CloudReviews | `cloudreviews` | app: https://cloudreviews.pamasoft.com/register (no marketing site) | `c:\Github\reviews-ai` |
 
 ## Note
 
