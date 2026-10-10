@@ -6,7 +6,7 @@ descrizione: "Chi cerca vicino a te guarda le stelle prima di chiamare. CloudRev
 logo: ./images/cloudreviews-logo.svg
 screenshot: ./images/cloudreviews-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-dominioEsterno: "https://cloudreviews.pamasoft.com"
+dominioEsterno: null
 brandAutonomo: false
 ctaPrincipale:
   label: "Registrati gratis"
