@@ -1,16 +1,16 @@
 ---
 nome: "Pamasoft CloudReviews"
 slug: "cloudreviews"
-tagline: "Più recensioni Google dopo ogni lavoro: richieste automatiche, zero review gating."
-descrizione: "CloudReviews chiede il feedback ai clienti dopo l’intervento o l’acquisto, guida chi è soddisfatto su Google e avvisa te quando qualcosa non va — nel rispetto delle regole, senza nascondere il link alle recensioni."
+tagline: "Senza recensioni Google non entri nelle prime posizioni: perdi clienti e non ne ottieni di nuovi."
+descrizione: "Chi cerca vicino a te guarda le stelle prima di chiamare. CloudReviews chiede il feedback dopo ogni lavoro, porta i soddisfatti su Google e ti avvisa sui voti bassi — così la tua attività resta visibile, competitive e in crescita."
 logo: ./images/cloudreviews-logo.svg
 screenshot: ./images/cloudreviews-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-dominioEsterno: null
+dominioEsterno: "https://cloudreviews.pamasoft.com"
 brandAutonomo: false
 ctaPrincipale:
-  label: "Richiedi una demo"
-  url: "https://pamasoft.com/contatti/"
+  label: "Registrati gratis"
+  url: "https://cloudreviews.pamasoft.com/register"
 industryCorrelate:
   - retail
   - hospitality
@@ -20,15 +20,15 @@ pubblicoTarget:
   - Titolari che vogliono più recensioni Google senza rincorrere i clienti
   - Operations e segreteria che gestiscono post-intervento
   - Agenzie e integratori che collegano gestionali via API
-vantaggiLead: "Le recensioni che non chiedi non arrivano. Quelle senza sistema ti costano fiducia."
+vantaggiLead: "Poche stelle = meno posizioni in alto su Google. Meno posizioni = meno clienti nuovi."
 featuresLead: "Dal job completato alla stella su Google: automazione, compliance e controllo in un’unica piattaforma."
 vantaggi:
+  - titolo: "Prime posizioni, più clienti"
+    descrizione: "Senza recensioni Google resti indietro nei risultati locali: perdi chi ti cerca oggi e non ne ottieni di nuovi."
+    icona: "fas fa-map-marker-alt"
   - titolo: "Più recensioni, meno inseguimenti"
     descrizione: "Dopo ogni lavoro parte una richiesta al momento giusto. I clienti felici trovano il percorso verso Google senza WhatsApp e senza fogli."
     icona: "fas fa-star"
-  - titolo: "Reputazione che si vede"
-    descrizione: "Chi cerca la tua attività legge le stelle. Chiedere feedback a tutti — in modo corretto — fa crescere la prova sociale."
-    icona: "fas fa-chart-line"
   - titolo: "I critici ti arrivano prima"
     descrizione: "Con 1–3 stelle ricevi un alert: intervieni sul cliente, non scopri la critica solo quando è già pubblica."
     icona: "fas fa-bell"
@@ -104,20 +104,20 @@ pubblicato: true
 lingua: "it"
 ---
 
-CloudReviews non è “un form per chiedere le stelle”. È il sistema che fa lavorare la reputazione dopo ogni intervento: **chiede il feedback**, **porta i soddisfatti su Google** e **ti avvisa quando qualcosa non va** — senza trucchi di review gating.
+Senza recensioni Google **non entri nelle prime posizioni**. Fuori dalle prime posizioni **perdi clienti** e **non ne ottieni di nuovi**. CloudReviews è il sistema che fa lavorare la reputazione dopo ogni intervento: chiede il feedback, porta i soddisfatti su Google e ti avvisa quando qualcosa non va — senza trucchi di review gating.
 
 ### Il problema che risolvi
 
-I clienti nuovi leggono le recensioni e si fanno un’idea in pochi secondi. Se non chiedi, le stelle restano poche. Se chiedi a mano, perdi tempo. Se usi scorciatoie che nascondono Google ai voti bassi, rischi policy e fiducia.
+Chi cerca un’attività vicino a sé guarda le stelle prima di chiamare o entrare. Poche recensioni = meno fiducia e meno visibilità nei risultati locali. Se non chiedi, resti indietro. Se chiedi a mano, perdi tempo. Se usi scorciatoie che nascondono Google ai voti bassi, rischi policy e fiducia.
 
 Con CloudReviews la richiesta parte dopo il lavoro, il link Google resta sempre lì, e i voti bassi diventano un’opportunità di cura — non una sorpresa sul profilo pubblico.
 
 ### Perché le attività lo scelgono
 
-Perché oggi il problema non è “avere una scheda Google”. È **ottenere recensioni in modo continuo e corretto**, senza vivere di WhatsApp e senza scoprire le critiche troppo tardi.
+Perché oggi il problema non è “avere una scheda Google”. È **restare in alto dove i clienti ti cercano**, ottenendo recensioni in modo continuo e corretto — senza WhatsApp e senza scoprire le critiche troppo tardi.
 
 Tu definisci orari, ritardi e testi. Il sistema invia, segue, riattiva. Tu intervieni dove conta.
 
 ### Il risultato
 
-Più recensioni vere, meno inseguimenti, critiche gestite in privato quando possibile, e un flusso pronto anche per gestionali via API. Se vuoi far crescere le Google Reviews senza scorciatoie — CloudReviews è costruito per questo.
+Più stelle dove conta, più posizioni in evidenza, meno clienti persi per silenzio online. Se vuoi far crescere le Google Reviews senza scorciatoie — CloudReviews è costruito per questo.

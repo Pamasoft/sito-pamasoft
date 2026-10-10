@@ -1,16 +1,16 @@
 ---
 nome: "Pamasoft CloudReviews"
 slug: "cloudreviews"
-tagline: "More Google reviews after every job: automated asks, zero review gating."
-descrizione: "CloudReviews asks customers for feedback after a job or purchase, guides happy ones to Google, and alerts you when something is wrong — policy-safe, without hiding the review link."
+tagline: "Without Google reviews you don’t rank at the top: you lose customers and don’t win new ones."
+descrizione: "People searching near you check the stars before they call. CloudReviews asks for feedback after every job, guides happy customers to Google and alerts you on low scores — so your business stays visible, competitive and growing."
 logo: ./images/cloudreviews-logo.svg
 screenshot: ./images/cloudreviews-screenshot.svg
 heroImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-dominioEsterno: null
+dominioEsterno: "https://cloudreviews.pamasoft.com"
 brandAutonomo: false
 ctaPrincipale:
-  label: "Request a demo"
-  url: "https://pamasoft.com/en/contact/"
+  label: "Sign up free"
+  url: "https://cloudreviews.pamasoft.com/register"
 industryCorrelate:
   - retail
   - hospitality
@@ -20,15 +20,15 @@ pubblicoTarget:
   - Owners who want more Google reviews without chasing customers
   - Ops and front-desk teams handling post-job follow-up
   - Agencies and integrators connecting software via API
-vantaggiLead: "Reviews you never ask for never arrive. Without a system, reputation costs you trust."
+vantaggiLead: "Few stars means fewer top spots on Google. Fewer top spots means fewer new customers."
 featuresLead: "From completed job to Google star: automation, compliance and control in one platform."
 vantaggi:
+  - titolo: "Top spots, more customers"
+    descrizione: "Without Google reviews you fall behind in local results: you lose who is searching today and don’t win new ones."
+    icona: "fas fa-map-marker-alt"
   - titolo: "More reviews, less chasing"
     descrizione: "After each job, a request goes out at the right time. Happy customers reach Google without WhatsApp and without spreadsheets."
     icona: "fas fa-star"
-  - titolo: "Reputation people notice"
-    descrizione: "New customers read the stars. Asking everyone for feedback — the right way — builds social proof."
-    icona: "fas fa-chart-line"
   - titolo: "Critics reach you first"
     descrizione: "On 1–3 stars you get an alert: fix it with the customer before it only lives as a public complaint."
     icona: "fas fa-bell"
@@ -104,20 +104,20 @@ pubblicato: true
 lingua: "en"
 ---
 
-CloudReviews is not “a form to ask for stars”. It is the system that makes reputation work after every job: **ask for feedback**, **guide happy customers to Google**, and **alert you when something is wrong** — with no review-gating tricks.
+Without Google reviews **you don’t rank at the top**. Off the top spots **you lose customers** and **don’t win new ones**. CloudReviews is the system that makes reputation work after every job: ask for feedback, guide happy customers to Google and alert you when something is wrong — with no review-gating tricks.
 
 ### The problem you solve
 
-New customers read reviews and form an opinion in seconds. If you never ask, stars stay scarce. If you ask by hand, you lose time. If you use shortcuts that hide Google from low scores, you risk policy and trust.
+People searching nearby check the stars before they call or walk in. Few reviews means less trust and less visibility in local results. If you never ask, you fall behind. If you ask by hand, you lose time. If you use shortcuts that hide Google from low scores, you risk policy and trust.
 
 With CloudReviews the request goes out after the job, the Google link stays available, and low scores become a care opportunity — not a surprise on the public profile.
 
 ### Why businesses choose it
 
-Because today the problem is not “having a Google listing”. It is **earning reviews continuously and correctly**, without living in WhatsApp and without discovering complaints too late.
+Because today the problem is not “having a Google listing”. It is **staying visible where customers search**, earning reviews continuously and correctly — without WhatsApp and without discovering complaints too late.
 
 You set hours, delays and copy. The system sends, follows up and reactivates. You step in where it matters.
 
 ### The outcome
 
-More genuine reviews, less chasing, criticism handled privately when possible, and a flow ready for your software via API. If you want to grow Google Reviews without shortcuts — CloudReviews is built for that.
+More stars where it counts, more top visibility, fewer customers lost to online silence. If you want to grow Google Reviews without shortcuts — CloudReviews is built for that.
