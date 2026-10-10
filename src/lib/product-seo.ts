@@ -33,6 +33,10 @@ export function productKeywords(data: ProductData, lang: 'it' | 'en'): string {
       it: 'tennis, prenotazione campi tennis, circolo tennis, padel, pickleball',
       en: 'tennis, tennis court booking, tennis club, padel, pickleball',
     },
+    cloudreviews: {
+      it: 'recensioni Google, gestione recensioni, reputazione online, review management, feedback clienti',
+      en: 'Google reviews, review management, online reputation, customer feedback, review requests',
+    },
   };
 
   const industries = data.industryCorrelate
@@ -78,6 +82,8 @@ const OG_RASTER_BY_SLUG: Record<string, string> = {
     'https://images.unsplash.com/photo-1461896836934-ffe607ba6851?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   playten:
     'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  cloudreviews:
+    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
 };
 
 export function productOgImage(data: ProductData): string {

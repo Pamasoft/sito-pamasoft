@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="CloudReviews">
+  <rect width="256" height="256" rx="56" fill="#00875A"/>
+  <!-- review card -->
+  <rect x="52" y="72" width="152" height="120" rx="18" fill="#fff"/>
+  <!-- five stars -->
+  <path fill="#00875A" d="M78 118l6.2 12.6 13.9 2-10.05 9.8 2.4 13.9L78 149.8l-12.45 6.5 2.4-13.9-10.05-9.8 13.9-2z"/>
+  <path fill="#00875A" d="M108 118l6.2 12.6 13.9 2-10.05 9.8 2.4 13.9L108 149.8l-12.45 6.5 2.4-13.9-10.05-9.8 13.9-2z"/>
+  <path fill="#00875A" d="M138 118l6.2 12.6 13.9 2-10.05 9.8 2.4 13.9L138 149.8l-12.45 6.5 2.4-13.9-10.05-9.8 13.9-2z"/>
+  <path fill="#00875A" d="M168 118l6.2 12.6 13.9 2-10.05 9.8 2.4 13.9L168 149.8l-12.45 6.5 2.4-13.9-10.05-9.8 13.9-2z"/>
+  <path fill="#00875A" d="M198 118l6.2 12.6 13.9 2-10.05 9.8 2.4 13.9L198 149.8l-12.45 6.5 2.4-13.9-10.05-9.8 13.9-2z" opacity="0.35"/>
+  <!-- soft cloud accent -->
+  <circle cx="176" cy="62" r="16" fill="#fff" opacity="0.95"/>
+  <circle cx="194" cy="66" r="12" fill="#fff" opacity="0.95"/>
+  <circle cx="160" cy="68" r="11" fill="#fff" opacity="0.95"/>
+</svg>

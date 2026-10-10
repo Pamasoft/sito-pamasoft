@@ -4,7 +4,8 @@ slug: "posway"
 tagline: "Links, QR, subscriptions and terminals: the payments platform for sellers."
 descrizione: "Posway is the multi-tenant platform to request and collect payments: one-off, recurring, in-store or multi-method. One dashboard for fees, balance and payouts — without building a gateway from scratch."
 logo: ./images/posway-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
+
 heroImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://posway.io"
 brandAutonomo: true

@@ -4,7 +4,8 @@ slug: "virtual-clinic"
 tagline: "Videovisite con specialisti certificati: telemedicina semplice e sicura."
 descrizione: "Virtual Clinic è la piattaforma italiana per prenotare e svolgere visite online e videoconsulti con specialisti certificati. Appuntamenti, documenti clinici e referti in un’unica area riservata — senza spostamenti inutili."
 logo: ./images/virtual-clinic-logo.png
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
+
 heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://virtualclinic.it"
 brandAutonomo: true

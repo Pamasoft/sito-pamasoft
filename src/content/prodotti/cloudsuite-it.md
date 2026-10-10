@@ -4,7 +4,8 @@ slug: "cloudsuite"
 tagline: "Fatture elettroniche, cassa e clienti: il gestionale cloud per la PMI italiana."
 descrizione: "CloudSuite unisce fatturazione elettronica, scadenze, tesoreria, anagrafiche e CRM in un unico spazio di lavoro. Emetti e ricevi documenti, controlli la cassa, chiudi gli incassi e segui le trattative — senza fogli sparsi e senza software diversi."
 logo: ./images/cloudsuite-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
+
 heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://cloudsuite.pamasoft.com"
 brandAutonomo: false

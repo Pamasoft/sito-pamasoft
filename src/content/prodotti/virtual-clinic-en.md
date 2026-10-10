@@ -4,7 +4,8 @@ slug: "virtual-clinic"
 tagline: "Video visits with certified specialists: simple, secure telemedicine."
 descrizione: "Virtual Clinic is the Italian platform to book and complete online visits and video consults with certified specialists. Appointments, clinical documents and reports in one private area — without unnecessary travel."
 logo: ./images/virtual-clinic-logo.png
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
+
 heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://virtualclinic.it"
 brandAutonomo: true

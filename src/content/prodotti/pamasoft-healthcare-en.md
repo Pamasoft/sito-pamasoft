@@ -4,7 +4,8 @@ slug: "pamasoft-healthcare"
 tagline: "Patients, agenda, records and billing: management software for private healthcare."
 descrizione: "Pamasoft Healthcare unifies patient records, bookings, clinical pathways, documents and billing in one workspace. Front desk, doctors and management work on the same thread — from intake to collection."
 logo: ./images/pamasoft-healthcare-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
+
 heroImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://healthcare.pamasoft.com"
 brandAutonomo: false

@@ -4,7 +4,8 @@ slug: "pamasoft-healthcare"
 tagline: "Pazienti, agenda, cartelle e fatture: il gestionale per strutture sanitarie private."
 descrizione: "Pamasoft Healthcare unifica anagrafiche, prenotazioni, percorsi clinici, documenti e fatturazione in un unico spazio di lavoro. Segreteria, medici e direzione lavorano sullo stesso filo — dalla presa in carico all’incasso."
 logo: ./images/pamasoft-healthcare-logo.svg
-screenshot: ./images/cloudsuite-screenshot.svg
+screenshot: ./images/cloudsuite-screenshot.svg
+
 heroImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 dominioEsterno: "https://healthcare.pamasoft.com"
 brandAutonomo: false
