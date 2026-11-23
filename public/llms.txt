@@ -1,6 +1,6 @@
 # Pamasoft
 
-> Pamasoft è una software house italiana fondata nel 1999 a Pistoia. Aiuta le aziende nella trasformazione digitale con software cloud e progetti su misura, con l'intelligenza artificiale integrata in ogni prodotto. Sede: Via E. Fermi, 75 — 51100 Pistoia, Italia. P.IVA 05657500483. Sito in italiano e in inglese.
+> Pamasoft è una software house italiana fondata nel 1999. Aiuta le aziende nella trasformazione digitale con software cloud e progetti su misura, con l'intelligenza artificiale integrata in ogni prodotto. P.IVA 05657500483. Sito in italiano e in inglese.
 
 ## Prodotti SaaS
 

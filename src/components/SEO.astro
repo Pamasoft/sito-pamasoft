@@ -84,10 +84,6 @@ const organizationSchema = {
   foundingDate: '1999',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Via E. Fermi, 75',
-    addressLocality: 'Pistoia',
-    postalCode: '51100',
-    addressRegion: 'PT',
     addressCountry: 'IT',
   },
   contactPoint: [
@@ -150,8 +146,7 @@ const resolvedKeywords = keywords;---
 <meta name="robots" content={robotsContent} />
 <meta name="author" content="Pamasoft" />
 <meta name="language" content={lang === 'en' ? 'English' : 'Italian'} />
-<meta name="geo.region" content="IT-PT" />
-<meta name="geo.placename" content="Pistoia" />
+<meta name="geo.region" content="IT" />
 
 <title>{pageTitle}</title>
 <meta name="description" content={trimmedDescription} />
