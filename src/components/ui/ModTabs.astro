@@ -1,0 +1,23 @@
+---
+/** Moduli a tab: testo a sinistra, finestra app a destra. mods = [tab, titolo, testo, punti[], url, html righe] */
+interface Props { id: string; mods: [string, string, string, string[], string, string][] }
+const { id, mods } = Astro.props;
+---
+<div class="tabs" role="tablist">
+  {mods.map((m, i) => (
+    <button type="button" role="tab" id={`${id}-t${i}`} aria-controls={`${id}-p${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{m[0]}</button>
+  ))}
+</div>
+{mods.map((m, i) => (
+  <div class="mod" role="tabpanel" id={`${id}-p${i}`} aria-labelledby={`${id}-t${i}`} hidden={i !== 0} tabindex="0">
+    <div>
+      <h3 style="font-size:clamp(24px,2.4vw,30px)">{m[1]}</h3>
+      <p class="lead">{m[2]}</p>
+      <ul>{m[3].map((x) => <li>{x}</li>)}</ul>
+    </div>
+    <div class="win mshot" role="img" aria-label={`${m[0]} · ${m[4]}`}>
+      <div class="bar"><i></i><i></i><i></i><span>{m[4]}</span></div>
+      <div class="main"><div class="rows" set:html={m[5]} /></div>
+    </div>
+  </div>
+))}

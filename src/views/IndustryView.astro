@@ -1,0 +1,43 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBand from '../components/ui/CtaBand.astro';
+import RelatedProducts from '../components/ui/RelatedProducts.astro';
+import { COPY, UI } from '../data/ui';
+import type { Industry } from '../data/industries';
+import { url, industryUrl } from '../data/routes';
+
+interface Props {
+  lang: Locale;
+  s: Industry;
+}
+const { lang, s } = Astro.props;
+const d = s[lang];
+const c = COPY[lang].industry;
+const t = UI[lang];
+const path = industryUrl(lang, s.key);
+---
+
+<BaseLayout title={`${d.n} | ${d.h.replace(/\.$/, '')} | Pamasoft`} description={d.meta} path={path} lang={lang} current="industry"
+  breadcrumbs={[{ name: t.nav.industry, url: url(lang, 'industry') }, { name: d.n, url: path }]}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.industry, href: url(lang, 'industry') }, { name: d.n }]} title={d.h} lead={d.l}>
+    <div class="cta" style="margin-top:28px">
+      <a class="btn btn-p" href={url(lang, 'contact')}>{t.contactUs}</a>
+      <a class="btn btn-g" href={url(lang, 'industry')}>{c.other}</a>
+    </div>
+  </PageHero>
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{c.prodH(d.n)}</h2></div>
+      <RelatedProducts lang={lang} ids={s.p} />
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head"><h2>{c.whatH}</h2></div>
+      <div class="fg">{d.s.map(([a, b]) => <div><h3>{a}</h3><p>{b}</p></div>)}</div>
+    </div>
+  </section>
+  <CtaBand lang={lang} title={c.digH} lead={c.digL} />
+</BaseLayout>

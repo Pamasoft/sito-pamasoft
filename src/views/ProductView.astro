@@ -1,0 +1,55 @@
+---
+/** Pagina prodotto generica (CloudReviews, CloudSuite, Posway, Healthcare, Virtual Clinic, SPOORTAL, Playten). */
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Crumbs from '../components/ui/Crumbs.astro';
+import FormBand from '../components/ui/FormBand.astro';
+import { COPY, UI } from '../data/ui';
+import type { Product } from '../data/products';
+import { CALENDLY, url, productUrl } from '../data/routes';
+import { dot } from '../lib/screens';
+import { buildProductStructuredData, productOgImage, clampDescription } from '../lib/product-seo';
+interface Props { lang: Locale; p: Product }
+const { lang, p } = Astro.props;
+const d = p[lang];
+const c = COPY[lang].product;
+const t = UI[lang];
+const path = productUrl(lang, p.slug);
+const feats = d.feats ?? [];
+const description = clampDescription(`${d.h1} ${d.desc}`);
+const sd = buildProductStructuredData({ name: p.brand, description: `${d.h1} ${d.desc}`, path, lang, slug: p.slug, appUrl: p.appUrl, features: feats, audience: [d.cat] });
+const widths = [86, 64, 72, 48];
+---
+<BaseLayout title={`${p.name} | ${d.h1.replace(/\.$/, '')} | Pamasoft`} description={description} path={path} lang={lang} current="products"
+  ogImage={productOgImage(p.slug)} ogImageAlt={`${p.brand} — ${d.desc}`} contactHref="#contatti"
+  breadcrumbs={[{ name: t.nav.products, url: url(lang, 'products') }, { name: p.name, url: path }]} structuredData={sd}>
+  <section class="hero">
+    <div class="wrap hgrid">
+      <div>
+        <Crumbs crumbs={[{ name: t.nav.products, href: url(lang, 'products') }, { name: d.cat }]} />
+        <div class="brand"><Fragment set:html={dot(p.color, p.abbr)} />{p.brand}</div>
+        <h1 style="font-size:clamp(34px,3.9vw,50px)">{d.h1}</h1>
+        <p class="lead">{d.desc}</p>
+        <div class="cta">
+          <a class="btn btn-p" href="#contatti">{t.contactUs}</a>
+          <a class="btn btn-g" href={CALENDLY}>{t.bookCall}</a>
+        </div>
+      </div>
+      <div class="win" role="img" aria-label={`${t.screenLabel} ${p.brand}`}>
+        <div class="bar"><i></i><i></i><i></i><span>{p.domain}</span></div>
+        <div class="main"><div class="rows">
+          {feats.slice(0, 4).map((f, i) => (
+            <div class="r"><span><b>{f}</b></span><span class="meter"><i style={`width:${widths[i]}%;background:${p.color}`}></i></span><span class="tag t-ok">{c.active}</span></div>
+          ))}
+        </div></div>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{c.featsH(p.name)}</h2><p class="lead">{c.featsL}</p></div>
+      <div class="fg">{feats.map((f) => <div><h3>{f}</h3></div>)}</div>
+    </div>
+  </section>
+  <FormBand lang={lang} id="contatti" title={c.formH(p.name)} lead={c.formL} list={c.formList} service={p.brand} />
+</BaseLayout>

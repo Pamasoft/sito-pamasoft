@@ -27,3 +27,6 @@ Thumbs.db
 pamasoft-newsite/node_modules/
 pamasoft-newsite/_site/
 pamasoft-newsite/.idea/
+
+# materiali del restyling (brief e mockup), non pubblicati
+_restyling/

@@ -1,0 +1,17 @@
+---
+import type { Locale } from '../../config/site';
+import { productById } from '../../data/products';
+import { productUrl } from '../../data/routes';
+import { UI } from '../../data/ui';
+interface Props { lang: Locale; title: string; eco: [string, string, string][]; sec: [string, string][] }
+const { lang, title, eco, sec } = Astro.props;
+---
+<section class="band">
+  <div class="wrap">
+    <div class="head"><h2>{title}</h2></div>
+    <div class="eco">
+      {eco.map(([id, n, d]) => <a href={productUrl(lang, productById(id).slug)}><b>{n}</b><p>{d}</p><span>{UI[lang].discover(n)}</span></a>)}
+    </div>
+    <div class="sec">{sec.map(([h, p]) => <div><h3>{h}</h3><p>{p}</p></div>)}</div>
+  </div>
+</section>

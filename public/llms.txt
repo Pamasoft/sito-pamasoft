@@ -1,33 +1,48 @@
 # Pamasoft
 
-> Pamasoft è una società IT italiana fondata nel 1999, specializzata in cloud computing AWS, intelligenza artificiale, blockchain, cybersecurity e sviluppo applicazioni web. Sede: Via E. Fermi, 75 — 51100 Pistoia, Italia. P.IVA 05657500483.
-
-## Servizi principali
-
-- Cloud Computing AWS: migrazione cloud, architetture scalabili, DevOps
-- Intelligenza Artificiale: automazione, ML, soluzioni AI su misura
-- Blockchain e Web3: smart contract, soluzioni decentralizzate
-- Cybersecurity: protezione infrastrutture e dati aziendali
-- Sviluppo Applicazioni Web: Spring Boot, React, PostgreSQL
+> Pamasoft è una software house italiana fondata nel 1999 a Pistoia. Aiuta le aziende nella trasformazione digitale con software cloud e progetti su misura, con l'intelligenza artificiale integrata in ogni prodotto. Sede: Via E. Fermi, 75 — 51100 Pistoia, Italia. P.IVA 05657500483. Sito in italiano e in inglese.
 
 ## Prodotti SaaS
 
-- **Pamasoft CloudStay** — piattaforma hospitality completa: booking diretto, PMS, housekeeping, revenue (PriceIQ), finance e guest experience. https://pamasoft.com/prodotti/cloudstay/ · https://cloudstay.pamasoft.com
-- **Pamasoft CloudSuite** — gestionale cloud PMI: fatturazione elettronica, tesoreria, scadenze, CRM e AI. https://pamasoft.com/prodotti/cloudsuite/ · https://cloudsuite.pamasoft.com
-- **Pamasoft CloudPos** — POS cloud per retail e hospitality: cassa, catalogo, magazzino, clienti e analytics. https://pamasoft.com/prodotti/cloudpos/ · https://square.pamasoft.com
-- **Pamasoft Healthcare** — gestionale per strutture sanitarie private: pazienti, agenda, cartelle, fatturazione. https://pamasoft.com/prodotti/pamasoft-healthcare/ · https://healthcare.pamasoft.com
-- **Posway** — piattaforma pagamenti: link/QR, abbonamenti, terminali, report e accrediti. https://pamasoft.com/prodotti/posway/ · https://posway.io
-- **SPOORTAL** — ecosistema sportivo: affiliazioni, tessere, pagamenti, formazione ed eventi. https://pamasoft.com/prodotti/spoortal/ · https://spoortal.it
-- **Playten** — gestionale circoli tennis/padel/pickleball: prenotazioni, tariffe, wallet e pagamenti. https://pamasoft.com/prodotti/playten/ · https://playten.net
-- **Virtual Clinic** — telemedicina: videovisite con specialisti certificati, documenti e referti. https://pamasoft.com/prodotti/virtual-clinic/ · https://virtualclinic.it
+- **Pamasoft CloudStay** — gestionale per hotel: motore di prenotazione diretta, PMS con calendario camere, prezzi suggeriti (PriceIQ), pulizie, contabilità ed esperienza ospite. Prenotabile anche da ChatGPT e dagli assistenti AI. https://pamasoft.com/prodotti/cloudstay/ · https://cloudstay.pamasoft.com
+- **Pamasoft CloudPos** — cassa cloud che si adatta al mestiere: cassa con barcode, magazzino, clienti, staff, appuntamenti, fatture e preventivi in PDF, CloudPos AI. https://pamasoft.com/prodotti/cloudpos/ · https://cloudpos.pamasoft.com
+  - Negozi e abbigliamento: https://pamasoft.com/prodotti/cloudpos/negozi/
+  - Ristoranti e bar: https://pamasoft.com/prodotti/cloudpos/ristorazione/
+  - Parrucchieri ed estetica: https://pamasoft.com/prodotti/cloudpos/beauty/
+  - Palestre e studi: https://pamasoft.com/prodotti/cloudpos/fitness/
+  - Servizi e artigiani: https://pamasoft.com/prodotti/cloudpos/servizi/
+- **Pamasoft CloudReviews** — più recensioni Google in automatico, nel rispetto delle regole. https://pamasoft.com/prodotti/cloudreviews/ · https://cloudreviews.pamasoft.com/register
+- **Pamasoft CloudSuite** — gestionale cloud per PMI: fatturazione elettronica SdI, tesoreria con previsione di cassa a 90 giorni, CRM e assistente AI. https://pamasoft.com/prodotti/cloudsuite/ · https://cloudsuite.pamasoft.com
+- **Posway** — pagamenti: link e QR, abbonamenti SEPA, terminali POS, criptovalute convertite in euro. https://pamasoft.com/prodotti/posway/ · https://posway.io
+- **Pamasoft Healthcare** — gestionale per case di cura e poliambulatori: pazienti, agenda, cartelle, referti, SdI e Sistema TS. https://pamasoft.com/prodotti/pamasoft-healthcare/ · https://healthcare.pamasoft.com
+- **Virtual Clinic** — telemedicina: televisite, prenotazioni, referti e pagamenti. https://pamasoft.com/prodotti/virtual-clinic/ · https://virtualclinic.it
+- **SPOORTAL** — affiliazioni e tesseramenti per enti e federazioni sportive. https://pamasoft.com/prodotti/spoortal/ · https://spoortal.it
+- **Playten** — prenotazione campi per circoli tennis, padel e pickleball. https://pamasoft.com/prodotti/playten/ · https://playten.net
+
+## Servizi
+
+- Intelligenza artificiale: https://pamasoft.com/servizi/intelligenza-artificiale/
+- Cloud computing AWS: https://pamasoft.com/servizi/cloud-computing/
+- Blockchain e Web3: https://pamasoft.com/servizi/blockchain/
+- Cybersecurity: https://pamasoft.com/servizi/cybersecurity/
+- Progetti su misura: https://pamasoft.com/servizi/sviluppo-applicazioni-web/
+
+## Settori
+
+- Sanità: https://pamasoft.com/industry/healthcare/
+- Retail: https://pamasoft.com/industry/retail/
+- Hospitality: https://pamasoft.com/industry/hospitality/
+- Manifattura: https://pamasoft.com/industry/manufacturing/
+- Travel e logistica: https://pamasoft.com/industry/travel-logistics/
+- Sport e intrattenimento: https://pamasoft.com/industry/media-entertainment/
 
 ## Pagine principali (IT)
 
 - Home: https://pamasoft.com/
-- Chi Siamo: https://pamasoft.com/chi-siamo/
-- Servizi: https://pamasoft.com/servizi/
 - Prodotti: https://pamasoft.com/prodotti/
-- Industry: https://pamasoft.com/industry/
+- Servizi: https://pamasoft.com/servizi/
+- Settori: https://pamasoft.com/industry/
+- Chi siamo: https://pamasoft.com/chi-siamo/
 - Contatti: https://pamasoft.com/contatti/
 - Privacy: https://pamasoft.com/privacy-policy/
 - Cookie: https://pamasoft.com/cookie-policy/
@@ -36,17 +51,19 @@
 ## Main pages (EN)
 
 - Home: https://pamasoft.com/en/
-- About: https://pamasoft.com/en/about/
-- Services: https://pamasoft.com/en/services/
 - Products: https://pamasoft.com/en/prodotti/
-- Industry: https://pamasoft.com/en/industry/
+- CloudPos: https://pamasoft.com/en/prodotti/cloudpos/ (retail, restaurants, beauty, fitness, services: https://pamasoft.com/en/prodotti/cloudpos/retail/ · /restaurants/ · /beauty/ · /fitness/ · /services/)
+- Services: https://pamasoft.com/en/services/
+- Industries: https://pamasoft.com/en/industry/
+- About: https://pamasoft.com/en/about/
 - Contact: https://pamasoft.com/en/contact/
 - Privacy: https://pamasoft.com/en/privacy-policy/
-- Cookie: https://pamasoft.com/en/cookie-policy/
+- Cookies: https://pamasoft.com/en/cookie-policy/
 - Terms: https://pamasoft.com/en/terms-of-service/
 
 ## Contatti
 
 - Email: info@pamasoft.com
+- Call di 30 minuti: https://calendly.com/pamasoft/30min
 - LinkedIn: https://www.linkedin.com/company/pamasoft
 - X (Twitter): https://x.com/pamasoft

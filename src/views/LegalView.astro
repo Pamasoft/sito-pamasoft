@@ -1,0 +1,54 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBand from '../components/ui/CtaBand.astro';
+import { COPY, UI } from '../data/ui';
+import { url } from '../data/routes';
+import ItPrivacy from '../components/legal/it-privacy.astro';
+import ItCookie from '../components/legal/it-cookie.astro';
+import ItTerms from '../components/legal/it-terms.astro';
+import EnPrivacy from '../components/legal/en-privacy.astro';
+import EnCookie from '../components/legal/en-cookie.astro';
+import EnTerms from '../components/legal/en-terms.astro';
+
+interface Props {
+  lang: Locale;
+  doc: 'privacy' | 'cookie' | 'terms';
+}
+const { lang, doc } = Astro.props;
+const t = UI[lang];
+const name = COPY[lang].legal[doc];
+const path = url(lang, doc);
+const META = {
+  it: {
+    privacy: ['Informativa Privacy - Pamasoft', 'Informativa sulla privacy di Pamasoft. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il GDPR.'],
+    cookie: ['Informativa Cookie - Pamasoft', 'Informativa sui cookie utilizzati dal sito Pamasoft. Scopri quali cookie utilizziamo, come gestirli e come proteggere la tua privacy durante la navigazione.'],
+    terms: ['Termini e Condizioni di Servizio - Pamasoft', 'Termini e condizioni generali di utilizzo del sito web Pamasoft e dei servizi offerti. Leggi le condizioni applicabili ai nostri servizi IT.'],
+  },
+  en: {
+    privacy: ['Privacy Policy - Pamasoft', 'Pamasoft privacy policy. Learn how we collect, use and protect your personal data in compliance with GDPR.'],
+    cookie: ['Cookie Policy - Pamasoft', 'Information about cookies used by the Pamasoft website. Learn which cookies we use, how to manage them and how to protect your privacy while browsing.'],
+    terms: ['Terms and Conditions of Service - Pamasoft', 'General terms and conditions of use of the Pamasoft website and services offered. Read the conditions applicable to our services.'],
+  },
+} as const;
+const [title, description] = META[lang][doc];
+const Body = {
+  it: { privacy: ItPrivacy, cookie: ItCookie, terms: ItTerms },
+  en: { privacy: EnPrivacy, cookie: EnCookie, terms: EnTerms },
+}[lang][doc];
+const sd = { '@context': 'https://schema.org', '@type': 'WebPage', name, description, url: `https://pamasoft.com${path}`, inLanguage: lang };
+const cta = lang === 'en'
+  ? ['Any questions?', 'Our team is happy to clarify anything about privacy, cookies and data protection.']
+  : ['Hai domande?', 'Il nostro team è a disposizione per qualsiasi chiarimento su privacy, cookie e protezione dei dati.'];
+---
+
+<BaseLayout title={title} description={description} path={path} lang={lang} breadcrumbs={[{ name, url: path }]} structuredData={sd}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name }]} title={name} lead={description} />
+  <section class="band" style="padding-top:0">
+    <div class="wrap legal-wrap">
+      <Body />
+    </div>
+  </section>
+  <CtaBand lang={lang} title={cta[0]} lead={cta[1]} />
+</BaseLayout>

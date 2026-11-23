@@ -1,8 +1,11 @@
 ---
+import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import type { Locale } from '../config/site';
+import { UI } from '../data/ui';
+import { CALENDLY, url } from '../data/routes';
 
 interface Breadcrumb {
   name: string;
@@ -15,14 +18,16 @@ interface Props {
   keywords?: string;
   path: string;
   lang?: Locale;
-  pageClass?: string;
-  bodyClass?: string;
   ogType?: string;
   ogImage?: string;
   ogImageAlt?: string;
   noindex?: boolean;
   breadcrumbs?: Breadcrumb[];
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  /** Section in the header to mark as current */
+  current?: 'products' | 'services' | 'industry' | 'about' | 'contact';
+  /** Where the sticky "Contattaci" (mobile) points to; defaults to the contact page */
+  contactHref?: string;
 }
 
 const {
@@ -31,19 +36,22 @@ const {
   keywords,
   path,
   lang = 'it',
-  pageClass = 'homepage',
-  bodyClass,
   ogType,
   ogImage,
   ogImageAlt,
   noindex = false,
   breadcrumbs,
   structuredData,
+  current,
+  contactHref,
 } = Astro.props;
+
+const t = UI[lang];
+const contact = contactHref ?? url(lang, 'contact');
 ---
 
-<!DOCTYPE html>
-<html lang={lang} itemscope itemtype="https://schema.org/WebPage">
+<!doctype html>
+<html lang={lang}>
   <head>
     <SEO
       title={title}
@@ -59,25 +67,17 @@ const {
       structuredData={structuredData}
     />
   </head>
-  <body class={bodyClass}>
-    <main class={`main-page ${pageClass}`}>
-      <Header lang={lang} />
+  <body>
+    <a class="skip" href="#main">{t.skip}</a>
+    <Header lang={lang} path={path} current={current} />
+    <main id="main" tabindex="-1">
       <slot />
-      <Footer lang={lang} />
     </main>
-
-    <script is:inline src="/assets/js/jquery-3.7.0.min.js"></script>
-    <script is:inline src="/assets/js/bootstrap.bundle.min.js" defer></script>
-    <script is:inline src="/assets/js/gsap.min.js" defer></script>
-    <script is:inline src="/assets/js/Draggable.min.js" defer></script>
-    <script is:inline src="/assets/js/swiper-bundle.min.js" defer></script>
-    <script is:inline src="/assets/js/client-marquee.js" defer></script>
-    <script is:inline src="/assets/js/theme-custom.js" defer></script>
-    <script is:inline src="/assets/js/menu-accessibility.js" defer></script>
-    <script is:inline src="/assets/js/language-switcher.js" defer></script>
-    <script is:inline src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY" defer></script>
-    <script is:inline src="/assets/js/contact-form-handler.js" defer></script>
-    <script is:inline src="/assets/js/form1.js" defer></script>
-    <script is:inline src="/assets/js/subscribe-form.js" defer></script>
+    <Footer lang={lang} />
+    <div class="sticky">
+      <a class="btn btn-g" href={CALENDLY}>{t.bookCall}</a>
+      <a class="btn btn-p" href={contact}>{t.contactUs}</a>
+    </div>
+    <script src="../scripts/site.ts"></script>
   </body>
 </html>

@@ -1,0 +1,57 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { COPY, UI } from '../data/ui';
+import { SERVICES } from '../data/services';
+import { CALENDLY, EMAIL, LINKEDIN, X_URL, url } from '../data/routes';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const c = COPY[lang].contact;
+const t = UI[lang];
+const path = url(lang, 'contact');
+// Valori "service" compatibili con quelli storici del form contatti
+const SERVICE_VALUES: Record<string, string> = {
+  'intelligenza-artificiale': 'intelligenza-artificiale',
+  'cloud-computing': 'cloud-computing',
+  blockchain: 'blockchain',
+  cybersecurity: 'cybersecurity',
+  'sviluppo-applicazioni-web': 'sviluppo-web',
+};
+const options = [
+  { value: 'prodotto-pamasoft', label: c.needProduct },
+  ...SERVICES.map((s) => ({ value: SERVICE_VALUES[s.key], label: s[lang].n })),
+  { value: 'consulenza-generale', label: c.needOther },
+];
+const sd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: c.h1,
+  description: c.meta,
+  url: `https://pamasoft.com${path}`,
+  inLanguage: lang,
+};
+---
+
+<BaseLayout title={c.title} description={c.meta} path={path} lang={lang} current="contact" contactHref="#contact-f"
+  breadcrumbs={[{ name: t.nav.contact, url: path }]} structuredData={sd}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.contact }]} title={c.h1} lead={c.lead} />
+  <section class="band" style="padding-top:0">
+    <div class="wrap fgrid">
+      <div id="contact-f">
+        <ContactForm lang={lang} id="contact" selectLabel={c.need} options={options} newsletter plain note={false} />
+      </div>
+      <div class="aud">
+        <div><span><b>{c.cards[0][0]}</b><p><a href={`mailto:${EMAIL}`}>{c.cards[0][1]}</a></p></span></div>
+        <div><span><b>{c.cards[1][0]}</b><p>{c.cards[1][1]}</p></span></div>
+        <div><span><b>{c.cards[2][0]}</b><p>{c.cards[2][1]}</p></span></div>
+        <div><span><b>{c.call[0]}</b><p>{c.call[1]}</p></span><a class="btn btn-p" href={CALENDLY}>{t.book}</a></div>
+        <div><span><b>{c.social}</b><p><a href={LINKEDIN} target="_blank" rel="noopener">LinkedIn</a> · <a href={X_URL} target="_blank" rel="noopener">X</a></p></span></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

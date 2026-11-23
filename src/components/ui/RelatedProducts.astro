@@ -1,0 +1,8 @@
+---
+import type { Locale } from '../../config/site';
+import { productById } from '../../data/products';
+import ProductCard from './ProductCard.astro';
+interface Props { lang: Locale; ids: string[] }
+const { lang, ids } = Astro.props;
+---
+<div class="pgrid">{ids.map((id) => <ProductCard lang={lang} p={productById(id)} />)}</div>

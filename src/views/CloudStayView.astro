@@ -1,0 +1,99 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Crumbs from '../components/ui/Crumbs.astro';
+import ModTabs from '../components/ui/ModTabs.astro';
+import Faq from '../components/ui/Faq.astro';
+import EcoSec from '../components/ui/EcoSec.astro';
+import CompareTable from '../components/ui/CompareTable.astro';
+import FormBand from '../components/ui/FormBand.astro';
+import { UI } from '../data/ui';
+import { CLOUDSTAY, csCalendar } from '../data/cloudstay';
+import { productById } from '../data/products';
+import { url, productUrl } from '../data/routes';
+import { dot, icon } from '../lib/screens';
+import { buildProductStructuredData, buildFaqStructuredData, productOgImage } from '../lib/product-seo';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = CLOUDSTAY[lang];
+const t = UI[lang];
+const p = productById('cloudstay');
+const path = productUrl(lang, 'cloudstay');
+const sd = [
+  ...buildProductStructuredData({ name: p.brand, description: c.meta, path, lang, slug: p.slug, appUrl: p.appUrl, features: c.feats.map((f) => f[1]), audience: c.aud.map((a) => a[0]) }),
+  buildFaqStructuredData(c.faq),
+];
+---
+<BaseLayout title={c.title} description={c.meta} path={path} lang={lang} current="products" ogImage={productOgImage('cloudstay')} contactHref="#demo"
+  breadcrumbs={[{ name: t.nav.products, url: url(lang, 'products') }, { name: p.name, url: path }]} structuredData={sd}>
+  <section class="hero">
+    <div class="wrap hgrid">
+      <div>
+        <Crumbs crumbs={[{ name: t.nav.products, href: url(lang, 'products') }, { name: c.crumb }]} />
+        <div class="brand"><Fragment set:html={dot(p.color, p.abbr)} />{p.brand}</div>
+        <h1 style="font-size:clamp(34px,3.9vw,50px)">{c.h1}</h1>
+        <p class="lead">{c.lead}</p>
+        <div class="cta"><a class="btn btn-p" href="#demo">{t.contactUs}</a><a class="btn btn-g" href="#moduli">{c.howBtn}</a></div>
+        <div class="trust">{c.trust.map((x) => <span>{x}</span>)}</div>
+      </div>
+      <div class="shot" role="img" aria-label={c.shotLabel}>
+        <div class="win">
+          <div class="bar"><i></i><i></i><i></i><span>{c.barUrl}</span></div>
+          <div class="app">
+            <div class="side">{c.side.map((s, i) => <div class:list={[{ on: i === 1 }]}>{s}</div>)}</div>
+            <div class="main">
+              <div class="kpi">{c.kpi.map((k) => <div set:html={k} />)}</div>
+              <Fragment set:html={csCalendar(lang)} />
+            </div>
+          </div>
+        </div>
+        <div class="phone"><div class="notch"></div><h4>{c.phone.h}</h4>{c.phone.sub}
+          <div class="room"><div class="img"></div><b>{c.phone.room}</b><div class="price"><span>{c.phone.nights}</span><b>{c.phone.price}</b></div></div>
+          <div class="pay">{c.phone.pay}</div>
+        </div>
+        <div class="toast"><i>✓</i><span><b>{c.toast[0]}</b>{c.toast[1]}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band"><div class="wrap">
+    <div class="head"><h2>{c.probH}</h2></div>
+    <div class="prob">{c.prob.map(([a, b, d]) => <div><h3><s>{a}</s> → {b}</h3><p>{d}</p></div>)}</div>
+  </div></section>
+
+  <section class="band soft" id="moduli"><div class="wrap">
+    <div class="head"><h2>{c.modsH}</h2><p class="lead">{c.modsL}</p></div>
+    <ModTabs id="cs" mods={c.mods} />
+  </div></section>
+
+  <section class="band ai" id="ai-cs"><div class="wrap">
+    <div class="head"><h2>{c.aiH}</h2><p class="lead">{c.aiL}</p></div>
+    <div class="aig">
+      {c.ai.map((a) => (
+        <div class="aic"><span class="pill">{a.pill}</span><h3>{a.h}</h3><p>{a.p}</p>
+          <div class="chat"><div class="u">{a.u}</div><div class="a" set:html={a.a} /></div></div>
+      ))}
+    </div>
+    <div class="small4">{c.small.map(([h, d]) => <div><h3>{h}</h3><p>{d}</p></div>)}</div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="head"><h2>{c.featsH}</h2></div>
+    <div class="fg">{c.feats.map(([k, h, d]) => <div><Fragment set:html={icon(k)} /><h3>{h}</h3><p>{d}</p></div>)}</div>
+  </div></section>
+
+  <section class="band soft"><div class="wrap two">
+    <div><div class="head"><h2>{c.audH}</h2></div>
+      <div class="aud">{c.aud.map(([b, d, tag]) => <div><span><b>{b}</b><p>{d}</p></span><span class="tag t-b">{tag}</span></div>)}</div>
+    </div>
+    <div><div class="head"><h2>{c.stepsH}</h2></div>
+      <ol class="steps">{c.steps.map(([h, d, e], i) => <li><b>{i + 1}</b><div><h3>{h}</h3><p>{d}</p><em>{e}</em></div></li>)}</ol>
+    </div>
+  </div></section>
+
+  <EcoSec lang={lang} title={c.ecoH} eco={c.eco} sec={c.sec} />
+  <CompareTable title={c.cmpH} head={c.cmpHead} short={c.cmpShort} rows={c.cmp} />
+  <Faq title={t.faqH} items={c.faq} />
+  <FormBand lang={lang} id="demo" title={c.formH} lead={c.formL} list={c.formList} companyLabel={c.companyLabel} selectLabel={c.selectLabel}
+    options={c.selectOptions.map((o) => ({ value: `CloudStay - ${o}`, label: o }))} />
+</BaseLayout>

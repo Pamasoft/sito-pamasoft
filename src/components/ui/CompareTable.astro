@@ -1,0 +1,17 @@
+---
+interface Props { title: string; head: string[]; short: string[]; rows: [string, string, string][] }
+const { title, head, short, rows } = Astro.props;
+---
+<section class="band soft">
+  <div class="wrap">
+    <div class="head"><h2>{title}</h2></div>
+    <div class="scroll">
+      <table class="stack">
+        <thead><tr><th scope="col">{head[0]}</th><th scope="col">{head[1]}</th><th scope="col" class="us">{head[2]}</th></tr></thead>
+        <tbody>
+          {rows.map(([a, b, c]) => <tr><td data-l={short[0]}>{a}</td><td data-l={short[1]}>{b}</td><td class="us" data-l={short[2]}>{c}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

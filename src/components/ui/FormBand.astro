@@ -1,0 +1,25 @@
+---
+/** Banda blu finale "Parliamo di…" con testo a sinistra e form contatti a destra. */
+import type { Locale } from '../../config/site';
+import { UI } from '../../data/ui';
+import { CALENDLY } from '../../data/routes';
+import ContactForm from '../ContactForm.astro';
+interface Option { value: string; label: string; selected?: boolean }
+interface Props {
+  lang: Locale; id: string; title: string; lead: string; list: string[];
+  companyLabel?: string; selectLabel?: string; options?: Option[]; service?: string; callButton?: boolean;
+}
+const { lang, id, title, lead, list, companyLabel, selectLabel, options, service, callButton = true } = Astro.props;
+const t = UI[lang];
+---
+<section class="band final" id={id}>
+  <div class="wrap fgrid">
+    <div>
+      <h2>{title}</h2>
+      <p class="lead" set:html={lead} />
+      <ul>{list.map((x) => <li>{x}</li>)}</ul>
+      {callButton && <a class="btn btn-w" style="margin-top:24px" href={CALENDLY}>{t.bookCall}</a>}
+    </div>
+    <ContactForm lang={lang} id={`${id}-f`} companyLabel={companyLabel} selectLabel={selectLabel} options={options} service={service} />
+  </div>
+</section>

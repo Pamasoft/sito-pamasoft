@@ -1,0 +1,47 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBand from '../components/ui/CtaBand.astro';
+import { COPY, UI } from '../data/ui';
+import { SERVICES } from '../data/services';
+import { url, serviceUrl } from '../data/routes';
+import { icon } from '../lib/screens';
+import { buildItemList } from '../lib/product-seo';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const c = COPY[lang].services;
+const t = UI[lang];
+const sd = buildItemList(t.nav.services, SERVICES.map((s) => ({ name: s[lang].n, path: serviceUrl(lang, s.key) })));
+---
+
+<BaseLayout title={c.title} description={c.meta} path={url(lang, 'services')} lang={lang} current="services"
+  breadcrumbs={[{ name: t.nav.services, url: url(lang, 'services') }]} structuredData={sd}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.services }]} title={c.h1} lead={c.lead} />
+  <section class="band" style="padding-top:0">
+    <div class="wrap">
+      <div class="eco eco-grid">
+        {
+          SERVICES.map((s) => (
+            <a href={serviceUrl(lang, s.key)}>
+              <Fragment set:html={icon(s.ic)} />
+              <b style="font-size:19px">{s[lang].n}</b>
+              <p>{s[lang].l}</p>
+              <span>{t.more}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head"><h2>{COPY[lang].home.procH}</h2></div>
+      <div class="proc">{COPY[lang].proc.map(([a, b]) => <div><h3>{a}</h3><p>{b}</p></div>)}</div>
+    </div>
+  </section>
+  <CtaBand lang={lang} title={c.ctaH} lead={c.ctaL} />
+</BaseLayout>

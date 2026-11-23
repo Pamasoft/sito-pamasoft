@@ -1,0 +1,30 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Crumbs from '../components/ui/Crumbs.astro';
+import ProductFilter from '../components/ui/ProductFilter.astro';
+import { COPY, UI } from '../data/ui';
+import { PRODUCTS } from '../data/products';
+import { url, productUrl } from '../data/routes';
+import { buildItemList } from '../lib/product-seo';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = COPY[lang].products;
+const t = UI[lang];
+const sd = buildItemList(lang === 'en' ? 'Pamasoft products' : 'Prodotti Pamasoft', PRODUCTS.map((p) => ({ name: p.brand, path: productUrl(lang, p.slug) })));
+---
+<BaseLayout title={c.title} description={c.meta} path={url(lang, 'products')} lang={lang} current="products"
+  breadcrumbs={[{ name: t.nav.products, url: url(lang, 'products') }]} structuredData={sd}>
+  <section class="hero">
+    <div class="wrap">
+      <Crumbs crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.products }]} />
+      <h1 style="max-width:16ch">{c.h1}</h1>
+      <p class="lead" style="margin-top:18px">{c.lead}</p>
+    </div>
+  </section>
+  <section class="band" style="padding-top:0">
+    <div class="wrap">
+      <ProductFilter lang={lang} id="pgrid-all" label={COPY[lang].home.sectorsLabel} />
+    </div>
+  </section>
+</BaseLayout>

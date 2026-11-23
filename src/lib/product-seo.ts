@@ -1,183 +1,129 @@
 import { site } from '../config/site';
-import type { CollectionEntry } from 'astro:content';
+import type { Lang } from '../data/routes';
 
-type ProductData = CollectionEntry<'prodotti'>['data'];
+/** Open Graph images (raster, so every network shows them). */
+const OG_RASTER_BY_SLUG: Record<string, string> = {
+  cloudstay: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  cloudsuite: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  cloudpos: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  'pamasoft-healthcare': 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  posway: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  'virtual-clinic': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  spoortal: 'https://images.unsplash.com/photo-1461896836934-ffe607ba6851?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  playten: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  cloudreviews: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+};
 
-export function absoluteAssetUrl(src: string | undefined | null): string {
-  if (!src) return `${site.url}/assets/images/logo-blu.png`;
-  if (src.startsWith('http://') || src.startsWith('https://')) return src;
-  return `${site.url}${src.startsWith('/') ? src : `/${src}`}`;
-}
+export const productOgImage = (slug: string) => OG_RASTER_BY_SLUG[slug] ?? `${site.url}/assets/images/logo-blu.png`;
 
 /** Meta description ~155 chars for SERP snippets */
-export function metaDescriptionFromProduct(data: ProductData): string {
-  const raw = `${data.tagline} ${data.descrizione}`.replace(/\s+/g, ' ').trim();
-  if (raw.length <= 155) return raw;
-  const cut = raw.slice(0, 152);
+export function clampDescription(raw: string): string {
+  const s = raw.replace(/\s+/g, ' ').trim();
+  if (s.length <= 155) return s;
+  const cut = s.slice(0, 152);
   const lastSpace = cut.lastIndexOf(' ');
   return `${(lastSpace > 100 ? cut.slice(0, lastSpace) : cut).trim()}…`;
 }
 
-export function productKeywords(data: ProductData, lang: 'it' | 'en'): string {
-  const industryMap: Record<string, { it: string; en: string }> = {
-    healthcare: { it: 'sanità, healthcare, cliniche', en: 'healthcare, clinics' },
-    retail: { it: 'retail, negozi, POS', en: 'retail, shops, POS' },
-    manufacturing: { it: 'manifattura, PMI', en: 'manufacturing, SME' },
-    hospitality: { it: 'hospitality, hotel, booking', en: 'hospitality, hotel, booking' },
-    'travel-logistics': { it: 'logistica, travel', en: 'logistics, travel' },
-    'media-entertainment': { it: 'sport, entertainment', en: 'sport, entertainment' },
-  };
+const abs = (path: string) => (path.startsWith('http') ? path : `${site.url}${path}`);
 
-  const slugKeywords: Record<string, { it: string; en: string }> = {
-    playten: {
-      it: 'tennis, prenotazione campi tennis, circolo tennis, padel, pickleball',
-      en: 'tennis, tennis court booking, tennis club, padel, pickleball',
-    },
-    cloudreviews: {
-      it: 'recensioni Google, gestione recensioni, reputazione online, review management, feedback clienti',
-      en: 'Google reviews, review management, online reputation, customer feedback, review requests',
-    },
-  };
-
-  const industries = data.industryCorrelate
-    .map((id) => industryMap[id]?.[lang] ?? id)
-    .join(', ');
-
-  const featureWords = data.featureHighlights
-    .slice(0, 4)
-    .map((f) => f.titolo)
-    .join(', ');
-
-  const base =
-    lang === 'en'
-      ? `Pamasoft, ${data.nome}, SaaS, cloud software`
-      : `Pamasoft, ${data.nome}, SaaS, software cloud`;
-
-  return [base, slugKeywords[data.slug]?.[lang], industries, featureWords]
-    .filter(Boolean)
-    .join(', ');
-}
-
-export function productPageTitle(data: ProductData, _lang: 'it' | 'en'): string {
-  const clause = data.tagline.split(/[:.]/)[0].trim();
-  const short = clause.length > 58 ? `${clause.slice(0, 55).replace(/\s+\S*$/, '').trim()}…` : clause;
-  return `${data.nome} | ${short} | Pamasoft`;
-}
-
-/** Prefer raster images for Open Graph (some networks skip SVG). */
-const OG_RASTER_BY_SLUG: Record<string, string> = {
-  cloudstay:
-    'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  cloudsuite:
-    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  cloudpos:
-    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  'pamasoft-healthcare':
-    'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  posway:
-    'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  'virtual-clinic':
-    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  spoortal:
-    'https://images.unsplash.com/photo-1461896836934-ffe607ba6851?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  playten:
-    'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  cloudreviews:
-    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+const provider = {
+  '@type': 'Organization',
+  name: 'Pamasoft',
+  url: site.url,
+  logo: `${site.url}/assets/images/logo-blu.png`,
 };
 
-export function productOgImage(data: ProductData): string {
-  const candidates = [data.heroImage, data.screenshot?.src, data.logo?.src].filter(Boolean) as string[];
-  const raster = candidates.find((src) => /\.(jpe?g|png|webp|gif)(\?|$)/i.test(src));
-  if (raster) return absoluteAssetUrl(raster);
-  if (OG_RASTER_BY_SLUG[data.slug]) return OG_RASTER_BY_SLUG[data.slug];
-  return absoluteAssetUrl(candidates[0]);
+export interface ProductSeoInput {
+  name: string;
+  description: string;
+  path: string;
+  lang: Lang;
+  slug: string;
+  appUrl?: string;
+  features?: string[];
+  audience?: string[];
+  /** Used for the CloudPos business-type pages, which describe a configuration of CloudPos */
+  isPartOfPath?: string;
 }
 
-export function buildProductStructuredData(opts: {
-  data: ProductData;
-  lang: 'it' | 'en';
-  pageUrl: string;
-  metaDescription: string;
-}) {
-  const { data, lang, pageUrl, metaDescription } = opts;
-  const image = productOgImage(data);
-  const screenshot = absoluteAssetUrl(data.screenshot?.src);
-  const logo = absoluteAssetUrl(data.logo?.src);
-  const featureList = data.featureHighlights.map((f) => f.titolo).join(', ');
-  const audience = data.pubblicoTarget.join(', ');
-
-  const provider = {
-    '@type': 'Organization',
-    name: 'Pamasoft',
-    url: site.url,
-    logo: `${site.url}/assets/images/logo-blu.png`,
-  };
-
+/** SoftwareApplication + WebPage for product pages (including the CloudPos hub and its business-type pages). */
+export function buildProductStructuredData(o: ProductSeoInput) {
+  const pageUrl = abs(o.path);
   const softwareId = `${pageUrl}#software`;
-
-  const softwareApplication: Record<string, unknown> = {
+  const inLanguage = o.lang === 'en' ? 'en' : 'it';
+  const app: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     '@id': softwareId,
-    name: data.nome,
-    description: data.descrizione,
+    name: o.name,
+    description: o.description,
     url: pageUrl,
-    image: [image, logo],
-    screenshot,
+    image: productOgImage(o.slug),
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
-    inLanguage: lang === 'en' ? 'en' : 'it',
-    featureList,
-    audience: audience
-      ? {
-          '@type': 'Audience',
-          audienceType: audience,
-        }
-      : undefined,
+    inLanguage,
     provider,
-    author: provider,
     publisher: provider,
-    offers: {
-      '@type': 'Offer',
-      url: data.ctaPrincipale.url,
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'EUR',
-      category: 'SaaS',
-    },
   };
+  if (o.features?.length) app.featureList = o.features.join(', ');
+  if (o.audience?.length) app.audience = { '@type': 'Audience', audienceType: o.audience.join(', ') };
+  if (o.appUrl) app.sameAs = [o.appUrl];
+  if (o.isPartOfPath) app.isPartOf = { '@id': `${abs(o.isPartOfPath)}#software` };
 
-  if (data.dominioEsterno) {
-    softwareApplication.sameAs = [data.dominioEsterno];
-  }
-
-  // Remove undefined keys
-  Object.keys(softwareApplication).forEach((key) => {
-    if (softwareApplication[key] === undefined) delete softwareApplication[key];
-  });
-
-  const webPage: Record<string, unknown> = {
+  const webPage = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': `${pageUrl}#webpage`,
     url: pageUrl,
-    name: `${data.nome} | Pamasoft`,
-    description: metaDescription,
-    inLanguage: lang === 'en' ? 'en' : 'it',
-    isPartOf: {
-      '@type': 'WebSite',
-      name: 'Pamasoft',
-      url: site.url,
-    },
+    name: `${o.name} | Pamasoft`,
+    description: clampDescription(o.description),
+    inLanguage,
+    isPartOf: { '@type': 'WebSite', name: 'Pamasoft', url: site.url },
     about: { '@id': softwareId },
-    primaryImageOfPage: {
-      '@type': 'ImageObject',
-      url: image,
-    },
-    breadcrumb: {
-      '@id': `${pageUrl}#breadcrumb`,
+  };
+  return [app, webPage];
+}
+
+const strip = (html: string) => html.replace(/<[^>]+>/g, '');
+
+export function buildFaqStructuredData(items: [string, string][]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map(([q, a]) => ({
+      '@type': 'Question',
+      name: strip(q),
+      acceptedAnswer: { '@type': 'Answer', text: strip(a) },
+    })),
+  };
+}
+
+export function buildServiceStructuredData(o: { name: string; description: string; path: string; lang: Lang; offers: string[] }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: o.name,
+    serviceType: o.name,
+    description: o.description,
+    url: abs(o.path),
+    inLanguage: o.lang === 'en' ? 'en' : 'it',
+    provider: { '@type': 'Organization', name: 'Pamasoft', url: site.url },
+    areaServed: { '@type': 'Country', name: 'Italy' },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: o.name,
+      itemListElement: o.offers.map((n) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })),
     },
   };
+}
 
-  return [softwareApplication, webPage];
+export function buildItemList(name: string, items: { name: string; path: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: abs(p.path) })),
+  };
 }

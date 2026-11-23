@@ -1,0 +1,84 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductFilter from '../components/ui/ProductFilter.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { COPY, UI } from '../data/ui';
+import { SERVICES } from '../data/services';
+import { url, serviceUrl } from '../data/routes';
+import { homeMiniCal } from '../data/cloudstay';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = COPY[lang].home;
+const proc = COPY[lang].proc;
+const t = UI[lang];
+const first = (s: string) => `${s.split('. ')[0].replace(/\.$/, '')}.`;
+---
+<BaseLayout title={c.title} description={c.meta} path={url(lang, 'home')} lang={lang} contactHref="#contatti">
+  <section class="hero">
+    <div class="wrap hgrid">
+      <div>
+        <span class="eyebrow">{c.eyebrow}</span>
+        <h1>{c.h1}</h1>
+        <p class="lead">{c.lead}</p>
+        <div class="cta">
+          <a class="btn btn-p" href={url(lang, 'products')}>{c.ctaProducts}</a>
+          <a class="btn btn-g" href="#contatti">{t.contactUs}</a>
+        </div>
+        <div class="trust">{c.trust.map((x) => <span>{x}</span>)}</div>
+      </div>
+      <div class="stackp" role="img" aria-label={c.stackLabel}>
+        <div class="win w1"><div class="bar"><i></i><i></i><i></i><span>{c.w1}</span></div><div class="pad" set:html={homeMiniCal(lang)} /></div>
+        <div class="win w2"><div class="bar"><i></i><i></i><i></i><span>{c.w2}</span></div><div class="pad chat"><div class="u">{c.w2u}</div><div class="a" set:html={c.w2a} /></div></div>
+        <div class="win w3"><div class="bar"><i></i><i></i><i></i><span>{c.w3}</span></div>
+          <div class="pad till">{c.w3lines.map(([a, b]) => <div class="l"><span>{a}</span><span>{b}</span></div>)}<div class="t"><span>{c.w3tot[0]}</span><span>{c.w3tot[1]}</span></div><div class="pay">{c.w3pay}</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="chi">
+    <div class="proof">{c.proof.map(([b, s]) => <div><b>{b}</b><span>{s}</span></div>)}</div>
+  </section>
+
+  <section class="band ai" id="ai-home">
+    <div class="wrap">
+      <div class="head"><h2>{c.aiH}</h2><p class="lead">{c.aiL}</p></div>
+      <div class="aiex">{c.aiex.map(([s, h, p]) => <div><small>{s}</small><h3>{h}</h3><p>{p}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{c.prodH}</h2><p class="lead">{c.prodL}</p></div>
+      <ProductFilter lang={lang} id="pgrid-home" label={c.sectorsLabel} />
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head"><h2>{c.svcH}</h2><p class="lead">{c.svcL}</p></div>
+      <div class="svc">
+        {SERVICES.map((s) => <a href={serviceUrl(lang, s.key)} class="svc-a"><h3>{s[lang].n}</h3><p>{first(s[lang].l)}</p></a>)}
+      </div>
+      <div class="head" style="margin:56px 0 24px"><h3 style="font-size:24px">{c.procH}</h3></div>
+      <div class="proc">{proc.map(([a, b]) => <div><h3>{a}</h3><p>{b}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="band final" id="contatti">
+    <div class="wrap fgrid">
+      <div>
+        <h2>{c.formH}</h2>
+        <p class="lead" set:html={c.formL} />
+        <ul>{c.formList.map((x) => <li>{x}</li>)}</ul>
+      </div>
+      <ContactForm
+        lang={lang}
+        id="home-f"
+        selectLabel={c.interest}
+        options={c.interestOpts.map((o) => ({ value: o, label: o }))}
+      />
+    </div>
+  </section>
+</BaseLayout>

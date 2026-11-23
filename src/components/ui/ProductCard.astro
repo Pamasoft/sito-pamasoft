@@ -1,0 +1,14 @@
+---
+import type { Locale } from '../../config/site';
+import type { Product } from '../../data/products';
+import { UI } from '../../data/ui';
+import { productUrl } from '../../data/routes';
+import { dot } from '../../lib/screens';
+interface Props { lang: Locale; p: Product }
+const { lang, p } = Astro.props;
+---
+<a class="pc" href={productUrl(lang, p.slug)} data-s={p.sector}>
+  <div class="top"><Fragment set:html={dot(p.color, p.abbr)} /><div><h3>{p.name}</h3><small>{p[lang].cat}</small></div></div>
+  <p>{p[lang].desc}</p>
+  <span class="go">{UI[lang].discover(p.name)}</span>
+</a>

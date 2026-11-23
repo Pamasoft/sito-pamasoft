@@ -1,0 +1,81 @@
+---
+/**
+ * Form contatti unico del sito. Invia in POST a erp.pamasoft.com/send-email.jsp con gli stessi
+ * nomi di campo del form storico: first_name, last_name, email, company, phone_number, service,
+ * message, privacy_accept, newsletter_accept, form_timestamp e l'honeypot "website".
+ */
+import type { Locale } from '../config/site';
+import { UI } from '../data/ui';
+
+interface Option {
+  value: string;
+  label: string;
+  selected?: boolean;
+}
+
+interface Props {
+  lang: Locale;
+  id: string;
+  companyLabel?: string;
+  selectLabel?: string;
+  options?: Option[];
+  /** Fixed value for "service" when there is no select (e.g. product pages) */
+  service?: string;
+  newsletter?: boolean;
+  plain?: boolean;
+  note?: boolean;
+}
+
+const { lang, id, companyLabel, selectLabel, options, service, newsletter = false, plain = false, note = true } = Astro.props;
+const f = UI[lang].form;
+const i = (n: string) => `${id}-${n}`;
+---
+
+<form
+  data-contact
+  method="post"
+  action="https://erp.pamasoft.com/send-email.jsp"
+  novalidate
+  class:list={[{ plain }]}
+  data-err-required={f.errRequired}
+  data-err-email={f.errEmail}
+  data-err-message={f.errMessage}
+  data-err-network={f.errNetwork}
+  data-sending={f.sending}
+>
+  <div class="hp" aria-hidden="true">
+    <label for={i('website')}>{f.honeypot}</label>
+    <input type="text" id={i('website')} name="website" tabindex="-1" autocomplete="off" />
+  </div>
+  <input type="hidden" name="form_timestamp" value="" />
+  {service && !options && <input type="hidden" name="service" value={service} />}
+  <div class="fr">
+    <label for={i('first')}>{f.first}<input id={i('first')} name="first_name" required autocomplete="given-name" /></label>
+    <label for={i('last')}>{f.last}<input id={i('last')} name="last_name" required autocomplete="family-name" /></label>
+  </div>
+  <div class="fr">
+    <label for={i('email')}>{f.email}<input id={i('email')} name="email" type="email" required autocomplete="email" /></label>
+    <label for={i('phone')}>{f.phone}<input id={i('phone')} name="phone_number" type="tel" autocomplete="tel" /></label>
+  </div>
+  {
+    options ? (
+      <div class="fr">
+        <label for={i('company')}>{companyLabel ?? f.company}<input id={i('company')} name="company" autocomplete="organization" /></label>
+        <label for={i('service')}>
+          {selectLabel}
+          <select id={i('service')} name="service">
+            {options.map((o) => <option value={o.value} selected={o.selected}>{o.label}</option>)}
+          </select>
+        </label>
+      </div>
+    ) : (
+      <label for={i('company')}>{companyLabel ?? f.company}<input id={i('company')} name="company" autocomplete="organization" /></label>
+    )
+  }
+  <label for={i('message')}>{f.message}<textarea id={i('message')} name="message" required minlength="20" placeholder={f.messagePh}></textarea></label>
+  <label class="chk"><input type="checkbox" name="privacy_accept" required /> <span set:html={f.privacy} /></label>
+  {newsletter && <label class="chk"><input type="checkbox" name="newsletter_accept" /> <span>{f.newsletter}</span></label>}
+  <button class="btn btn-p" type="submit">{f.submit}</button>
+  <div class="form-resp" role="status" aria-live="polite"></div>
+  {note && <small set:html={f.note} />}
+</form>

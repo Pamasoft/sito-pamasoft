@@ -1,6 +1,0 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 64 64" role="img" aria-label="SPOORTAL">
-  <rect width="64" height="64" rx="16" fill="#0b1220"/>
-  <path d="M40,20c0-4-2.67-6-8-6h-10c-5.33,0-8,2.67-8,8s2.67,8,8,8h8" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
-  <path d="M30,30h8c5.33,0,8,2.67,8,8s-2.67,8-8,8h-8v6" fill="none" stroke="#487fff" stroke-width="4.5" stroke-linecap="round"/>
-  <circle cx="30" cy="30" r="3" fill="#fff"/>
-</svg>

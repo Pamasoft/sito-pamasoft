@@ -11,6 +11,9 @@ const IT_TO_EN: Record<string, string> = {
   '/servizi/cybersecurity/': '/en/services/cybersecurity/',
   '/servizi/sviluppo-applicazioni-web/': '/en/services/web-application-development/',
   '/termini-servizio/': '/en/terms-of-service/',
+  '/prodotti/cloudpos/negozi/': '/en/prodotti/cloudpos/retail/',
+  '/prodotti/cloudpos/ristorazione/': '/en/prodotti/cloudpos/restaurants/',
+  '/prodotti/cloudpos/servizi/': '/en/prodotti/cloudpos/services/',
 };
 
 const EN_TO_IT: Record<string, string> = Object.fromEntries(

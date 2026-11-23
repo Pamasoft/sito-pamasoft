@@ -1,0 +1,17 @@
+---
+import type { Locale } from '../../config/site';
+import { UI } from '../../data/ui';
+import { CALENDLY, url } from '../../data/routes';
+interface Props { lang: Locale; title: string; lead: string }
+const { lang, title, lead } = Astro.props;
+const t = UI[lang];
+---
+<section class="band final">
+  <div class="wrap cta-band">
+    <div style="max-width:640px"><h2>{title}</h2><p class="lead">{lead}</p></div>
+    <div class="cta">
+      <a class="btn btn-w" href={url(lang, 'contact')}>{t.contactUs}</a>
+      <a class="btn btn-o" href={CALENDLY}>{t.bookCall}</a>
+    </div>
+  </div>
+</section>

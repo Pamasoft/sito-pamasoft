@@ -1,0 +1,193 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Crumbs from '../components/ui/Crumbs.astro';
+import Faq from '../components/ui/Faq.astro';
+import EcoSec from '../components/ui/EcoSec.astro';
+import CompareTable from '../components/ui/CompareTable.astro';
+import FormBand from '../components/ui/FormBand.astro';
+import { UI } from '../data/ui';
+import { CP_IT } from '../data/cloudpos-it';
+import { CP_EN } from '../data/cloudpos-en';
+import { CP_KEYS } from '../data/cloudpos-types';
+import { productById } from '../data/products';
+import { url, productUrl, cpUrl } from '../data/routes';
+import { dot, icon, vIco } from '../lib/screens';
+import { buildProductStructuredData, buildFaqStructuredData, productOgImage } from '../lib/product-seo';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const C = lang === 'en' ? CP_EN : CP_IT;
+const h = C.hub;
+const V = C.variants;
+const t = UI[lang];
+const p = productById('cloudpos');
+const path = productUrl(lang, 'cloudpos');
+const goLabel = (k: string) => `${h.bizGo} ${V[k].n.toLowerCase()} →`;
+const sd = [
+  ...buildProductStructuredData({
+    name: p.brand,
+    description: h.meta,
+    path,
+    lang,
+    slug: p.slug,
+    appUrl: p.appUrl,
+    features: h.common.map((f) => f[1]),
+    audience: CP_KEYS.map((k) => V[k].n),
+  }),
+  buildFaqStructuredData(h.faq),
+];
+const options = [
+  ...CP_KEYS.map((k, i) => ({ value: `CloudPos - ${V[k].n}`, label: V[k].n, selected: i === 0 })),
+  { value: `CloudPos - ${C.form.other}`, label: C.form.other },
+];
+---
+
+<BaseLayout
+  title={h.title}
+  description={h.meta}
+  path={path}
+  lang={lang}
+  current="products"
+  ogImage={productOgImage('cloudpos')}
+  contactHref="#cp-demo"
+  breadcrumbs={[{ name: t.nav.products, url: url(lang, 'products') }, { name: p.name, url: path }]}
+  structuredData={sd}
+>
+  <section class="hero">
+    <div class="wrap hgrid">
+      <div>
+        <Crumbs crumbs={[{ name: t.nav.products, href: url(lang, 'products') }, { name: h.crumb }]} />
+        <div class="brand"><Fragment set:html={dot(p.color, p.abbr)} />{p.brand}</div>
+        <h1 style="font-size:clamp(34px,3.9vw,50px)">{h.h1}</h1>
+        <p class="lead">{h.lead}</p>
+        <div class="biz">
+          <p id="cpbiz-q">{h.bizQ}</p>
+          <div class="sectors" id="cpbiz" role="group" aria-labelledby="cpbiz-q">
+            {
+              CP_KEYS.map((k, i) => (
+                <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`cps-${k}`} data-k={k} data-href={cpUrl(lang, k)} data-label={goLabel(k)}>
+                  {V[k].short}
+                </button>
+              ))
+            }
+          </div>
+          <a class="go" id="cpgo" href={cpUrl(lang, 'retail')}>{goLabel('retail')}</a>
+        </div>
+        <div class="cta">
+          <a class="btn btn-p" href="#cp-demo">{t.contactUs}</a>
+          <a class="btn btn-g" href="#cp-mestieri">{h.modelsBtn}</a>
+        </div>
+      </div>
+      <div class="shot cps" aria-live="polite">
+        {
+          CP_KEYS.map((k, i) => (
+            <div data-cp-screen={k} id={`cps-${k}`} hidden={i !== 0} role="img" aria-label={`${h.shotLabel}: ${V[k].n}`} set:html={V[k].screen} />
+          ))
+        }
+      </div>
+    </div>
+    <div class="wrap"><div class="trust">{h.trust.map((x) => <span>{x}</span>)}</div></div>
+  </section>
+
+  <section class="band" id="cp-mestieri">
+    <div class="wrap">
+      <div class="head"><h2>{h.mestH}</h2><p class="lead">{h.mestL}</p></div>
+      <div class="vc">
+        {
+          CP_KEYS.map((k) => (
+            <a href={cpUrl(lang, k)}>
+              <Fragment set:html={vIco(V[k].c, V[k].ic)} />
+              <h3>{V[k].n}</h3>
+              <ul>{V[k].f.slice(0, 3).map((f) => <li>{f[1]}</li>)}</ul>
+              <span class="go">{h.more}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head"><h2>{h.allH}</h2><p class="lead">{h.allL}</p></div>
+      <div class="fg">{h.common.map(([k, ti, d]) => <div><Fragment set:html={icon(k)} /><h3>{ti}</h3><p>{d}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap alt">
+      {
+        h.alt.map((m, i) => (
+          <div class:list={['mod', { rev: i % 2 === 1 }]}>
+            <div>
+              <span class="eyebrow">{m[0]}</span>
+              <h2 style="font-size:clamp(26px,2.8vw,36px)">{m[1]}</h2>
+              <p class="lead">{m[2]}</p>
+              <ul>{m[3].map((x) => <li>{x}</li>)}</ul>
+            </div>
+            <div class="win mshot" role="img" aria-label={`${m[0]} · ${m[4]}`}>
+              <div class="bar"><i></i><i></i><i></i><span>{m[4]}</span></div>
+              <div class="main"><div class="rows" set:html={m[5]} /></div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="band ai">
+    <div class="wrap">
+      <div class="head"><h2>{h.aiH}</h2><p class="lead">{h.aiL}</p></div>
+      <div class="aig">
+        {
+          h.ai.map((a) => (
+            <div class="aic">
+              <span class="pill">{a.pill}</span>
+              <h3>{a.h}</h3>
+              <p>{a.p}</p>
+              <div class="chat"><div class="u">{a.u}</div><div class="a" set:html={a.a} /></div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="small4">{h.small.map(([x, d]) => <div><h3>{x}</h3><p>{d}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{h.devH}</h2><p class="lead">{h.devL}</p></div>
+      <div class="dev">{h.dev.map(([k, x, d]) => <div><Fragment set:html={icon(k)} /><h3>{x}</h3><p>{d}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap two">
+      <div>
+        <div class="head"><h2>{h.safeH}</h2></div>
+        <div class="aud">{h.safe.map(([k, b, d]) => <div><span><b>{b}</b><p>{d}</p></span><Fragment set:html={icon(k)} /></div>)}</div>
+      </div>
+      <div>
+        <div class="head"><h2>{h.stepsH}</h2></div>
+        <ol class="steps">{h.steps.map(([x, d, e], i) => <li><b>{i + 1}</b><div><h3>{x}</h3><p>{d}</p><em>{e}</em></div></li>)}</ol>
+      </div>
+    </div>
+  </section>
+
+  <EcoSec lang={lang} title={h.ecoH} eco={h.eco} sec={h.sec} />
+  <CompareTable title={h.cmpH} head={h.cmpHead} short={h.cmpShort} rows={h.cmp} />
+  <Faq title={t.faqH} items={h.faq} />
+  <FormBand
+    lang={lang}
+    id="cp-demo"
+    title={C.form.h}
+    lead={C.form.l}
+    list={C.form.list}
+    companyLabel={C.form.companyLabel}
+    selectLabel={C.form.selectLabel}
+    options={options}
+  />
+</BaseLayout>

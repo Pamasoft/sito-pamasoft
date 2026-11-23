@@ -1,0 +1,12 @@
+---
+import IndustryView from '../../../views/IndustryView.astro';
+import { INDUSTRIES, type Industry } from '../../../data/industries';
+
+export function getStaticPaths() {
+  return INDUSTRIES.map((s) => ({ params: { slug: s.key }, props: { s } }));
+}
+
+const { s } = Astro.props as { s: Industry };
+---
+
+<IndustryView lang="en" s={s} />

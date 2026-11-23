@@ -1,55 +1,14 @@
 ---
-import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import ProductDetail from '../../../components/ProductDetail.astro';
-import {
-  absoluteAssetUrl,
-  buildProductStructuredData,
-  metaDescriptionFromProduct,
-  productKeywords,
-  productOgImage,
-  productPageTitle,
-} from '../../../lib/product-seo';
+import ProductView from '../../../views/ProductView.astro';
+import CloudStayView from '../../../views/CloudStayView.astro';
+import CloudPosHubView from '../../../views/CloudPosHubView.astro';
+import { PRODUCTS, type Product } from '../../../data/products';
 
-export async function getStaticPaths() {
-  const prodotti = await getCollection('prodotti', ({ data }) => data.lingua === 'en' && data.pubblicato);
-  return prodotti.map((entry) => ({
-    params: { slug: entry.data.slug },
-    props: { entry },
-  }));
+export function getStaticPaths() {
+  return PRODUCTS.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await render(entry);
-const { data } = entry;
-
-const pageUrl = `https://pamasoft.com/en/prodotti/${data.slug}/`;
-const description = metaDescriptionFromProduct(data);
-const ogImage = productOgImage(data);
-const structuredData = buildProductStructuredData({
-  data,
-  lang: 'en',
-  pageUrl,
-  metaDescription: description,
-});
+const { p } = Astro.props as { p: Product };
 ---
 
-<BaseLayout
-  title={productPageTitle(data, 'en')}
-  description={description}
-  keywords={productKeywords(data, 'en')}
-  path={`/en/prodotti/${data.slug}/`}
-  lang="en"
-  pageClass="prodotto-page"
-  ogImage={ogImage}
-  ogImageAlt={`${data.nome} — ${data.tagline}`}
-  breadcrumbs={[
-    { name: 'Products', url: '/en/prodotti/' },
-    { name: data.nome, url: `/en/prodotti/${data.slug}/` },
-  ]}
-  structuredData={structuredData}
->
-  <ProductDetail data={data} lang="en">
-    <Content />
-  </ProductDetail>
-</BaseLayout>
+{p.id === 'cloudstay' ? <CloudStayView lang="en" /> : p.id === 'cloudpos' ? <CloudPosHubView lang="en" /> : <ProductView lang="en" p={p} />}

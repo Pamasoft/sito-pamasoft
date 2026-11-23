@@ -1,0 +1,13 @@
+---
+import type { Locale } from '../../config/site';
+import { PRODUCTS, SECTORS } from '../../data/products';
+import ProductCard from './ProductCard.astro';
+interface Props { lang: Locale; id: string; label: string }
+const { lang, id, label } = Astro.props;
+---
+<div class="sectors" role="group" aria-label={label} data-filter={id}>
+  {SECTORS[lang].map(([k, l], i) => <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} data-k={k}>{l}</button>)}
+</div>
+<div class="pgrid" id={id} aria-live="polite">
+  {PRODUCTS.map((p) => <ProductCard lang={lang} p={p} />)}
+</div>

@@ -1,0 +1,160 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Crumbs from '../components/ui/Crumbs.astro';
+import ModTabs from '../components/ui/ModTabs.astro';
+import Faq from '../components/ui/Faq.astro';
+import FormBand from '../components/ui/FormBand.astro';
+import { UI } from '../data/ui';
+import { CP_IT } from '../data/cloudpos-it';
+import { CP_EN } from '../data/cloudpos-en';
+import { CP_KEYS } from '../data/cloudpos-types';
+import { productById } from '../data/products';
+import { url, productUrl, cpUrl } from '../data/routes';
+import { dot, icon, vIco } from '../lib/screens';
+import { buildProductStructuredData, buildFaqStructuredData, productOgImage } from '../lib/product-seo';
+
+interface Props {
+  lang: Locale;
+  k: string;
+}
+const { lang, k } = Astro.props;
+const C = lang === 'en' ? CP_EN : CP_IT;
+const v = C.variants[k];
+const pg = C.page;
+const t = UI[lang];
+const p = productById('cloudpos');
+const hub = productUrl(lang, 'cloudpos');
+const path = cpUrl(lang, k);
+const sd = [
+  ...buildProductStructuredData({
+    name: v.pt,
+    description: v.meta,
+    path,
+    lang,
+    slug: 'cloudpos',
+    appUrl: p.appUrl,
+    features: v.f.map((f) => f[1]),
+    audience: v.pr,
+    isPartOfPath: hub,
+  }),
+  buildFaqStructuredData(v.faq),
+];
+const options = [
+  ...CP_KEYS.map((x) => ({ value: `CloudPos - ${C.variants[x].n}`, label: C.variants[x].n, selected: x === k })),
+  { value: `CloudPos - ${C.form.other}`, label: C.form.other },
+];
+---
+
+<BaseLayout
+  title={`${v.pt} | Pamasoft`}
+  description={v.meta}
+  path={path}
+  lang={lang}
+  current="products"
+  ogImage={productOgImage('cloudpos')}
+  contactHref="#cp-demo"
+  breadcrumbs={[
+    { name: t.nav.products, url: url(lang, 'products') },
+    { name: p.name, url: hub },
+    { name: v.n, url: path },
+  ]}
+  structuredData={sd}
+>
+  <section class="hero">
+    <div class="wrap hgrid">
+      <div>
+        <Crumbs crumbs={[{ name: t.nav.products, href: url(lang, 'products') }, { name: p.name, href: hub }, { name: v.n }]} />
+        <div class="brand"><Fragment set:html={dot(p.color, p.abbr)} />{v.pt}</div>
+        <h1 style="font-size:clamp(32px,3.7vw,48px)">{v.h}</h1>
+        <p class="lead">{v.l}</p>
+        <div class="cta">
+          <a class="btn btn-p" href="#cp-demo">{t.contactUs}</a>
+          <a class="btn btn-g" href={hub}>{pg.allBtn}</a>
+        </div>
+        <div class="chips"><b>{pg.forLabel}</b>{v.pr.map((x) => <span>{x}</span>)}</div>
+      </div>
+      <div class="shot cps" role="img" aria-label={`${t.screenLabel} ${v.pt}`} set:html={v.screen} />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{pg.probH}</h2></div>
+      <div class="prob">{v.b.map(([a, b, d]) => <div><h3><s>{a}</s> → {b}</h3><p>{d}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head"><h2>{pg.modsH(v.n)}</h2><p class="lead">{pg.modsL}</p></div>
+      <ModTabs id={`cp-${k}`} mods={v.mods} />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{pg.featsH}</h2></div>
+      <div class="fg">{v.f.map(([ic, x, d]) => <div><Fragment set:html={icon(ic, v.c)} /><h3>{x}</h3><p>{d}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="band ai">
+    <div class="wrap">
+      <div class="head"><h2>{pg.aiH}</h2><p class="lead">{pg.aiL}</p></div>
+      <div class="aig">
+        {
+          v.ai.map(([q, a]) => (
+            <div class="aic">
+              <span class="pill">{pg.aiPill}</span>
+              <div class="chat"><div class="u">{q}</div><div class="a" set:html={a} /></div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap two">
+      <div>
+        <div class="head"><h2>{pg.dayH}</h2></div>
+        <ol class="steps">{v.day.map(([a, b], i) => <li><b>{i + 1}</b><div><h3>{a}</h3><p>{b}</p></div></li>)}</ol>
+      </div>
+      <div>
+        <div class="head"><h2>{pg.incH}</h2></div>
+        <div class="inc inc2">{pg.inc.map(([a, b]) => <div><h3>{a}</h3><p>{b}</p></div>)}</div>
+      </div>
+    </div>
+  </section>
+
+  <Faq title={t.faqH} items={v.faq} />
+
+  <section class="band soft" style="padding-block:clamp(40px,5vw,64px)">
+    <div class="wrap">
+      <div class="head"><h2>{pg.otherH}</h2></div>
+      <div class="vc">
+        {
+          CP_KEYS.filter((x) => x !== k).map((x) => (
+            <a href={cpUrl(lang, x)}>
+              <Fragment set:html={vIco(C.variants[x].c, C.variants[x].ic)} />
+              <h3>{C.variants[x].n}</h3>
+              <span class="go">{pg.otherGo}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <FormBand
+    lang={lang}
+    id="cp-demo"
+    title={C.form.h}
+    lead={C.form.l}
+    list={C.form.list}
+    companyLabel={C.form.companyLabel}
+    selectLabel={C.form.selectLabel}
+    options={options}
+  />
+</BaseLayout>

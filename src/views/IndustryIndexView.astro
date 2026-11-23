@@ -1,0 +1,46 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBand from '../components/ui/CtaBand.astro';
+import { COPY, UI } from '../data/ui';
+import { INDUSTRIES } from '../data/industries';
+import { productById } from '../data/products';
+import { url, industryUrl } from '../data/routes';
+import { buildItemList } from '../lib/product-seo';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const c = COPY[lang].industry;
+const t = UI[lang];
+const sd = buildItemList(t.nav.industry, INDUSTRIES.map((s) => ({ name: s[lang].n, path: industryUrl(lang, s.key) })));
+---
+
+<BaseLayout title={c.title} description={c.meta} path={url(lang, 'industry')} lang={lang} current="industry"
+  breadcrumbs={[{ name: t.nav.industry, url: url(lang, 'industry') }]} structuredData={sd}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.industry }]} title={c.h1} lead={c.lead} />
+  <section class="band" style="padding-top:0">
+    <div class="wrap">
+      <div class="eco eco-grid">
+        {
+          INDUSTRIES.map((s) => (
+            <a href={industryUrl(lang, s.key)}>
+              <b style="font-size:19px">{s[lang].n}</b>
+              <p>{s[lang].l}</p>
+              <span class="pchips">
+                {s.p.map((id) => {
+                  const p = productById(id);
+                  return <em><i style={`background:${p.color}`}></i>{p.name}</em>;
+                })}
+              </span>
+              <span>{t.more}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <CtaBand lang={lang} title={c.ctaH} lead={c.ctaL} />
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBand from '../components/ui/CtaBand.astro';
+import { COPY, UI } from '../data/ui';
+import { url } from '../data/routes';
+import { icon } from '../lib/screens';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const c = COPY[lang].about;
+const t = UI[lang];
+const path = url(lang, 'about');
+const sd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: c.h1,
+  description: c.meta,
+  url: `https://pamasoft.com${path}`,
+  inLanguage: lang,
+};
+---
+
+<BaseLayout title={c.title} description={c.meta} path={path} lang={lang} current="about"
+  breadcrumbs={[{ name: t.nav.about, url: path }]} structuredData={sd}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.about }]} title={c.h1} lead={c.lead} />
+  <section class="band">
+    <div class="wrap two">
+      <div>
+        <h2>{c.storyH}</h2>
+        <p class="lead" style="margin-top:16px">{c.story[0]}</p>
+        <p class="lead" style="margin-top:14px">{c.story[1]}</p>
+      </div>
+      <ol class="steps" style="align-self:start">
+        {c.timeline.map(([a, b, d]) => <li><b style="font-size:11px">{a}</b><div><h3>{b}</h3><p>{d}</p></div></li>)}
+      </ol>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head"><h2>{c.teamH}</h2><p class="lead">{c.teamL}</p></div>
+      <div class="fg">{c.team.map(([k, h, d]) => <div><Fragment set:html={icon(k)} /><h3>{h}</h3><p>{d}</p></div>)}</div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{c.valuesH}</h2></div>
+      <div class="prob">{c.values.map(([h, d]) => <div><h3>{h}</h3><p>{d}</p></div>)}</div>
+      <div class="proof" style="margin-top:56px">{c.proof.map(([b, s]) => <div><b>{b}</b><span>{s}</span></div>)}</div>
+    </div>
+  </section>
+  <CtaBand lang={lang} title={c.ctaH} lead={c.ctaL} />
+</BaseLayout>

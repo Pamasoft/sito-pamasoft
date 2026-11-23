@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { COPY, UI } from '../data/ui';
+import { url } from '../data/routes';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const c = COPY[lang].blog;
+const t = UI[lang];
+const base = url(lang, 'blog');
+const posts = (await getCollection('blog', ({ data }) => data.lingua === lang && data.pubblicato)).sort(
+  (a, b) => b.data.dataPubblicazione.getTime() - a.data.dataPubblicazione.getTime(),
+);
+---
+
+<BaseLayout title={c.title} description={c.meta} path={base} lang={lang} noindex={true} breadcrumbs={[{ name: t.nav.blog, url: base }]}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.blog }]} title={c.h1} lead={c.lead} />
+  <section class="band" style="padding-top:0">
+    <div class="wrap">
+      {
+        posts.length === 0 ? (
+          <p class="blog-empty">{c.empty}</p>
+        ) : (
+          <div class="pgrid">
+            {posts.map((post) => (
+              <a class="pc" href={`${base}${post.data.slug}/`}>
+                <img src={post.data.immagineCopertina.src} alt="" loading="lazy" width="400" height="225" style="border-radius:12px;height:150px;width:100%;object-fit:cover" />
+                <small style="color:var(--blue);font-weight:700">{post.data.categoria}{post.data.tempoLettura ? ` · ${post.data.tempoLettura} ${c.read}` : ''}</small>
+                <h3>{post.data.titolo}</h3>
+                <p>{post.data.estratto}</p>
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

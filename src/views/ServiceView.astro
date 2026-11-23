@@ -1,0 +1,49 @@
+---
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBand from '../components/ui/CtaBand.astro';
+import RelatedProducts from '../components/ui/RelatedProducts.astro';
+import { COPY, UI } from '../data/ui';
+import type { Service } from '../data/services';
+import { url, serviceUrl } from '../data/routes';
+import { icon } from '../lib/screens';
+import { buildServiceStructuredData } from '../lib/product-seo';
+
+interface Props {
+  lang: Locale;
+  s: Service;
+}
+const { lang, s } = Astro.props;
+const d = s[lang];
+const c = COPY[lang].services;
+const t = UI[lang];
+const path = serviceUrl(lang, s.key);
+const sd = buildServiceStructuredData({ name: d.n, description: d.meta, path, lang, offers: d.s.map((x) => x[0]) });
+---
+
+<BaseLayout title={`${d.n} | ${d.h.replace(/\.$/, '')} | Pamasoft`} description={d.meta} path={path} lang={lang} current="services"
+  breadcrumbs={[{ name: t.nav.services, url: url(lang, 'services') }, { name: d.n, url: path }]} structuredData={sd}>
+  <PageHero crumbs={[{ name: t.home, href: url(lang, 'home') }, { name: t.nav.services, href: url(lang, 'services') }, { name: d.n }]} title={d.h} lead={d.l}>
+    <div class="cta" style="margin-top:28px">
+      <a class="btn btn-p" href={url(lang, 'contact')}>{t.contactUs}</a>
+      <a class="btn btn-g" href={url(lang, 'services')}>{c.other}</a>
+    </div>
+  </PageHero>
+  <section class="band" style="padding-top:clamp(32px,4vw,56px)">
+    <div class="wrap"><div class="prob">{d.b.map(([a, b]) => <div><h3>{a}</h3><p>{b}</p></div>)}</div></div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head"><h2>{c.whatH}</h2></div>
+      <div class="fg">{d.s.map(([a, b]) => <div><Fragment set:html={icon(s.ic)} /><h3>{a}</h3><p>{b}</p></div>)}</div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><h2>{c.usedH}</h2><p class="lead">{c.usedL}</p></div>
+      <RelatedProducts lang={lang} ids={s.p} />
+    </div>
+  </section>
+  <CtaBand lang={lang} title={c.talkH(d.n)} lead={c.talkL} />
+</BaseLayout>

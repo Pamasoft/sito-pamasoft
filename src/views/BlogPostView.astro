@@ -1,0 +1,53 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import type { Locale } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Crumbs from '../components/ui/Crumbs.astro';
+import { COPY, UI } from '../data/ui';
+import { url } from '../data/routes';
+
+interface Props {
+  lang: Locale;
+  entry: CollectionEntry<'blog'>;
+}
+const { lang, entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+const t = UI[lang];
+const base = url(lang, 'blog');
+const path = `${base}${data.slug}/`;
+const words = (entry.body ?? '').trim().split(/\s+/).length;
+const readingTime = data.tempoLettura ?? Math.max(1, Math.round(words / 200));
+const dateFmt = (d: Date) => d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'it-IT', { year: 'numeric', month: 'long', day: 'numeric' });
+const sd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.titolo,
+  description: data.estratto,
+  image: data.immagineCopertina.src,
+  author: { '@type': 'Person', name: data.autore },
+  datePublished: data.dataPubblicazione.toISOString(),
+  dateModified: (data.dataAggiornamento ?? data.dataPubblicazione).toISOString(),
+  publisher: { '@type': 'Organization', name: 'Pamasoft', logo: { '@type': 'ImageObject', url: 'https://pamasoft.com/assets/images/logo-blu.png' } },
+  mainEntityOfPage: `https://pamasoft.com${path}`,
+};
+---
+
+<BaseLayout title={`${data.titolo} | Blog Pamasoft`} description={data.estratto} path={path} lang={lang} ogType="article" ogImage={data.immagineCopertina.src}
+  breadcrumbs={[{ name: t.nav.blog, url: base }, { name: data.titolo, url: path }]} structuredData={sd}>
+  <article>
+    <section class="hero">
+      <div class="wrap legal-wrap">
+        <Crumbs crumbs={[{ name: t.nav.blog, href: base }, { name: data.categoria }]} />
+        <h1 style="font-size:clamp(32px,4vw,48px)">{data.titolo}</h1>
+        <p class="lead" style="margin-top:16px">{data.autore} · {dateFmt(data.dataPubblicazione)} · {readingTime} {COPY[lang].blog.read}</p>
+      </div>
+    </section>
+    <section class="band" style="padding-top:0">
+      <div class="wrap legal-wrap legal-content">
+        <img src={data.immagineCopertina.src} alt="" loading="eager" fetchpriority="high" style="border-radius:16px" />
+        <Content />
+      </div>
+    </section>
+  </article>
+</BaseLayout>

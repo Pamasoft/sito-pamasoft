@@ -1,199 +1,140 @@
 ---
 import type { Locale } from '../config/site';
-import { assets } from '../config/assets';
+import { getAlternateUrl } from '../i18n/utils';
+import { UI } from '../data/ui';
+import { PRODUCTS, MENU_GROUPS, productById } from '../data/products';
+import { SERVICES } from '../data/services';
+import { INDUSTRIES } from '../data/industries';
+import { CALENDLY, url, productUrl, serviceUrl, industryUrl } from '../data/routes';
+import { dot } from '../lib/screens';
 
 interface Props {
   lang?: Locale;
+  path: string;
+  current?: string;
 }
 
-const { lang = 'it' } = Astro.props;
-const isEn = lang === 'en';
+const { lang = 'it', path, current } = Astro.props;
+const t = UI[lang];
+const other = lang === 'it' ? 'en' : 'it';
+const altHref = getAlternateUrl(path, other);
+const firstSentence = (s: string) => `${s.split('. ')[0].replace(/\.$/, '')}.`;
+const chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 ---
 
-<div class="header-bar">
-  <div class="custom-container">
-    <div class="header-bar-body d-flex align-items-center justify-content-between">
-      <div class="left">
-        <label class="visually-hidden" for="language-switcher">
-          {isEn ? 'Choose language' : 'Seleziona la lingua'}
-        </label>
-        <select
-          class="country-select"
-          name="language"
-          id="language-switcher"
-          data-current-lang={lang}
-          data-default-lang="it"
-          data-prefix-en="/en"
-        >
-          <option value="it" selected={!isEn}>Italiano</option>
-          <option value="en" selected={isEn}>English</option>
-        </select>
-      </div>
-      <div class="right">
-        <p>
-          {isEn ? 'Level up your business with Pamasoft' : 'Fai crescere la tua azienda con Pamasoft'}
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<header class="header-area">
-  <div class="custom-container">
-    <div class="custom-row align-items-center justify-content-between">
-      <div class="header-left d-flex align-items-center">
-        <a href={isEn ? '/en/' : '/'} class="logo">
-          <img src={assets.logo} alt="Logo Pamasoft" />
-        </a>
-
-        <div class="header-left-right">
-          <a href={isEn ? '/en/contact/' : '/contatti/'} class="theme-btn">
-            {isEn ? 'Contact Us' : 'Contattaci'}
-          </a>
-          <button
-            class="menu-bar"
-            aria-label={isEn ? 'Open menu' : 'Apri menu'}
-            aria-expanded="false"
-            aria-controls="main-navigation"
-          >
-            <i class="las la-bars"></i>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href={url(lang, 'home')} aria-label={lang === 'en' ? 'Pamasoft, home page' : 'Pamasoft, home'}>
+      <span class="logo-crop"><img src="/assets/images/logo-blu.png" alt="Pamasoft" width="250" height="150" /></span>
+    </a>
+    <nav aria-label={t.mainMenu}>
+      <ul class="menu">
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="dd-products" data-dd class:list={[{ on: current === 'products' }]}>
+            {t.nav.products} <Fragment set:html={chevron} />
           </button>
-        </div>
-
-        <nav
-          class="navbar-wrapper"
-          id="main-navigation"
-          aria-label={isEn ? 'Main menu' : 'Menu principale'}
-        >
-          <button class="close-menu-bar" aria-label={isEn ? 'Close menu' : 'Chiudi menu'}>
-            <i class="las la-times"></i>
-          </button>
-          <ul>
-            <li>
-              <a href={isEn ? '/en/about/' : '/chi-siamo/'}>
-                {isEn ? 'About' : 'Chi Siamo'}
-              </a>
-            </li>
-            <li class="dropdown-menu-item">
-              <a
-                href={isEn ? '/en/services/' : '/servizi/'}
-                aria-expanded="false"
-                aria-haspopup="true"
-                aria-controls="servizi-menu"
-              >
-                {isEn ? 'Services' : 'Servizi'}
-              </a>
-              <button
-                class="dropdown-menu-item-icon"
-                aria-label={isEn ? 'Expand services menu' : 'Espandi menu servizi'}
-              >
-                <i class="las la-angle-down"></i>
-              </button>
-              <ul class="dropdown-menu" id="servizi-menu" role="menu">
-                <li>
-                  <a href={isEn ? '/en/services/cloud-computing/' : '/servizi/cloud-computing/'}>
-                    Cloud Computing AWS
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={isEn ? '/en/services/artificial-intelligence/' : '/servizi/intelligenza-artificiale/'}
-                  >
-                    {isEn ? 'Artificial Intelligence' : 'Intelligenza Artificiale'}
-                  </a>
-                </li>
-                <li>
-                  <a href={isEn ? '/en/services/blockchain/' : '/servizi/blockchain/'}>
-                    {isEn ? 'Blockchain & Web3' : 'Blockchain e Web3'}
-                  </a>
-                </li>
-                <li>
-                  <a href={isEn ? '/en/services/cybersecurity/' : '/servizi/cybersecurity/'}>
-                    Cybersecurity
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={isEn ? '/en/services/web-application-development/' : '/servizi/sviluppo-applicazioni-web/'}
-                  >
-                    {isEn ? 'Web Application Development' : 'Sviluppo Applicazioni Web'}
-                  </a>
-                </li>
-                <li>
-                  <a href={isEn ? '/en/services/' : '/servizi/'}>
-                    {isEn ? 'All Services' : 'Tutti i Servizi'}
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href={isEn ? '/en/prodotti/' : '/prodotti/'}>
-                {isEn ? 'Products' : 'Prodotti'}
-              </a>
-            </li>
-            <li class="dropdown-menu-item">
-              <a
-                href={isEn ? '/en/industry/' : '/industry/'}
-                aria-expanded="false"
-                aria-haspopup="true"
-                aria-controls="industry-menu"
-              >
-                Industry
-              </a>
-              <button
-                class="dropdown-menu-item-icon"
-                aria-label={isEn ? 'Expand industry menu' : 'Espandi menu industry'}
-              >
-                <i class="las la-angle-down"></i>
-              </button>
-              <ul class="dropdown-menu" id="industry-menu" role="menu">
-                <li><a href={isEn ? '/en/industry/healthcare/' : '/industry/healthcare/'}>Healthcare</a></li>
-                <li><a href={isEn ? '/en/industry/retail/' : '/industry/retail/'}>Retail</a></li>
-                <li><a href={isEn ? '/en/industry/manufacturing/' : '/industry/manufacturing/'}>Manufacturing</a></li>
-                <li>
-                  <a href={isEn ? '/en/industry/travel-logistics/' : '/industry/travel-logistics/'}>
-                    Travel & Logistics
-                  </a>
-                </li>
-                <li><a href={isEn ? '/en/industry/hospitality/' : '/industry/hospitality/'}>Hospitality</a></li>
-                <li>
-                  <a href={isEn ? '/en/industry/media-entertainment/' : '/industry/media-entertainment/'}>
-                    Media & Entertainment
-                  </a>
-                </li>
-                <li>
-                  <a href={isEn ? '/en/industry/' : '/industry/'}>
-                    {isEn ? 'All Industries' : 'Tutti i Settori'}
-                  </a>
-                </li>
-              </ul>
-            </li>
-            {/* Blog nascosto temporaneamente
-            <li>
-              <a href={isEn ? '/en/blog/' : '/blog/'}>Blog</a>
-            </li>
-            */}
-            <li>
-              <a href={isEn ? '/en/contact/' : '/contatti/'}>
-                {isEn ? 'Contact' : 'Contatti'}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="header-right">
-        <div class="header-contact-info d-flex align-items-center">
-          <div class="phone-number">
-            <a href="https://calendly.com/pamasoft/30min" target="_blank" rel="noopener noreferrer">
-              {isEn ? 'Book a call' : 'Prenota una call'}
-              <i class="fas fa-arrow-up"></i>
-            </a>
+          <div class="drop mega" id="dd-products" hidden>
+            {
+              MENU_GROUPS[lang].map(([g, ids]) => (
+                <div>
+                  <h4>{g}</h4>
+                  {ids.map((id) => {
+                    const p = productById(id);
+                    return (
+                      <a class="mi" href={productUrl(lang, p.slug)}>
+                        <Fragment set:html={dot(p.color, p.abbr)} />
+                        <span>
+                          <b>{p.name}</b>
+                          <small>{p[lang].cat}</small>
+                        </span>
+                      </a>
+                    );
+                  })}
+                </div>
+              ))
+            }
+            <div class="all">
+              <span>{t.megaAll[0]}</span>
+              <a href={url(lang, 'products')}>{t.megaAll[1]}</a>
+            </div>
           </div>
-          <a href={isEn ? '/en/contact/' : '/contatti/'} class="theme-btn">
-            {isEn ? 'Contact Us' : 'Contattaci'}
-          </a>
-        </div>
-      </div>
+        </li>
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="dd-services" data-dd class:list={[{ on: current === 'services' }]}>
+            {t.nav.services} <Fragment set:html={chevron} />
+          </button>
+          <div class="drop list" id="dd-services" hidden>
+            {
+              SERVICES.map((s) => (
+                <a href={serviceUrl(lang, s.key)}>
+                  {s[lang].n}
+                  <small>{firstSentence(s[lang].l)}</small>
+                </a>
+              ))
+            }
+            <a href={url(lang, 'services')} class="dd-all">{t.allServices}</a>
+          </div>
+        </li>
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="dd-industry" data-dd class:list={[{ on: current === 'industry' }]}>
+            {t.nav.industry} <Fragment set:html={chevron} />
+          </button>
+          <div class="drop list" id="dd-industry" hidden>
+            {INDUSTRIES.map((s) => <a href={industryUrl(lang, s.key)}>{s[lang].n}</a>)}
+            <a href={url(lang, 'industry')} class="dd-all">{t.allIndustries}</a>
+          </div>
+        </li>
+        <li><a href={url(lang, 'about')} class:list={[{ on: current === 'about' }]} aria-current={current === 'about' ? 'page' : undefined}>{t.nav.about}</a></li>
+        {/* Blog nascosto dal menu (route mantenute): <li><a href={url(lang, 'blog')}>{t.nav.blog}</a></li> */}
+        <li><a href={url(lang, 'contact')} class:list={[{ on: current === 'contact' }]} aria-current={current === 'contact' ? 'page' : undefined}>{t.nav.contact}</a></li>
+      </ul>
+    </nav>
+    <div class="acts">
+      <a class="lang" href={altHref} hreflang={other} lang={other} aria-label={t.langSwitch.aria}>{t.langSwitch.short}</a>
+      <a class="btn btn-p" href={url(lang, 'contact')}>{t.contactUs}</a>
     </div>
+    <button class="burger" id="burger" type="button" aria-label={t.openMenu} aria-expanded="false" aria-controls="mob" data-open={t.openMenu} data-close={t.closeMenu}><span></span></button>
   </div>
 </header>
+
+<nav class="mob" id="mob" aria-label={t.mobileMenu}>
+  <details>
+    <summary>{t.nav.products}</summary>
+    <div class="sub">
+      {
+        PRODUCTS.map((p) => (
+          <a href={productUrl(lang, p.slug)}>
+            <Fragment set:html={dot(p.color, p.abbr)} />
+            <span>
+              <b>{p.name}</b>
+              <small>{p[lang].cat}</small>
+            </span>
+          </a>
+        ))
+      }
+      <a href={url(lang, 'products')} class="one"><b>{t.megaAll[1]}</b></a>
+    </div>
+  </details>
+  <details>
+    <summary>{t.nav.services}</summary>
+    <div class="sub">
+      {SERVICES.map((s) => <a href={serviceUrl(lang, s.key)} class="one"><b>{s[lang].n}</b></a>)}
+      <a href={url(lang, 'services')} class="one"><b>{t.allServices}</b></a>
+    </div>
+  </details>
+  <details>
+    <summary>{t.nav.industry}</summary>
+    <div class="sub">
+      {INDUSTRIES.map((s) => <a href={industryUrl(lang, s.key)} class="one"><b>{s[lang].n}</b></a>)}
+      <a href={url(lang, 'industry')} class="one"><b>{t.allIndustries}</b></a>
+    </div>
+  </details>
+  <a href={url(lang, 'about')}>{t.nav.about}</a>
+  {/* Blog nascosto dal menu mobile: <a href={url(lang, 'blog')}>{t.nav.blog}</a> */}
+  <a href={url(lang, 'contact')}>{t.nav.contact}</a>
+  <a href={altHref} hreflang={other} lang={other}>{t.langSwitch.label}</a>
+  <div class="mbtn">
+    <a class="btn btn-p" href={url(lang, 'contact')}>{t.contactUs}</a>
+    <a class="btn btn-g" href={CALENDLY}>{t.bookCall}</a>
+  </div>
+</nav>

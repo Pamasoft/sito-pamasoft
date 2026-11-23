@@ -1,0 +1,12 @@
+---
+import CloudPosPageView from '../../../views/CloudPosPageView.astro';
+import { CP_SLUGS } from '../../../data/routes';
+
+export function getStaticPaths() {
+  return Object.entries(CP_SLUGS).map(([k, slugs]) => ({ params: { biz: slugs[0] }, props: { k } }));
+}
+
+const { k } = Astro.props as { k: string };
+---
+
+<CloudPosPageView lang="it" k={k} />

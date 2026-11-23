@@ -1,0 +1,157 @@
+import { row, meterRow, calendar } from '../lib/screens';
+import type { Lang } from './routes';
+
+type Mod = [string, string, string, string[], string, string];
+
+
+const calRooms = (it: boolean): [string, [number, number, string, string][]][] => [
+  ['101', [[0, 3, 'Rossi', 'b1'], [4, 3, 'Bianchi', 'b2']]],
+  ['102', [[1, 4, 'Müller', 'b4']]],
+  ['103', [[0, 2, 'Ferri', 'b2'], [3, 2, it ? 'Blocco' : 'Blocked', 'b5'], [5, 2, 'Conti', 'b1']]],
+  ['104', [[2, 2, 'Kim', 'b1'], [4, 2, 'ChatGPT · Neri', 'b3']]],
+  ['105', [[0, 7, it ? 'Gruppo Arte' : 'Arte group', 'b4']]],
+  ['106', [[3, 4, 'Dubois', 'b2']]],
+];
+
+export const homeMiniCal = (lang: Lang) =>
+  calendar('mini', lang === 'en' ? ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'] : ['Lun', 'Mar', 'Mer', 'Gio', 'Ven'], [
+    ['101', [[0, 3, 'Rossi', 'b1']]],
+    ['102', [[1, 4, 'Müller', 'b4']]],
+    ['103', [[0, 2, 'Ferri', 'b2'], [3, 2, 'ChatGPT · Neri', 'b3']]],
+    ['104', [[2, 3, 'Kim', 'b1']]],
+  ]);
+
+export const csCalendar = (lang: Lang) =>
+  calendar(
+    'cal',
+    lang === 'en' ? ['Mon 8', 'Tue 9', 'Wed 10', 'Thu 11', 'Fri 12', 'Sat 13', 'Sun 14'] : ['Lun 8', 'Mar 9', 'Mer 10', 'Gio 11', 'Ven 12', 'Sab 13', 'Dom 14'],
+    calRooms(lang === 'it'),
+  );
+
+
+const modsIt: Mod[] = [
+  ['Prenotazioni dirette', 'Il tuo canale di vendita, senza commissioni.', 'Una vetrina veloce, pensata per lo smartphone, con camere, foto, extra e pagamento online. Gli ospiti prenotano da te e ricevono subito la conferma.', ['Checkout in 3 passaggi da mobile', 'Extra e pacchetti in prenotazione', 'Pagamento online sicuro con Posway', 'Portale "la mia prenotazione" per l\'ospite'], 'prenota.villaulivi.it',
+    row('Deluxe vista colline', '2 adulti · colazione', '€ 159 / notte', ['t-ok', 'Disponibile']) + row('Superior giardino', '2 adulti', '€ 129 / notte', ['t-ok', 'Disponibile']) + row('Suite torre', '2 adulti + 1 bambino', '€ 240 / notte', ['t-w', 'Ultima camera']) + row('Extra: cena degustazione', 'per 2 persone', '€ 90', ['t-b', 'Aggiunto'])],
+  ['PMS e reception', 'Un colpo d\'occhio su tutto l\'hotel.', 'Il calendario per camera fisica è il centro del lavoro: arrivi, partenze, spostamenti e conto dell\'ospite in un\'unica schermata, da computer o tablet.', ['Calendario drag and drop', 'Arrivi e partenze del giorno', 'Conto ospite con addebiti', 'Blocco camere per manutenzione'], 'cloudstay.pamasoft.com/staff/arrivi',
+    row('Anna Rossi', 'Camera 101 · 3 notti', '14:30', ['t-ok', 'Pre-check-in fatto']) + row('Jonas Müller', 'Camera 102 · 4 notti', '16:00', ['t-b', 'Da assegnare']) + row('Hye-jin Kim', 'Camera 104 · 2 notti', '18:15', ['t-w', 'Saldo aperto']) + row('Gruppo Arte', '5 camere · 7 notti', '11:00', ['t-ok', 'Confermato'])],
+  ['Prezzi e revenue', 'Il prezzo giusto, ogni giorno.', 'PriceIQ suggerisce le tariffe guardando occupazione, eventi in zona, meteo e concorrenti, e spiega perché. Scegli tu se applicare, essere più prudente o più aggressivo.', ['Raccomandazioni spiegate', 'Applica, prudente, aggressivo o ignora', 'Modifiche giorno per giorno', 'Aperture e chiusure di vendita'], 'cloudstay.pamasoft.com/staff/priceiq',
+    row('Ven 12 giugno', 'Concerto in città · occupazione 92%', '€ 159 → € 179', ['t-ok', '+12%']) + row('Sab 13 giugno', 'Meteo ottimo · concorrenti in rialzo', '€ 159 → € 172', ['t-ok', '+8%']) + row('Mar 16 giugno', 'Bassa domanda', '€ 159 → € 149', ['t-w', '−6%']) + row('Mer 17 giugno', 'In linea', '€ 159', ['t-b', 'Invariato'])],
+  ['Pulizie', 'Il piano camere sa sempre cosa fare.', 'A ogni check-out nasce un task di pulizia. Le cameriere lavorano da tablet con checklist e foto, la governante vede in tempo reale lo stato di ogni camera.', ['Task automatici a ogni check-out', 'Checklist e foto da tablet', 'Segnalazione anomalie', 'Priorità per gli arrivi del giorno'], 'cloudstay.pamasoft.com/staff/pulizie',
+    row('Camera 101', 'Partenza · Maria', 'Priorità alta', ['t-w', 'In corso']) + row('Camera 103', 'Fermata · Luca', 'Normale', ['t-ok', 'Pronta']) + row('Camera 104', 'Partenza · Maria', 'Arrivo 18:15', ['t-b', 'Da fare']) + row('Camera 106', 'Anomalia: rubinetto', 'Manutenzione', ['t-w', 'Ticket aperto'])],
+  ['Contabilità', 'I numeri senza aspettare il commercialista.', 'Incassi, spese, budget e conto economico della struttura in una dashboard chiara. Le spese passano da un\'approvazione e si esportano verso i gestionali più usati.', ['Conto economico per periodo', 'Budget e scostamenti', 'Spese con approvazione', 'Export per il commercialista'], 'cloudstay.pamasoft.com/staff/finance',
+    meterRow('Ricavi camere', 82) + meterRow('Extra e ristorazione', 34) + meterRow('Costi di personale', 46) + meterRow('Commissioni OTA', 14)],
+  ['Esperienza ospite', 'Ospiti che tornano.', 'Ogni ospite ha la sua storia: soggiorni, preferenze, spesa e feedback. Pre-check-in, portale della prenotazione e punti fedeltà rendono il soggiorno più semplice.', ['Profilo e storico soggiorni', 'Feedback e soddisfazione', 'Programma fedeltà a punti', 'Lista d\'attesa automatica'], 'cloudstay.pamasoft.com/staff/ospiti',
+    row('Anna Rossi', '5 soggiorni · € 2.340', 'Livello Oro', ['t-ok', 'Torna a giugno']) + row('Jonas Müller', '2 soggiorni · € 860', 'Livello Argento', ['t-b', 'Preferisce piano alto']) + row('Famiglia Conti', '1 soggiorno', 'Lista d\'attesa', ['t-w', 'Avvisata oggi'])],
+];
+
+const modsEn: Mod[] = [
+  ['Direct bookings', 'Your own sales channel, with no commission.', 'A fast, mobile-first storefront with rooms, photos, extras and online payment. Guests book with you and get their confirmation straight away.', ['3-step checkout on mobile', 'Extras and packages while booking', 'Secure online payment with Posway', '"My booking" portal for guests'], 'book.villaulivi.it',
+    row('Deluxe hill view', '2 adults · breakfast', '€159 / night', ['t-ok', 'Available']) + row('Superior garden', '2 adults', '€129 / night', ['t-ok', 'Available']) + row('Tower suite', '2 adults + 1 child', '€240 / night', ['t-w', 'Last room']) + row('Extra: tasting dinner', 'for 2 people', '€90', ['t-b', 'Added'])],
+  ['PMS and front desk', 'The whole hotel at a glance.', 'The calendar by physical room is the heart of the work: arrivals, departures, room moves and the guest folio on a single screen, from computer or tablet.', ['Drag and drop calendar', 'Today\'s arrivals and departures', 'Guest folio with charges', 'Rooms blocked for maintenance'], 'cloudstay.pamasoft.com/staff/arrivals',
+    row('Anna Rossi', 'Room 101 · 3 nights', '14:30', ['t-ok', 'Pre-check-in done']) + row('Jonas Müller', 'Room 102 · 4 nights', '16:00', ['t-b', 'To assign']) + row('Hye-jin Kim', 'Room 104 · 2 nights', '18:15', ['t-w', 'Balance due']) + row('Arte group', '5 rooms · 7 nights', '11:00', ['t-ok', 'Confirmed'])],
+  ['Pricing and revenue', 'The right price, every day.', 'PriceIQ suggests rates by looking at occupancy, local events, weather and competitors, and explains why. You choose whether to apply, play it safer or push harder.', ['Explained recommendations', 'Apply, cautious, aggressive or ignore', 'Day-by-day changes', 'Open and close sales'], 'cloudstay.pamasoft.com/staff/priceiq',
+    row('Fri 12 June', 'Concert in town · 92% occupancy', '€159 → €179', ['t-ok', '+12%']) + row('Sat 13 June', 'Great weather · competitors rising', '€159 → €172', ['t-ok', '+8%']) + row('Tue 16 June', 'Low demand', '€159 → €149', ['t-w', '−6%']) + row('Wed 17 June', 'On track', '€159', ['t-b', 'Unchanged'])],
+  ['Housekeeping', 'Housekeeping always knows what to do.', 'Every check-out creates a cleaning task. Room attendants work from a tablet with checklists and photos, and the head housekeeper sees the status of every room in real time.', ['Automatic tasks at every check-out', 'Checklists and photos on tablet', 'Issue reporting', 'Priority for today\'s arrivals'], 'cloudstay.pamasoft.com/staff/housekeeping',
+    row('Room 101', 'Departure · Maria', 'High priority', ['t-w', 'In progress']) + row('Room 103', 'Stayover · Luca', 'Normal', ['t-ok', 'Ready']) + row('Room 104', 'Departure · Maria', 'Arrival 18:15', ['t-b', 'To do']) + row('Room 106', 'Issue: tap', 'Maintenance', ['t-w', 'Ticket open'])],
+  ['Accounting', 'Your numbers without waiting for the accountant.', 'Revenue, expenses, budget and profit and loss for the property in one clear dashboard. Expenses go through an approval step and export to the most common accounting tools.', ['P&L by period', 'Budget and variances', 'Expenses with approval', 'Export for your accountant'], 'cloudstay.pamasoft.com/staff/finance',
+    meterRow('Room revenue', 82) + meterRow('Extras and dining', 34) + meterRow('Staff costs', 46) + meterRow('OTA commissions', 14)],
+  ['Guest experience', 'Guests who come back.', 'Every guest has a story: stays, preferences, spend and feedback. Pre-check-in, the booking portal and loyalty points make the stay easier.', ['Profile and stay history', 'Feedback and satisfaction', 'Points-based loyalty programme', 'Automatic waiting list'], 'cloudstay.pamasoft.com/staff/guests',
+    row('Anna Rossi', '5 stays · €2,340', 'Gold tier', ['t-ok', 'Back in June']) + row('Jonas Müller', '2 stays · €860', 'Silver tier', ['t-b', 'Prefers high floor']) + row('Conti family', '1 stay', 'Waiting list', ['t-w', 'Notified today'])],
+];
+
+export const CLOUDSTAY = {
+  it: {
+    crumb: 'Hotel e strutture ricettive',
+    h1: 'Il gestionale per hotel che riempie le camere dal tuo sito, anche tramite l\'AI.',
+    lead: 'Motore di prenotazione, PMS, prezzi e pulizie in un\'unica piattaforma cloud. Gli ospiti prenotano direttamente da te, anche chiedendo a ChatGPT, e la reception lavora su un solo calendario.',
+    howBtn: 'Guarda come funziona',
+    trust: ['Software italiano dal 1999', 'Dati su cloud AWS in Europa', 'Conforme GDPR', 'Supporto in italiano'],
+    shotLabel: 'Schermata di CloudStay: calendario camere e prenotazione da mobile',
+    barUrl: 'cloudstay.pamasoft.com/staff/calendario',
+    side: ['Panoramica', 'Calendario', 'Arrivi', 'Pulizie', 'PriceIQ', 'Ospiti', 'Contabilità'],
+    kpi: ['Occupazione<b>86%</b><em>+9%</em> vs 2025', 'Dirette<b>64%</b><em>+18%</em> senza OTA', 'Arrivi oggi<b>12</b>3 pre-check-in'],
+    phone: { h: 'Hotel Villa Ulivi', sub: 'Ven 12 – Dom 14 giugno · 2 adulti', room: 'Deluxe vista colline', nights: '2 notti', price: '€ 318', pay: 'Prenota e paga' },
+    toast: ['Nuova prenotazione diretta', 'Camera 104, arrivata da ChatGPT'],
+    probH: 'Se oggi lavori così, stai lasciando margine sul tavolo.',
+    prob: [['Commissioni OTA', 'prenotazioni dirette', 'Sui portali in genere paghi dal 15 al 25% di ogni soggiorno. Con una vetrina e un checkout professionali l\'ospite prenota sul tuo sito, e quel margine resta a te.'], ['Excel e telefonate', 'un solo calendario', 'Reception, pulizie e direzione guardano gli stessi dati in tempo reale. Niente più camere assegnate due volte o pulizie dimenticate.'], ['Prezzi a intuito', 'prezzi suggeriti', 'PriceIQ guarda occupazione, eventi in zona, meteo e tariffe dei concorrenti, e ti propone il prezzo giusto con il motivo spiegato.']],
+    modsH: 'Tutto l\'hotel, dal primo clic al check-out.',
+    modsL: 'Sei moduli che lavorano insieme. Attivi quelli che ti servono e aggiungi gli altri quando cresci.',
+    mods: modsIt,
+    aiH: 'L\'intelligenza artificiale lavora per il tuo hotel, non al posto tuo.',
+    aiL: 'Funzioni AI già in produzione, pensate per vendere di più e lavorare meno. Ogni azione importante resta una tua decisione.',
+    ai: [
+      { pill: 'Per i tuoi ospiti', h: 'Prenotabile da ChatGPT e dagli assistenti AI', p: 'Il tuo hotel espone disponibilità, tariffe e prenotazione agli assistenti AI. Chi chiede "un hotel con piscina in Toscana per il weekend" può prenotare da te, al prezzo calcolato da CloudStay.', u: 'Trovami una doppia con vista per il 12 giugno, 2 notti', a: 'Da <b>Villa Ulivi</b> c\'è la Deluxe vista colline a € 318 per 2 notti, colazione inclusa. Vuoi che la prenoti?' },
+      { pill: 'Per il tuo staff', h: 'Un copilota che conosce i tuoi numeri', p: 'Chiedi in italiano com\'è andato il mese, quali date sono scoperte o che prezzo applicare. Risponde sui tuoi dati e prepara l\'azione: tu confermi con un clic.', u: 'Come siamo messi ad agosto?', a: 'Occupazione al <b>71%</b>, 8 punti sotto lo scorso anno. PriceIQ consiglia −6% sulle Superior dal 18 al 24. <b>Applico?</b>' },
+    ],
+    small: [['Concierge per gli ospiti', 'Sul tuo sito l\'ospite scrive cosa cerca e trova la camera giusta, senza filtri complicati.'], ['Visibile sulle ricerche AI', 'Ogni struttura ha dati strutturati e una scheda per gli assistenti AI, e vedi quanti visitatori arrivano da lì.']],
+    featsH: 'Ogni funzione che serve, nessuna a metà.',
+    feats: [['globe', 'Motore di prenotazione', 'Date, camere, extra e pagamento: l\'ospite completa tutto da solo, a qualsiasi ora.'], ['cal', 'Calendario PMS', 'Vista per camera fisica: sposti i soggiorni trascinandoli e blocchi le camere.'], ['key', 'Check-in e check-out', 'Arrivi del giorno, assegnazione camera, conto e saldo alla partenza.'], ['phone', 'Pre-check-in digitale', 'Documenti, firma e preferenze prima dell\'arrivo: meno coda al bancone.'], ['broom', 'Pulizie automatiche', 'Un task per ogni check-out, checklist da tablet, foto e segnalazioni.'], ['chart', 'PriceIQ', 'Prezzi consigliati con il motivo, da applicare con un clic.'], ['coin', 'Contabilità hotel', 'P&L, budget, spese con approvazione ed export verso il commercialista.'], ['users', 'Profilo ospite', 'Storico soggiorni, preferenze e spesa per fidelizzare chi torna.'], ['gift', 'Fedeltà e lista d\'attesa', 'Punti e livelli per gli ospiti, avviso automatico quando una camera si libera.'], ['hub', 'Operations hub', 'Chat per reparto, ticket di manutenzione e flussi automatici.'], ['spark', 'AI Concierge e Copilot', 'Ricerca in linguaggio naturale per gli ospiti, risposte sui numeri per lo staff.'], ['bell', 'Piani e add-on', 'Parti dal piano Free e attivi i moduli quando ti servono.']] as [string, string, string][],
+    audH: 'Pensato per chi ospita.',
+    aud: [['Hotel indipendenti e B&B', 'Più dirette e meno software da gestire.', 'Free / Growth'], ['Boutique hotel e agriturismi', 'Esperienza ospite curata, extra e pacchetti.', 'Growth'], ['Residence e appartamenti', 'Check-in digitale e pulizie a turno.', 'Growth / Pro'], ['Gruppi e multi-struttura', 'Budget, P&L e AI su tutte le strutture.', 'Pro / Enterprise']],
+    stepsH: 'Operativo in pochi giorni.',
+    steps: [['Attivi la struttura', 'Onboarding guidato: dati dell\'hotel, tipologie e camere importate da Excel.', 'Giorno 1'], ['Pubblichi l\'offerta', 'Vetrina, prezzi e disponibilità online sul tuo dominio.', 'Giorni 2–3'], ['Formiamo il team', 'Reception e pulizie lavorano sullo stesso calendario, con il nostro supporto.', 'Giorni 3–5'], ['Ottimizzi e misuri', 'PriceIQ, report e dati ospiti ti dicono dove guadagnare di più.', 'Dal primo mese']],
+    ecoH: 'Si collega al resto della tua azienda.',
+    eco: [['posway', 'Posway', 'Incassi online, link di pagamento e terminali POS, riconciliati con le prenotazioni.'], ['cloudreviews', 'CloudReviews', 'Dopo il check-out chiedi la recensione su Google, nel pieno rispetto delle regole.'], ['cloudsuite', 'CloudSuite', 'Fatturazione elettronica, tesoreria e previsione di cassa per la tua società.']],
+    sec: [['Dati in Europa', 'Infrastruttura AWS con backup automatici.'], ['GDPR', 'Consensi e dati ospiti gestiti a norma.'], ['Ruoli e permessi', 'Ognuno vede solo ciò che gli serve.'], ['Pagamenti sicuri', 'Nessun dato di carta salvato nell\'hotel.']],
+    cmpH: 'CloudStay o come lavori oggi?',
+    cmpHead: ['Attività', 'Excel e software separati', 'Con CloudStay'],
+    cmpShort: ['Attività', 'Oggi', 'CloudStay'],
+    cmp: [['Prenotazioni dirette', 'Form o email da gestire a mano', 'Booking engine con pagamento, 24 ore su 24'], ['Calendario camere', 'Fogli da aggiornare, rischio doppie', 'PMS drag and drop in tempo reale'], ['Prezzi', 'Decisi a intuito, cambiati raramente', 'PriceIQ suggerisce e spiega il prezzo'], ['Pulizie', 'Messaggi e lavagne', 'Task automatici a ogni check-out'], ['Ricerca AI', 'Hotel invisibile agli assistenti', 'Prenotabile da ChatGPT e simili']],
+    faq: [['Posso usare CloudStay se ho già un sito?', 'Sì. Il motore di prenotazione si collega al tuo sito con un pulsante o un dominio dedicato, senza rifarlo.'], ['Come funziona la prenotazione da ChatGPT?', 'CloudStay espone disponibilità e tariffe agli assistenti AI tramite un protocollo standard. Il prezzo è sempre calcolato da CloudStay, mai dall\'assistente. È incluso nei piani Pro ed Enterprise.'], ['Quanto tempo serve per partire?', 'Per una struttura indipendente bastano pochi giorni: importi le camere da Excel, pubblichi la vetrina e ti affianchiamo nella formazione.'], ['Devo installare qualcosa?', 'No. CloudStay funziona dal browser su computer, tablet e smartphone.'], ['Come incasso i pagamenti?', 'Con Posway, integrato: carta, link di pagamento e terminali, con i soldi accreditati sul tuo conto.'], ['I dati dei miei ospiti sono al sicuro?', 'Sono conservati su cloud AWS in Europa, con backup, accessi per ruolo e gestione dei consensi GDPR.']] as [string, string][],
+    formH: 'Parliamo di CloudStay per il tuo hotel.',
+    formL: 'Scrivici o <a href="https://calendly.com/pamasoft/30min">prenota una call</a> di 30 minuti con un nostro consulente: ti mostriamo il calendario, PriceIQ e la prenotazione via AI con i dati di una struttura simile alla tua.',
+    formList: ['Nessun impegno', 'Risposta entro un giorno lavorativo', 'Proposta in base al numero di camere'],
+    companyLabel: 'Struttura',
+    selectLabel: 'Numero di camere',
+    selectOptions: ['Fino a 10', '11–30', '31–80', 'Oltre 80 o più strutture'],
+    meta: 'CloudStay: motore di prenotazione, PMS, prezzi suggeriti e pulizie in un\'unica piattaforma cloud per hotel. Prenotabile anche da ChatGPT e dagli assistenti AI.',
+    title: 'CloudStay | Gestionale hotel con booking diretto e AI | Pamasoft',
+  },
+  en: {
+    crumb: 'Hotels and hospitality',
+    h1: 'The hotel software that fills your rooms from your own website, through AI too.',
+    lead: 'Booking engine, PMS, pricing and housekeeping in one cloud platform. Guests book directly with you, even by asking ChatGPT, and the front desk works on a single calendar.',
+    howBtn: 'See how it works',
+    trust: ['Italian software since 1999', 'Data on AWS cloud in Europe', 'GDPR compliant', 'Support in Italian and English'],
+    shotLabel: 'CloudStay screen: room calendar and mobile booking',
+    barUrl: 'cloudstay.pamasoft.com/staff/calendar',
+    side: ['Overview', 'Calendar', 'Arrivals', 'Housekeeping', 'PriceIQ', 'Guests', 'Accounting'],
+    kpi: ['Occupancy<b>86%</b><em>+9%</em> vs 2025', 'Direct<b>64%</b><em>+18%</em> without OTAs', 'Arrivals today<b>12</b>3 pre-checked-in'],
+    phone: { h: 'Hotel Villa Ulivi', sub: 'Fri 12 – Sun 14 June · 2 adults', room: 'Deluxe hill view', nights: '2 nights', price: '€318', pay: 'Book and pay' },
+    toast: ['New direct booking', 'Room 104, booked via ChatGPT'],
+    probH: 'If this is how you work today, you are leaving margin on the table.',
+    prob: [['OTA commissions', 'direct bookings', 'Booking portals usually take 15 to 25% of every stay. With a professional storefront and checkout, guests book on your website and that margin stays with you.'], ['Spreadsheets and phone calls', 'one calendar', 'Front desk, housekeeping and management see the same data in real time. No more double-assigned rooms or forgotten cleaning.'], ['Gut-feeling prices', 'suggested prices', 'PriceIQ looks at occupancy, local events, weather and competitor rates, and suggests the right price with the reason explained.']],
+    modsH: 'The whole hotel, from the first click to check-out.',
+    modsL: 'Six modules that work together. Turn on the ones you need and add the others as you grow.',
+    mods: modsEn,
+    aiH: 'Artificial intelligence works for your hotel, not instead of you.',
+    aiL: 'AI features already in production, built to sell more and work less. Every important action stays your decision.',
+    ai: [
+      { pill: 'For your guests', h: 'Bookable from ChatGPT and AI assistants', p: 'Your hotel shares availability, rates and booking with AI assistants. Someone asking for "a hotel with a pool in Tuscany for the weekend" can book with you, at the price CloudStay calculates.', u: 'Find me a double room with a view for 12 June, 2 nights', a: 'At <b>Villa Ulivi</b> the Deluxe hill view room is €318 for 2 nights, breakfast included. Shall I book it?' },
+      { pill: 'For your staff', h: 'A copilot that knows your numbers', p: 'Ask how the month went, which dates are still empty or which price to set. It answers from your data and prepares the action: you confirm with one click.', u: 'How are we doing for August?', a: 'Occupancy at <b>71%</b>, 8 points below last year. PriceIQ suggests −6% on Superior rooms from the 18th to the 24th. <b>Shall I apply it?</b>' },
+    ],
+    small: [['Guest concierge', 'On your website guests describe what they want and find the right room, with no complicated filters.'], ['Visible in AI search', 'Every property has structured data and a profile for AI assistants, and you can see how many visitors come from there.']],
+    featsH: 'Every feature you need, none half-finished.',
+    feats: [['globe', 'Booking engine', 'Dates, rooms, extras and payment: guests complete everything on their own, at any hour.'], ['cal', 'PMS calendar', 'View by physical room: drag stays to move them and block rooms.'], ['key', 'Check-in and check-out', 'Today\'s arrivals, room assignment, folio and settlement at departure.'], ['phone', 'Digital pre-check-in', 'Documents, signature and preferences before arrival: shorter queues at the desk.'], ['broom', 'Automatic housekeeping', 'A task for every check-out, tablet checklists, photos and issue reports.'], ['chart', 'PriceIQ', 'Recommended prices with the reason, applied with one click.'], ['coin', 'Hotel accounting', 'P&L, budget, expenses with approval and exports for your accountant.'], ['users', 'Guest profile', 'Stay history, preferences and spend to win back returning guests.'], ['gift', 'Loyalty and waiting list', 'Points and tiers for guests, automatic alert when a room frees up.'], ['hub', 'Operations hub', 'Chat by department, maintenance tickets and automated flows.'], ['spark', 'AI Concierge and Copilot', 'Natural-language search for guests, answers about the numbers for staff.'], ['bell', 'Plans and add-ons', 'Start on the Free plan and turn on modules when you need them.']] as [string, string, string][],
+    audH: 'Made for hosts.',
+    aud: [['Independent hotels and B&Bs', 'More direct bookings and less software to manage.', 'Free / Growth'], ['Boutique hotels and farm stays', 'A polished guest experience, extras and packages.', 'Growth'], ['Serviced apartments', 'Digital check-in and rotating housekeeping.', 'Growth / Pro'], ['Groups and multi-property', 'Budget, P&L and AI across all properties.', 'Pro / Enterprise']],
+    stepsH: 'Up and running in a few days.',
+    steps: [['Set up your property', 'Guided onboarding: hotel details, room types and rooms imported from Excel.', 'Day 1'], ['Publish your offer', 'Storefront, prices and availability online on your own domain.', 'Days 2–3'], ['We train the team', 'Front desk and housekeeping work on the same calendar, with our support.', 'Days 3–5'], ['Optimise and measure', 'PriceIQ, reports and guest data show you where to earn more.', 'From the first month']],
+    ecoH: 'Connects to the rest of your business.',
+    eco: [['posway', 'Posway', 'Online payments, payment links and POS terminals, reconciled with bookings.'], ['cloudreviews', 'CloudReviews', 'After check-out, ask for a Google review, fully within the rules.'], ['cloudsuite', 'CloudSuite', 'E-invoicing, treasury and cash forecasting for your company.']],
+    sec: [['Data in Europe', 'AWS infrastructure with automatic backups.'], ['GDPR', 'Guest consents and data handled by the book.'], ['Roles and permissions', 'Everyone sees only what they need.'], ['Secure payments', 'No card data stored at the hotel.']],
+    cmpH: 'CloudStay or the way you work today?',
+    cmpHead: ['Task', 'Spreadsheets and separate software', 'With CloudStay'],
+    cmpShort: ['Task', 'Today', 'CloudStay'],
+    cmp: [['Direct bookings', 'Forms or emails handled by hand', 'Booking engine with payment, around the clock'], ['Room calendar', 'Sheets to update, risk of double bookings', 'Real-time drag and drop PMS'], ['Pricing', 'Set by gut feeling, rarely changed', 'PriceIQ suggests and explains the price'], ['Housekeeping', 'Messages and whiteboards', 'Automatic tasks at every check-out'], ['AI search', 'Hotel invisible to assistants', 'Bookable from ChatGPT and similar']],
+    faq: [['Can I use CloudStay if I already have a website?', 'Yes. The booking engine connects to your website with a button or a dedicated domain, without rebuilding it.'], ['How does booking from ChatGPT work?', 'CloudStay shares availability and rates with AI assistants through a standard protocol. The price is always calculated by CloudStay, never by the assistant. It is included in the Pro and Enterprise plans.'], ['How long does it take to get started?', 'For an independent property a few days are enough: you import rooms from Excel, publish the storefront and we support you with training.'], ['Do I need to install anything?', 'No. CloudStay runs in the browser on computer, tablet and smartphone.'], ['How do I collect payments?', 'With Posway, built in: cards, payment links and terminals, with the money paid into your account.'], ['Is my guests\' data safe?', 'It is stored on AWS cloud in Europe, with backups, role-based access and GDPR consent management.']] as [string, string][],
+    formH: 'Let\'s talk about CloudStay for your hotel.',
+    formL: 'Write to us or <a href="https://calendly.com/pamasoft/30min">book a 30-minute call</a> with one of our consultants: we\'ll show you the calendar, PriceIQ and AI booking using data from a property like yours.',
+    formList: ['No commitment', 'Reply within one working day', 'A proposal based on your number of rooms'],
+    companyLabel: 'Property',
+    selectLabel: 'Number of rooms',
+    selectOptions: ['Up to 10', '11–30', '31–80', 'Over 80 or several properties'],
+    meta: 'CloudStay: booking engine, PMS, suggested pricing and housekeeping in one cloud platform for hotels. Bookable from ChatGPT and AI assistants too.',
+    title: 'CloudStay | Hotel software with direct booking and AI | Pamasoft',
+  },
+};
